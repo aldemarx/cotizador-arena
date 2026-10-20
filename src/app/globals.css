@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+/*
+  Paleta y tokens tomados de css/altos.css (Web_Ceinys / Altos de Sacta),
+  para que el simulador se sienta parte de la misma marca.
+*/
+:root {
+  /* Barra superior: 56 px en laptops, crece hasta 80 px en pantallas grandes / pantalla completa */
+  --barra-h: clamp(3.5rem, 3.75vw, 5rem);
+  --page-plane: #fafaf9;
+  --surface-1: #ffffff;
+  --surface-2: #f5f4f2;
+  --primary: #1b1b1b;
+  --primary-hover: #000000;
+  --accent: #3b82f6;
+  --accent-strong: #2563eb;
+  --success: #10b981;
+  --success-strong: #059669;
+
+  --text-primary: #1c1917;
+  --text-secondary: #44403c;
+  --text-muted: #78716c;
+  --grid-line: #e7e5e4;
+  --border: #d5d7dd;
+  --tooltip-bg: #1b1b1b;
+  --tooltip-text: #ffffff;
+
+  --series-clasico: #3b82f6;
+  --series-ascendente: var(--ceinys-naranja-500);
+  --series-descendente: #10b981;
+
+  --status-good: #10b981;
+  --status-warning: #d98a00;
+
+  --card-shadow: none;
+
+  /* Paleta corporativa CEINYS (igual que Ceinys_Panel_Precios), para el header compartido */
+  --ceinys-cian-500: #17AEE6;
+  --ceinys-cian-600: #1290C1;
+  --ceinys-cian-700: #0E708F;
+  --ceinys-naranja-500: #F29030;
+  --ceinys-naranja-600: #CF7414;
+  --ceinys-grafito-900: #1B1D22;
+  --ceinys-grafito-700: #3F4147;
+  --ceinys-grafito-500: #7A7D85;
+  --ceinys-grafito-300: #D0D2D7;
+  --ceinys-grafito-200: #E6E7EB;
+  --ceinys-grafito-100: #F2F3F5;
+  --ceinys-paper: #FFFFFF;
+}
+
+@theme inline {
+  --color-background: var(--page-plane);
+  --color-foreground: var(--text-primary);
+  --font-sans: var(--font-montserrat);
+}
+
+html,
+body {
+  /* Nunca scroll horizontal: evita que la página se mueva de lado en móvil/Safari */
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+body {
+  background: var(--page-plane);
+  color: var(--text-primary);
+  font-family: var(--font-sans), "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+/* =====================================================
+   SPLASH DE CARGA — isotipo gris que se llena de color
+   (igual al de Web Ceinys)
+   ===================================================== */
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  background: var(--ceinys-paper);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  transition: opacity 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.splash.splash-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.splash-icon-wrap {
+  position: relative;
+  width: clamp(84px, 16vw, 148px);
+  aspect-ratio: 1676 / 1144;
+}
+.splash-icon-base,
+.splash-icon-fill {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.splash-icon-base {
+  filter: grayscale(100%);
+  opacity: 0.16;
+}
+.splash-icon-fill {
+  clip-path: inset(100% 0 0 0);
+  animation: splashFill 1100ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation-delay: 120ms;
+}
+@keyframes splashFill {
+  to {
+    clip-path: inset(0% 0 0 0);
+  }
+}
+
+.splash-rule {
+  width: clamp(84px, 16vw, 148px);
+  height: 2px;
+  background: var(--ceinys-grafito-200);
+  overflow: hidden;
+  border-radius: 2px;
+}
+.splash-rule span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--ceinys-cian-500);
+  animation: splashRule 1100ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation-delay: 120ms;
+}
+@keyframes splashRule {
+  to {
+    width: 100%;
+  }
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+@layer components {
+  .selectCampo {
+    border-radius: 0.625rem;
+    border: 1px solid var(--border);
+    background: var(--surface-1);
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    color: var(--text-primary);
+    outline: none;
+  }
+  .selectCampo:focus {
+    border-color: var(--ceinys-grafito-500);
+  }
+
+  .card {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    box-shadow: var(--card-shadow);
+  }
+}
+
+@keyframes pop {
+  0% { transform: scale(0.96); opacity: 0.4; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.animate-pop {
+  animation: pop 260ms ease-out;
+}
+
+/* Pop-up de datos del cliente (misma entrada que el pop-up del brochure en la web) */
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(18px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+.animate-modal-in {
+  animation: modalIn 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in {
+  animation: fadeIn 220ms ease;
+}
