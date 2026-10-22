@@ -44,7 +44,7 @@ const BONDADES: Bondad[] = [
         <path d="M3 13c1-2 3-3 5-3M21 13c-1-2-3-3-5-3" />
       </>,
     ),
-    foto: "/images/altos/polo.webp",
+    foto: "/images/bondades-arenas/bondad-01.webp",
   },
   {
     label: "Equitación",
@@ -55,7 +55,7 @@ const BONDADES: Bondad[] = [
         <path d="M5 16h4.5M14.5 16H19" />
       </>,
     ),
-    foto: "/images/altos/equitacion.webp",
+    foto: "/images/bondades-arenas/bondad-02.webp",
   },
   {
     label: "Zona de golf",
@@ -67,7 +67,7 @@ const BONDADES: Bondad[] = [
         <circle cx="16.5" cy="18.2" r="1" />
       </>,
     ),
-    foto: "/images/altos/golf.webp",
+    foto: "/images/bondades-arenas/bondad-03.webp",
   },
   {
     label: "Pérgola",
@@ -80,22 +80,22 @@ const BONDADES: Bondad[] = [
         <path d="M5 11l-2 0M19 11l2 0" />
       </>,
     ),
-    foto: "/images/altos/pergola.webp",
+    foto: "/images/bondades-arenas/bondad-04.webp",
   },
   {
     label: "Parques",
     icono: imgIcono("parques"),
-    foto: "/images/altos/parque.webp",
+    foto: "/images/bondades-arenas/bondad-05.webp",
   },
   {
     label: "Playground",
     icono: imgIcono("playground"),
-    foto: "/images/altos/playground.webp",
+    foto: "/images/bondades-arenas/bondad-06.webp",
   },
   {
     label: "Gimnasio al aire libre",
     icono: imgIcono("gimnasio"),
-    foto: "/images/altos/gimnasio-aire-libre.webp",
+    foto: "/images/bondades-arenas/bondad-07.webp",
   },
   {
     label: "Alameda",
@@ -106,7 +106,7 @@ const BONDADES: Bondad[] = [
         <path d="M12 19v3" />
       </>,
     ),
-    foto: "/images/altos/alameda.webp",
+    foto: "/images/bondades-arenas/bondad-08.webp",
   },
   {
     label: "Laguna artificial",
@@ -116,7 +116,7 @@ const BONDADES: Bondad[] = [
         <path d="M2 18c2-4 4-6 6-6s4 4 6 4 4-4 6-4" />
       </>,
     ),
-    foto: "/images/altos/laguna.webp",
+    foto: "/images/bondades-arenas/bondad-09.webp",
   },
 ];
 

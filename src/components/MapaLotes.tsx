@@ -109,7 +109,7 @@ export function MapaLotes({
     contenedor.current?.classList.toggle("sin-numeros", escala > UMBRAL_NUMEROS);
   }, []);
 
-  // Inicializa el plano. Sin lote elegido, la cámara queda centrada en los lotes con un acercamiento cómodo; «Ver todo» (⤢) muestra todo.
+  // Inicializa el plano. Sin lote elegido, la cámara muestra todos los lotes; «Ver todo» (⤢) muestra todo.
   useLayoutEffect(() => {
     const s = elSvg();
     if (!svg || !s) return;
@@ -120,8 +120,11 @@ export function MapaLotes({
     const r = contenedor.current?.getBoundingClientRect();
     const lotesBox = s.querySelector<SVGGraphicsElement>("#insignias")?.getBBox();
     if (!sel && r && r.width > 0 && lotesBox) {
-      const w = Math.min(420, Math.max(160, r.width / 3.82));
-      const h = w * (r.height / r.width);
+      // El plano es horizontal: se encaja entero (con un margen) según la proporción de la pantalla.
+      const prop = r.height / r.width;
+      const ancho = lotesBox.width * 1.06;
+      const w = Math.max(ancho, (lotesBox.height * 1.06) / prop);
+      const h = w * prop;
       aplicarVista({
         x: lotesBox.x + lotesBox.width / 2 - w / 2,
         y: lotesBox.y + lotesBox.height / 2 - h / 2,

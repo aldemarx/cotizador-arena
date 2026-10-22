@@ -411,7 +411,7 @@ export function Simulador({
           </TarjetaInfo>
 
           <TarjetaInfo
-            color="#3b82c4"
+            color="#2b7de0"
             titulo="Datos del lote"
             icono={
               <svg
@@ -675,7 +675,7 @@ function FilaDato({
                 : "text-base sm:text-xl"
               : "text-sm sm:text-[18px]"
           } ${
-            resaltado ? "-mr-2 rounded-md bg-[#3b82c4]/15 px-2 py-0.5" : ""
+            resaltado ? "-mr-2 rounded-md bg-[#2b7de0]/15 px-2 py-0.5" : ""
           } ${
             tachado
               ? "text-[var(--text-muted)] line-through"

@@ -11,7 +11,8 @@ Scripts en `scripts/plano/` (se numeran en el orden de uso; leen el DXF en strea
 ## Resultado
 - 1,596 lotes con polígono, área y número (Arenas + Aura). En Arenas, **19 manzanas coinciden por completo con el Excel** (mismo número de lote y mismo metraje salvo lo de abajo): R1, R2, R3, R4, R6, R8, R9, R10, R13, R14, R15, R17, R18, R19, R20, R21, R22, R23, R24 (540 lotes).
 - **Actualización:** con los arcos del dibujo y las caras reconstruidas, **597 de los 654 lotes** de Arenas quedan en el plano. R5 y R16 no traen número impreso en todos sus lotes: se numeraron comparando el área escrita (valor exacto) con el Excel y el orden de los vecinos. Comprobación: 569 de 570 pares de lotes consecutivos (n y n+1) quedan pegados en el plano.
-- **57 lotes sin dibujo** (el plano trae sus áreas, pero sus contornos no cierran): R7: 1, 9 al 13, 19 al 22 y 24; R11: 1 al 9, 12, 13 y 16 al 24; **R12 completa**; R13-1; R18-2. Para esos lotes el botón «Ver en el plano» avisa que aún no están dibujados. Se resuelve con el **DWG nativo** del topógrafo (este viene de un PDF) o trazándolos a mano.
+- **Los 57 lotes que faltaban ya están dibujados (22 oct):** el plano tiene ahora los **654 lotes** de Arenas. Sus contornos no cierran en el DWG, así que se reconstruyeron a partir del área escrita, la orientación de las líneas vecinas y el rectángulo que mejor calza con el dibujo (`scripts/plano/10` a `15`). Son **aproximados**: la forma exacta puede diferir unos metros del plano de topografía. Afecta a R7 (11 lotes), R11 (20), R12 (24), R13-1 y R18-2.
+- **Numeración de esos 57:** por área exacta y vecindad (el lote n junto al n+1). Hay que confirmar con el plano de topografía el orden de los lotes de igual área en estos grupos: **R7-19 a R7-22** (se numeraron de izquierda a derecha, el 19 junto al 14, porque ese tramo no sigue la numeración consecutiva del resto) y los lotes de 200 m² de R11 y R12.
 
 ## Metrajes que el plano corrige (26)
 En 24 casos el Excel trae 148 m² (error de fórmula `=R2`, ver `pendientes-arenas.md`) y el plano da el área real:
@@ -36,7 +37,7 @@ En 24 casos el Excel trae 148 m² (error de fórmula `=R2`, ver `pendientes-aren
 - Corregir el metraje cambia el precio de esos lotes (precio = tarifa × metraje).
 
 ## Integración en el cotizador
-- `public/plano/arenas.svg` (≈350 KB): mismo formato que el plano ilustrado de Altos de Sacta: `#fondo` (otras etapas en gris —los lotes de Aura— y vías), un `<path id="lote-R4-32">` por lote dentro de `<g id="mz-R4">`, y `#insignias` con un marcador numerado por lote (`g.ins[data-lote]`, `data-m` = dónde va el metraje). Coordenadas en metros.
+- `public/plano/arenas.svg` (≈370 KB, 654 lotes): mismo formato que el plano ilustrado de Altos de Sacta: `#fondo` (otras etapas en gris —los lotes de Aura— y vías), un `<path id="lote-R4-32">` por lote dentro de `<g id="mz-R4">`, y `#insignias` con un marcador numerado por lote (`g.ins[data-lote]`, `data-m` = dónde va el metraje). Coordenadas en metros.
 - `src/components/MapaLotes.tsx` y `src/app/mapa/`: pantalla `/mapa?lote=R4-32` adaptada del plano de Altos (marcadores con número y metraje debajo, mover, acercar con rueda o pellizco, buscador por manzana y lote, filtro por metraje, ficha del lote con «Cotizar este lote» y «Volver al cotizador»).
 - `src/components/BotonVerPlano.tsx`: botón flotante «Ver plano» (abajo a la derecha) en el cotizador; lleva al plano con el lote elegido, o al plano completo si aún no se eligió ninguno.
 - Se regenera con `scripts/plano/` (01 a 09, en ese orden; trabajan sobre el DXF convertido con ODA File Converter).

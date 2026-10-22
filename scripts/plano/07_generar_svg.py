@@ -1,7 +1,7 @@
 import json,pickle,math,collections
 from shapely.geometry import Polygon,Point
 from shapely.strtree import STRtree
-cands,out=pickle.load(open('build_out.pkl','rb'))
+cands,out=pickle.load(open('build_out2.pkl','rb'))
 o=json.load(open('pipe_out.json')); d=json.load(open('cand.json')); polys=d['polys']
 segs=json.load(open('segs_R2.json'))
 lots=[(m,n,cands[i]) for m,n,i in out]
