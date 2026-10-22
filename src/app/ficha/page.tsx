@@ -5,13 +5,17 @@ import {
   INICIAL_MODOS,
   LOTES,
   type InicialModo,
-} from "@/lib/altosDeSacta";
+} from "@/lib/arenas";
 import {
   FORMATO_FICHA,
   FORMATOS_FICHA,
   type FormatoFicha,
 } from "@/lib/configCotizacion";
-import { FichaCara1, FichaCara2 } from "@/components/FichaCotizacion";
+import {
+  FichaCara1,
+  FichaCara2,
+  FichaCuentas,
+} from "@/components/FichaCotizacion";
 
 /**
  * Vista previa en pantalla de las dos imágenes de la cotización (solo desarrollo).
@@ -20,6 +24,7 @@ import { FichaCara1, FichaCara2 } from "@/components/FichaCotizacion";
  *   /ficha?zoom=1                   → tamaño real
  *   /ficha?formato=cuadrado         → compara con el formato anterior (cuadrado | vertical)
  *   /ficha?nombre=Ana%20Pérez&dni=74123456 → con otros datos del cliente
+ *   /ficha?solo=cuentas            → solo la hoja de cuentas de pago
  *   /ficha?cuotas=36                → otra cantidad de cuotas (12, 24, 36, 48, 60, 80)
  *   /ficha?sinCliente=1             → sin la franja del cliente (como con PEDIR_DATOS_CLIENTE = false)
  * Por defecto muestra un cliente de ejemplo para poder ver la franja.
@@ -37,6 +42,7 @@ export default async function VistaPreviaFicha({
     dni?: string;
     sinCliente?: string;
     cuotas?: string;
+    solo?: string;
   }>;
 }) {
   if (process.env.NODE_ENV === "production") notFound();
@@ -50,9 +56,11 @@ export default async function VistaPreviaFicha({
     dni,
     sinCliente,
     cuotas,
+    solo,
   } = await searchParams;
+  const lotes = LOTES;
   const lote = conPlazo(
-    (idLote && buscarLotePorId(idLote)) || LOTES[0],
+    (idLote && buscarLotePorId(idLote, lotes)) || lotes[0],
     Number(cuotas) || 80,
   );
   const inicialModo = (INICIAL_MODOS.find((m) => m.key === inicial)?.key ??
@@ -64,44 +72,46 @@ export default async function VistaPreviaFicha({
   const z = Math.min(1.5, Math.max(0.2, Number(zoom) || 0.6));
   const cliente = sinCliente
     ? null
-    : nombre && dni
-      ? { nombre, dni }
+    : nombre
+      ? { nombre, dni: dni ?? "" }
       : { nombre: "Juan Pérez Huamán", dni: "72849102" }; // ejemplo
   const emitida = new Date();
 
   return (
     <main className="px-4 py-8">
       <p className="mx-auto mb-6 max-w-[88rem] text-center text-sm text-[var(--text-muted)]">
-        Vista previa de las 2 imágenes · lote <strong>{lote.lote}</strong> ·
+        Vista previa de las 3 imágenes · lote <strong>{lote.lote}</strong> ·
         inicial <strong>{inicialModo}</strong> · formato{" "}
         <strong>{formato}</strong> · zoom {Math.round(z * 100)} % · cada imagen
         mide {ancho} × {alto} px
       </p>
       <div className="flex flex-wrap items-start justify-center gap-8">
-        {[FichaCara1, FichaCara2].map((Cara, i) => (
-          <div
-            key={i}
-            className="overflow-hidden rounded-xl shadow-[0_12px_40px_rgba(20,22,28,0.18)]"
-            style={{ width: ancho * z, height: alto * z }}
-          >
+        {[FichaCara1, FichaCara2, FichaCuentas]
+          .filter((Cara) => solo !== "cuentas" || Cara === FichaCuentas)
+          .map((Cara, i) => (
             <div
-              style={{
-                width: ancho,
-                height: alto,
-                transform: `scale(${z})`,
-                transformOrigin: "top left",
-              }}
+              key={i}
+              className="overflow-hidden rounded-xl shadow-[0_12px_40px_rgba(20,22,28,0.18)]"
+              style={{ width: ancho * z, height: alto * z }}
             >
-              <Cara
-                lote={lote}
-                inicialModo={inicialModo}
-                emitida={emitida}
-                cliente={cliente}
-                formato={formato}
-              />
+              <div
+                style={{
+                  width: ancho,
+                  height: alto,
+                  transform: `scale(${z})`,
+                  transformOrigin: "top left",
+                }}
+              >
+                <Cara
+                  lote={lote}
+                  inicialModo={inicialModo}
+                  emitida={emitida}
+                  cliente={cliente}
+                  formato={formato}
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </main>
   );

@@ -11,7 +11,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Simulador de precios y fraccionamiento",
+  title: "Arenas del Valle | Cotizador",
   description: "Comparador de cuotas: clásico, ascendente y descendente.",
 };
 

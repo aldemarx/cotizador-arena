@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { formatearMonto } from "@/lib/altosDeSacta";
+import { formatearMonto } from "@/lib/arenas";
 import { PLAZOS_CUOTAS } from "@/lib/configCotizacion";
 import { Soles } from "@/components/Soles";
 
@@ -87,11 +87,11 @@ function ListaPlazos({
             role="option"
             aria-selected={n === plazo}
             onClick={() => onElegir(n)}
-            className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-xs font-semibold transition-colors ${n === plazo ? "bg-[var(--surface-2)] text-[var(--text-primary)]" : "text-[var(--text-secondary)] hover:bg-[var(--surface-2)]"}`}
+            className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-xs font-semibold transition-colors sm:text-[13px] ${n === plazo ? "bg-[var(--surface-2)] text-[var(--text-primary)]" : "text-[var(--text-secondary)] hover:bg-[var(--surface-2)]"}`}
           >
             <span>{n} cuotas</span>
             {n === 80 ? (
-              <span className="text-[10px] font-medium text-[var(--text-muted)]">
+              <span className="text-[10px] font-medium text-[var(--text-muted)] sm:text-xs">
                 estándar
               </span>
             ) : (
@@ -139,10 +139,10 @@ function Etiqueta({
   puntoCuenta?: boolean;
 }) {
   return (
-    <p className="mb-2 flex items-center justify-center gap-1.5 text-[10px] font-semibold tracking-wide text-[var(--text-muted)] uppercase sm:gap-2 sm:text-xs sm:tracking-wider">
+    <p className="mb-2 flex items-center justify-center gap-1.5 text-[10px] font-semibold tracking-wide text-[var(--text-muted)] uppercase sm:gap-2 sm:text-[15px] sm:tracking-wider">
       <span className="relative inline-flex items-center">
         <span
-          className={`mr-1.5 h-2 w-2 shrink-0 rounded-full bg-[#10b981] sm:absolute sm:right-full sm:mr-2 ${puntoCuenta ? "" : "max-sm:absolute max-sm:right-full"}`}
+          className={`mr-1.5 h-2 w-2 shrink-0 rounded-full bg-[#5f9b3c] sm:absolute sm:right-full sm:mr-2 ${puntoCuenta ? "" : "max-sm:absolute max-sm:right-full"}`}
         />
         <span className="whitespace-nowrap">{children}</span>
       </span>
@@ -302,7 +302,7 @@ function Tarjeta({
       style={color ? cuadroEstilo(color) : undefined}
     >
       <p
-        className="mb-1 text-center text-[11px] font-semibold tracking-wider uppercase"
+        className="mb-1 text-center text-[11px] font-semibold tracking-wider uppercase sm:text-[13px]"
         style={{ color: color ?? "var(--text-muted)" }}
       >
         {etiqueta}
@@ -347,7 +347,7 @@ export function ResumenCuotas({
   );
   return (
     <div className="border-t border-[var(--border)] pt-4 text-center">
-      <span className="flex items-center justify-center gap-2 text-xs font-semibold tracking-wider text-[var(--text-muted)] uppercase">
+      <span className="flex items-center justify-center gap-2 text-xs font-semibold tracking-wider text-[var(--text-muted)] uppercase sm:text-[13px]">
         <span
           className="h-2 w-2 shrink-0 rounded-full"
           style={{ backgroundColor: color }}
@@ -360,7 +360,7 @@ export function ResumenCuotas({
           style={cuadroEstilo(color)}
         >
           <p
-            className="mb-1 text-center text-[11px] font-semibold tracking-wider uppercase"
+            className="mb-1 text-center text-[11px] font-semibold tracking-wider uppercase sm:text-[13px]"
             style={{ color }}
           >
             {anios > 1 ? `Año 1 al ${anios}` : "Año 1"}
@@ -412,7 +412,7 @@ export function EditorCuotasPie({
       ref={ref}
       className="relative mt-auto border-t border-[var(--border)] pt-4 text-center"
     >
-      <span className="flex items-center justify-center gap-2 text-xs font-semibold tracking-wider text-[var(--text-muted)] uppercase">
+      <span className="flex items-center justify-center gap-2 text-xs font-semibold tracking-wider text-[var(--text-muted)] uppercase sm:text-[13px]">
         <span
           className="h-2 w-2 shrink-0 rounded-full"
           style={{ backgroundColor: color }}

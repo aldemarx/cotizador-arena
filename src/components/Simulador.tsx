@@ -6,6 +6,8 @@ import {
   buscarLotePorId,
   conPlazo,
   modalidadesDe,
+  plazoDe,
+  PARAMETROS,
   INICIAL_MODOS,
   filtrarLotesPorTexto,
   formatearMonto,
@@ -18,18 +20,21 @@ import {
   type InicialModo,
   type Lote,
   type TipoModalidad,
-} from "@/lib/altosDeSacta";
+} from "@/lib/arenas";
 import { PLAZOS_CUOTAS } from "@/lib/configCotizacion";
 import {
-  BloqueCuotas,
-  CuotaUnica,
   EditorCuotasPie,
   ResumenCuotas,
   tamanoFilaCuota,
 } from "@/components/BloqueCuotas";
-import { BarrasCuotas } from "@/components/BarrasCuotas";
+import { BarrasCuotas, CuotasPorMes } from "@/components/BarrasCuotas";
 import { Soles } from "@/components/Soles";
 import { EnviarCotizacion } from "@/components/EnviarCotizacion";
+import { CajaPrecio } from "@/components/CajaPrecio";
+import { CuotaYPlazo } from "@/components/CuotaYPlazo";
+import { ChipPromocion } from "@/components/ChipPromocion";
+import { SelectorManzana } from "@/components/SelectorManzana";
+import { useLoteActivo } from "@/components/LoteActivo";
 // TODO(cotizador): reintegrar cronograma completo — ver plan de simplificación
 // (iterative-hopping-bird.md). Estos imports vuelven junto con el bloque comentado
 // más abajo.
@@ -37,7 +42,7 @@ import { EnviarCotizacion } from "@/components/EnviarCotizacion";
 //   construirCalendarioCompleto,
 //   fraseUtil,
 //   resumenModalidad,
-// } from "@/lib/altosDeSacta";
+// } from "@/lib/arenas";
 // import { Cronograma } from "@/components/Cronograma";
 
 type Vista = "normal" | "opciones";
@@ -56,21 +61,29 @@ function siguienteVista(vista: Vista): Vista {
 
 export function Simulador({
   lotes,
+  loteInicial,
 }: {
-  /** Todos los lotes con su estado: los reservados y vendidos se ven, pero su cotización no se envía. */
+  /** Todos los lotes con su estado: los separados y vendidos se ven, pero su cotización no se envía. */
   lotes: Lote[];
+  /** Código pedido en la URL (/?lote=R4-32), p. ej. al volver desde el plano. */
+  loteInicial?: string;
 }) {
-  // Primer lote disponible: si el primero estuviera vendido, la pantalla se vería vacía.
-  const LOTE_INICIAL = lotes.find(estaLibre) ?? lotes[0];
+  // Lote pedido en la URL o, si no hay, el primero disponible (si el primero estuviera vendido, la pantalla se vería vacía).
+  const LOTE_INICIAL =
+    (loteInicial ? buscarLotePorId(loteInicial, lotes) : undefined) ??
+    lotes.find(estaLibre) ??
+    lotes[0];
   const [vista, setVista] = useState<Vista>("normal");
   const [modalidadVista, setModalidadVista] = useState<TipoModalidad>("fija");
-  const [mzFiltro, setMzFiltro] = useState<number>(LOTE_INICIAL.mz);
+  const [mzFiltro, setMzFiltro] = useState<string>(LOTE_INICIAL.mz);
   const [textoBusqueda, setTextoBusqueda] = useState("");
   const [codigo, setCodigo] = useState(LOTE_INICIAL.lote);
   const [inicialModo, setInicialModo] = useState<InicialModo>("dos");
   const [buscadorAbierto, setBuscadorAbierto] = useState(false);
   // Tras elegir un lote, el campo muestra lo elegido; al tocarlo se vacía para escribir de nuevo.
   const [mostrandoSeleccion, setMostrandoSeleccion] = useState(true);
+  // ¿La persona ya escogió un lote? (el que aparece al abrir es solo el primero disponible, no una elección)
+  const eligioLote = useRef(false);
   const buscadorRef = useRef<HTMLDivElement>(null);
   // Cantidad de cuotas: 80 por defecto; el asesor la cambia desde el lápiz junto a la cifra.
   const [plazo, setPlazo] = useState<number>(80);
@@ -89,18 +102,50 @@ export function Simulador({
     () => buscarLotePorId(codigo, lotes) ?? LOTE_INICIAL,
     [codigo, lotes, LOTE_INICIAL],
   );
+  // Sin conexión se sirve la copia guardada, que trae el lote con el que se guardó: al abrir, manda el
+  // lote de la dirección real (?lote=). Debe ir antes del efecto que escribe la dirección.
+  useEffect(() => {
+    const deLaUrl = new URLSearchParams(window.location.search).get("lote");
+    const l = deLaUrl ? buscarLotePorId(deLaUrl, lotes) : undefined;
+    if (l) eligioLote.current = true; // venía un lote en la dirección: es una elección
+    if (l && l.lote !== codigo) {
+      // Sincroniza con la dirección real del navegador (sistema externo); solo ocurre al montar.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setCodigo(l.lote);
+      setMzFiltro(l.mz);
+    }
+    // Solo al montar.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // El lote en pantalla queda en la dirección (?lote=5-574): así «Ver plano» abre el mapa en ese lote
+  // y la dirección se puede compartir. replaceState no recarga la página ni agrega pasos al historial.
+  // Solo cuando la persona eligió un lote (o venía uno en la dirección): si no cotizó nada, «Ver plano» abre el plano
+  // completo y centrado, no acercado al primer lote disponible que se muestra por defecto.
+  useEffect(() => {
+    if (!eligioLote.current) return;
+    window.history.replaceState(null, "", `/?lote=${loteBase.lote}`);
+  }, [loteBase.lote]);
+
   const lote: Lote = useMemo(
     () => conPlazo(loteBase, plazo),
     [loteBase, plazo],
   );
+  // La vista previa del lote (otra parte de la página) sigue al lote que se cotiza.
+  const { elegir: publicarLote } = useLoteActivo();
+  useEffect(() => {
+    publicarLote(loteBase.lote);
+  }, [loteBase.lote, publicarLote]);
   const modalidades = modalidadesDe(lote);
   const libre = estaLibre(lote);
   const manzanas = manzanasDisponibles(lotes);
-  const resultados = filtrarLotesPorTexto(
-    textoBusqueda,
-    { mz: mzFiltro, limite: 12 },
-    lotes,
-  );
+  // Sin texto se sugieren los primeros lotes disponibles de la manzana, en orden de número.
+  const sinTexto = textoBusqueda.trim() === "";
+  const resultados = sinTexto
+    ? filtrarLotesPorTexto("", { mz: mzFiltro, limite: Infinity }, lotes)
+        .filter(estaLibre)
+        .slice(0, 12)
+    : filtrarLotesPorTexto(textoBusqueda, { mz: mzFiltro, limite: 12 }, lotes);
 
   // Versión simplificada: siempre se muestra el plan "fija" (cuota constante).
   const planFijo = lote.planes.fija;
@@ -113,12 +158,13 @@ export function Simulador({
   // const frase = fraseUtil(lote, modalidad);
 
   function elegirLote(nuevoCodigo: string) {
+    eligioLote.current = true;
     setCodigo(nuevoCodigo);
     setTextoBusqueda("");
     setMostrandoSeleccion(true);
   }
 
-  function elegirManzana(mz: number) {
+  function elegirManzana(mz: string) {
     setMzFiltro(mz);
     // Se prefiere el primer lote disponible: uno vendido dejaría la cotización vacía.
     const todos = filtrarLotesPorTexto("", { mz, limite: Infinity }, lotes);
@@ -127,12 +173,15 @@ export function Simulador({
   }
 
   function buscarAhora() {
-    // Sin texto no hay nada que buscar: se conserva el lote elegido.
-    if (textoBusqueda.trim() !== "") {
-      const exacto = buscarLotePorId(textoBusqueda, lotes);
-      if (exacto) elegirLote(exacto.lote);
-      else if (resultados.length > 0) elegirLote(resultados[0].lote);
+    // Sin texto se muestran los primeros lotes disponibles para elegir uno.
+    if (sinTexto) {
+      setMostrandoSeleccion(false);
+      setBuscadorAbierto(true);
+      return;
     }
+    const exacto = buscarLotePorId(textoBusqueda, lotes);
+    if (exacto) elegirLote(exacto.lote);
+    else if (resultados.length > 0) elegirLote(resultados[0].lote);
     setBuscadorAbierto(false);
   }
 
@@ -146,7 +195,7 @@ export function Simulador({
         <div className="flex items-center justify-between gap-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/logo-altos-de-sacta.png"
+            src="/logos-arenas/logo-arenas.png"
             alt={PROYECTO}
             className="ml-2 block h-8 w-auto shrink-0 max-[360px]:ml-0 max-[360px]:h-6 sm:ml-6 sm:h-12"
           />
@@ -162,7 +211,7 @@ export function Simulador({
             />
             <button
               onClick={() => setVista(siguienteVista)}
-              className="flex h-9 shrink-0 items-center gap-1.5 rounded-lg border border-[var(--border)] bg-[var(--surface-1)] px-3 text-xs font-semibold max-[360px]:px-2 max-[360px]:text-[11px] text-[var(--text-secondary)] transition-colors hover:bg-[var(--surface-2)]"
+              className="flex h-9 shrink-0 items-center gap-1.5 rounded-lg border border-[var(--border)] bg-[var(--surface-1)] px-3 text-xs font-semibold sm:text-[13px] max-[360px]:px-2 max-[360px]:text-[11px] text-[var(--text-secondary)] transition-colors hover:bg-[var(--surface-2)]"
             >
               {vista === "normal" ? (
                 <svg
@@ -203,18 +252,6 @@ export function Simulador({
         <div className="border-t border-[var(--border)] pt-4">
           <div className="flex w-full items-center justify-between gap-2 sm:gap-4">
             <div className="flex min-w-0 items-center gap-2 sm:shrink-0 sm:gap-3">
-              {!libre && (
-                <span
-                  role="status"
-                  className={`inline-flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[10px] leading-none font-bold tracking-wider whitespace-nowrap uppercase sm:px-3 sm:text-xs ${lote.estado === "vendido" ? "bg-[#e11d48]/10 text-[#be123c]" : "bg-[#F5A623]/15 text-[#b45309]"}`}
-                >
-                  <span
-                    aria-hidden
-                    className={`h-1.5 w-1.5 shrink-0 rounded-full ${lote.estado === "vendido" ? "bg-[#e11d48]" : "bg-[#F5A623]"}`}
-                  />
-                  {ESTADO_ETIQUETA[lote.estado ?? "libre"]}
-                </span>
-              )}
               <span className="min-w-0 text-xs text-[var(--text-secondary)] max-sm:truncate sm:text-sm">
                 Ubicación (Mz y Lote)
               </span>
@@ -271,21 +308,13 @@ export function Simulador({
               </svg>
             }
           >
-            <div className="px-4 pb-1">
-              <div className="flex gap-2 py-1.5">
-                {manzanas.map((mz) => (
-                  <button
-                    key={mz}
-                    onClick={() => elegirManzana(mz)}
-                    className={`flex-1 rounded-lg border py-2.5 text-sm font-semibold transition-colors ${
-                      mzFiltro === mz
-                        ? "border-[var(--ceinys-grafito-700)] bg-[var(--ceinys-grafito-700)] text-white"
-                        : "border-[var(--border)] bg-[var(--surface-1)] text-[var(--text-secondary)] hover:bg-[var(--surface-2)]"
-                    }`}
-                  >
-                    Manzana {mz}
-                  </button>
-                ))}
+            <div className="px-4 pt-2 pb-3">
+              <div className="pb-2">
+                <SelectorManzana
+                  manzanas={manzanas}
+                  valor={mzFiltro}
+                  onCambiar={elegirManzana}
+                />
               </div>
               <div ref={buscadorRef} className="relative">
                 <input
@@ -319,7 +348,7 @@ export function Simulador({
                     onBuscarSubmit(e);
                   }}
                   placeholder={`Buscar lote en Manzana ${mzFiltro} (ej. 9)…`}
-                  className={`selectCampo w-full !pl-12 ${mostrandoSeleccion ? "!font-semibold" : ""}`}
+                  className={`selectCampo h-12 w-full !py-0 !pl-12 ${mostrandoSeleccion ? "!font-semibold" : ""}`}
                 />
                 <button
                   type="button"
@@ -340,37 +369,39 @@ export function Simulador({
                     <path d="M20.5 20.5l-4.6-4.6" />
                   </svg>
                 </button>
-                {buscadorAbierto && textoBusqueda.trim() !== "" && (
+                {buscadorAbierto && (
                   <div className="absolute inset-x-0 top-full z-20 mt-1.5 rounded-xl border border-[var(--border)] bg-white p-2 shadow-[0_12px_32px_rgba(20,22,28,0.14)]">
                     {resultados.length > 0 ? (
-                      <div className="grid max-h-56 grid-cols-2 gap-1 overflow-y-auto">
-                        {resultados.map((l) => (
+                      <div className="grid max-h-56 grid-cols-2 gap-1.5 sm:max-h-64 sm:gap-1 overflow-y-auto">
+                        {resultados.map((l, i) => (
                           <button
                             key={l.lote}
                             onClick={() => {
                               elegirLote(l.lote);
                               setBuscadorAbierto(false);
                             }}
-                            className="flex items-center justify-between gap-2 rounded-lg px-3 py-2 text-left text-xs font-semibold text-[var(--text-secondary)] transition-colors hover:bg-[var(--surface-2)] hover:text-[var(--text-primary)]"
+                            className={`flex items-center justify-between gap-2 rounded-lg px-3 py-2 text-left max-sm:justify-start max-sm:gap-3 text-xs font-semibold max-sm:border max-sm:border-[var(--border)] max-sm:px-3.5 max-sm:py-3 sm:py-2.5 sm:text-sm ${sinTexto && i >= 10 ? "sm:hidden" : ""} text-[var(--text-secondary)] transition-colors hover:bg-[var(--surface-2)] hover:text-[var(--text-primary)]`}
                           >
-                            <span>Lote {l.lt}</span>
-                            {estaLibre(l) ? (
-                              <span className="font-medium text-[var(--text-muted)]">
-                                {l.metraje_m2} m²
+                            <span className="flex items-baseline gap-2 whitespace-nowrap">
+                              <span className="text-[11px] font-medium tracking-[0.16em] text-[var(--text-muted)] uppercase sm:hidden">
+                                Lote
                               </span>
-                            ) : (
-                              <span
-                                className={`text-[10px] font-bold tracking-wider uppercase ${l.estado === "vendido" ? "text-[#be123c]" : "text-[#b45309]"}`}
-                              >
-                                {ESTADO_ETIQUETA[l.estado ?? "libre"]}
+                              <span className="max-sm:hidden">Lote {l.lt}</span>
+                              <span className="text-[15px] leading-none font-medium text-[var(--text-primary)] tabular-nums sm:hidden">
+                                {l.lt}
                               </span>
-                            )}
+                            </span>
+                            <span className="text-[11px] font-medium text-[var(--text-muted)] sm:text-[13px]">
+                              {l.metraje_m2} m²
+                            </span>
                           </button>
                         ))}
                       </div>
                     ) : (
                       <p className="px-2 py-1.5 text-xs text-[var(--text-muted)]">
-                        No hay lotes que coincidan en la Manzana {mzFiltro}.
+                        {sinTexto
+                          ? `No hay lotes disponibles en la Manzana ${mzFiltro}.`
+                          : `No hay lotes que coincidan en la Manzana ${mzFiltro}.`}
                       </p>
                     )}
                   </div>
@@ -380,7 +411,7 @@ export function Simulador({
           </TarjetaInfo>
 
           <TarjetaInfo
-            color="#3b82f6"
+            color="#3b82c4"
             titulo="Datos del lote"
             icono={
               <svg
@@ -400,12 +431,17 @@ export function Simulador({
           >
             <FilaDato label="Metraje" valor={`${lote.metraje_m2} m²`} />
             <FilaDato label="Ubicación" valor={lote.ubicacion} resaltado />
-            <FilaDato label="Etapa" valor={lote.etapa} />
+            {lote.etapa && <FilaDato label="Etapa" valor={lote.etapa} />}
           </TarjetaInfo>
 
           <TarjetaInfo
-            color="#10b981"
+            color="#5f9b3c"
             titulo="Fraccionamiento"
+            acciones={
+              lote.promocion && (
+                <ChipPromocion promocion={lote.promocion} tono="verde" alinear="derecha" />
+              )
+            }
             icono={
               <svg
                 aria-hidden
@@ -424,26 +460,21 @@ export function Simulador({
               </svg>
             }
           >
-            <BloqueCuotas
-              izquierda={
-                <CuotaUnica monto={cuotaMensual} tamano={tamanoFila} />
-              }
+            <CuotaYPlazo
+              cuota={cuotaMensual}
               plazo={plazo}
               onCambiarPlazo={setPlazo}
+              total={planFijo.precio_financiado}
               tamano={tamanoFila}
             />
-            <FilaDato
-              label="Precio total"
-              valor={<Soles monto={lote.precio_lista} />}
-              tachado
-              grande
-            />
-            <FilaDato
-              label="Precio con dscto"
-              valor={<Soles monto={lote.precio_con_dscto} />}
-              destacado
-              grande
-            />
+            <div className="grid grid-cols-2 gap-3 px-4 pt-3 pb-3">
+              <CajaPrecio etiqueta="Precio total" tachado>
+                <Soles monto={lote.precio_lista} />
+              </CajaPrecio>
+              <CajaPrecio etiqueta="Precio con dscto" destacado>
+                <Soles monto={lote.precio_con_dscto} />
+              </CajaPrecio>
+            </div>
             <InicialDinamica
               lote={lote}
               modo={inicialModo}
@@ -464,7 +495,7 @@ export function Simulador({
             const ultimo = segmentos[segmentos.length - 1].monto;
             return (
               <div className="card flex flex-1 flex-col gap-4 p-5">
-                <h2 className="text-base font-bold text-[var(--text-primary)]">
+                <h2 className="text-base font-bold text-[var(--text-primary)] sm:text-lg lg:text-xl">
                   Elige tu tipo de cuota
                 </h2>
                 <div className="flex gap-1.5">
@@ -497,10 +528,18 @@ export function Simulador({
                   etiqueta={`Cuota mensual · ${modalidadActiva.label}`}
                   anios={segmentos.length}
                 />
-                <BarrasCuotas
-                  segmentos={segmentos}
-                  color={modalidadActiva.color}
-                />
+                {plazoDe(lote) <= PARAMETROS.meses_por_tramo ? (
+                  <CuotasPorMes
+                    monto={primero}
+                    cuotas={plazoDe(lote)}
+                    color={modalidadActiva.color}
+                  />
+                ) : (
+                  <BarrasCuotas
+                    segmentos={segmentos}
+                    color={modalidadActiva.color}
+                  />
+                )}
                 <EditorCuotasPie
                   plazo={plazo}
                   onCambiarPlazo={setPlazo}
@@ -509,7 +548,7 @@ export function Simulador({
                 {/* La nota cambia de largo con la cantidad de cuotas (con 80 hay un tramo más que explicar). Se
                     reserva el alto de la versión más larga con una copia invisible apilada en la misma celda,
                     así la tarjeta no cambia de alto ni empuja lo que hay debajo. */}
-                <div className="mx-auto grid max-w-[34rem] border-t border-[var(--border)] pt-4 text-center text-[11px] leading-relaxed text-[var(--text-muted)]">
+                <div className="mx-auto grid max-w-[34rem] border-t border-[var(--border)] pt-4 text-center text-[11px] leading-relaxed sm:text-[13px] text-[var(--text-muted)]">
                   <p className="col-start-1 row-start-1">
                     <strong className="font-semibold text-[var(--text-secondary)]">
                       (*) Meses de vigencia.
@@ -571,12 +610,15 @@ function TarjetaInfo({
   fondo,
   titulo,
   icono,
+  acciones,
   children,
 }: {
   color: string;
   fondo?: string;
-  titulo: string;
+  titulo: React.ReactNode;
   icono: React.ReactNode;
+  /** Algo a la derecha del título (por ejemplo la etiqueta de promoción). */
+  acciones?: React.ReactNode;
   children: React.ReactNode;
 }) {
   return (
@@ -591,9 +633,13 @@ function TarjetaInfo({
         >
           {icono}
         </div>
-        <h2 className="ml-1.5 text-sm font-bold" style={{ color: color }}>
+        <h2
+          className="ml-1.5 text-sm font-bold sm:text-base lg:text-[17px]"
+          style={{ color: color }}
+        >
           {titulo}
         </h2>
+        {acciones && <div className="-mr-3 ml-auto shrink-0">{acciones}</div>}
       </div>
       <div className="flex flex-col gap-0.5 px-4 py-1.5">{children}</div>
     </div>
@@ -620,12 +666,16 @@ function FilaDato({
       className={`flex border-t border-[var(--border)] first:border-t-0 ${grande ? "py-[0.6rem]" : "py-2"}`}
     >
       <div className="flex w-full items-center justify-between gap-4 px-4">
-        <span className="text-sm text-[var(--text-secondary)]">{label}</span>
+        <span className="text-sm text-[var(--text-secondary)] sm:text-[18px]">{label}</span>
         <span
           className={`text-right [font-variant-numeric:tabular-nums] ${
-            grande ? (destacado ? "text-lg" : "text-base") : "text-sm"
+            grande
+              ? destacado
+                ? "text-lg sm:text-2xl"
+                : "text-base sm:text-xl"
+              : "text-sm sm:text-[18px]"
           } ${
-            resaltado ? "-mr-2 rounded-md bg-[#3b82f6]/15 px-2 py-0.5" : ""
+            resaltado ? "-mr-2 rounded-md bg-[#3b82c4]/15 px-2 py-0.5" : ""
           } ${
             tachado
               ? "text-[var(--text-muted)] line-through"
@@ -656,16 +706,11 @@ function InicialDinamica({
 }) {
   const partes = partesDeInicial(lote, modo);
   return (
-    <div className="border-t border-[var(--border)] py-[0.6rem]">
-      <div className="flex w-full flex-col gap-2.5 px-4">
-        <div className="flex items-center justify-between gap-4">
-          <span className="text-base font-medium text-[var(--text-secondary)]">
-            Inicial
-          </span>
-          <span className="text-right text-xl font-bold [font-variant-numeric:tabular-nums] text-[var(--text-primary)]">
-            <Soles monto={lote.inicial} />
-          </span>
-        </div>
+    <div className="rounded-xl border border-[var(--border)] p-3">
+      <div className="flex w-full flex-col gap-2.5">
+        <p className="m-0 text-center text-xs font-semibold tracking-wider text-[var(--text-muted)] uppercase sm:text-[13px]">
+          Forma de pago de tu inicial
+        </p>
 
         <div
           role="radiogroup"
@@ -679,9 +724,9 @@ function InicialDinamica({
               role="radio"
               aria-checked={modo === m.key}
               onClick={() => onCambiar(m.key)}
-              className={`rounded-lg border py-2.5 text-sm font-semibold transition-colors ${
+              className={`rounded-lg border py-2.5 text-sm font-semibold transition-colors sm:text-base ${
                 modo === m.key
-                  ? "border-[var(--ceinys-grafito-700)] bg-[var(--ceinys-grafito-700)] text-white"
+                  ? "border-[#5f9b3c] bg-[#5f9b3c] text-white shadow-sm"
                   : "border-[var(--border)] bg-[var(--surface-1)] text-[var(--text-secondary)] hover:bg-[var(--surface-2)]"
               }`}
             >
@@ -701,7 +746,7 @@ function InicialDinamica({
               key={i}
               className="rounded-lg bg-[var(--surface-2)] px-1.5 py-2.5 text-center"
             >
-              <p className="m-0 text-[11px] font-semibold tracking-wide whitespace-nowrap text-[var(--text-muted)] uppercase sm:text-xs">
+              <p className="m-0 text-[11px] font-semibold tracking-wide whitespace-nowrap text-[var(--text-muted)] uppercase sm:text-[13px]">
                 {p.fecha}
               </p>
               <p className="m-0 mt-1 text-base max-[340px]:text-sm font-bold whitespace-nowrap [font-variant-numeric:tabular-nums] text-[var(--text-primary)] sm:text-xl">

@@ -5,14 +5,15 @@ import {
   formatearMonto,
   INICIAL_MODOS,
   modalidadesDe,
-  notaMeses,
+  PARAMETROS,
   plazoDe,
   partesDeInicial,
+  etiquetaMes,
   PROYECTO,
   segmentosDeTramo,
   type InicialModo,
   type Lote,
-} from "@/lib/altosDeSacta";
+} from "@/lib/arenas";
 import {
   ENMASCARAR_DNI,
   FORMATO_FICHA,
@@ -153,14 +154,16 @@ function FranjaCliente({ cliente }: { cliente: ClienteFicha }) {
           {cliente.nombre}
         </p>
       </div>
-      <div className="shrink-0 text-right">
-        <p className={`m-0 ${TIPO.eyebrow} text-[var(--text-muted)]`}>
-          DNI / Documento
-        </p>
-        <p className="m-0 mt-1.5 text-[32px] leading-tight font-extrabold [font-variant-numeric:tabular-nums]">
-          {dniVisible(cliente.dni)}
-        </p>
-      </div>
+      {cliente.dni && (
+        <div className="shrink-0 text-right">
+          <p className={`m-0 ${TIPO.eyebrow} text-[var(--text-muted)]`}>
+            DNI / Documento
+          </p>
+          <p className="m-0 mt-1.5 text-[32px] leading-tight font-extrabold [font-variant-numeric:tabular-nums]">
+            {dniVisible(cliente.dni)}
+          </p>
+        </div>
+      )}
     </div>
   );
 }
@@ -228,10 +231,27 @@ function Lienzo({
 function Etiqueta({
   color,
   children,
+  centrada = false,
 }: {
   color: string;
   children: React.ReactNode;
+  /** El texto se centra de verdad sobre la cifra: el punto queda colgando a la izquierda y no cuenta. */
+  centrada?: boolean;
 }) {
+  if (centrada)
+    return (
+      <p
+        className={`m-0 flex justify-center ${TIPO.eyebrow} text-[var(--text-muted)]`}
+      >
+        <span className="relative inline-flex items-center whitespace-nowrap">
+          <span
+            className="absolute right-full mr-3 h-[14px] w-[14px] rounded-full"
+            style={{ background: color }}
+          />
+          {children}
+        </span>
+      </p>
+    );
   return (
     <p
       className={`m-0 flex items-center gap-3 ${TIPO.eyebrow} text-[var(--text-muted)]`}
@@ -245,9 +265,45 @@ function Etiqueta({
   );
 }
 
+/** Sello verde de «verificado» (borde ondulado y check blanco) que acompaña al lote. */
+function SelloVerificado({ tamano = 40 }: { tamano?: number }) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 24 24"
+      style={{ width: tamano, height: tamano }}
+      className="shrink-0"
+    >
+      <path
+        d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"
+        fill="#10b981"
+      />
+      <path
+        d="m8.6 12.2 2.4 2.4 4.5-4.8"
+        fill="none"
+        stroke="white"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 /* ---------- cara 1: el lote y su fraccionamiento ---------- */
 
 function ContenidoCara1({ lote, inicialModo, emitida, cliente }: DatosFicha) {
+  // Solo se muestran los datos que existen (una cotización puntual puede no traer ubicación o etapa)
+  const datosDelLote = (
+    [
+      [
+        "Metraje",
+        `${Number.isInteger(lote.metraje_m2) ? lote.metraje_m2 : lote.metraje_m2.toFixed(2)} m²`,
+      ],
+      ["Ubicación", lote.ubicacion],
+      ["Etapa", lote.etapa],
+    ] as [string, string][]
+  ).filter(([, valor]) => valor);
   const v = useV();
   const compacto = useCompacto();
   const cuota = lote.planes.fija.cuotas_por_tramo[0];
@@ -265,7 +321,7 @@ function ContenidoCara1({ lote, inicialModo, emitida, cliente }: DatosFicha) {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/logo-altos-de-sacta.png"
+            src="/logos-arenas/logo-arenas.png"
             alt={PROYECTO}
             className="h-[88px] w-auto"
           />
@@ -275,38 +331,58 @@ function ContenidoCara1({ lote, inicialModo, emitida, cliente }: DatosFicha) {
               Manzana y lote
             </p>
             <p
-              className={`m-0 mt-1 flex items-baseline justify-end gap-3 ${TIPO.h1}`}
+              className={`m-0 mt-1 flex items-center justify-end gap-3 ${TIPO.h1}`}
             >
-              <span className="font-semibold text-[var(--text-secondary)]">
-                MZ {lote.mz}
+              <SelloVerificado />
+              <span className="flex items-baseline gap-3">
+                <span className="font-semibold text-[var(--text-secondary)]">
+                  MZ {lote.mz}
+                </span>
+                <span className="text-[40px] font-semibold text-[var(--text-muted)]">
+                  ·
+                </span>
+                <span>LOTE {lote.lt}</span>
               </span>
-              <span className="text-[40px] font-semibold text-[var(--text-muted)]">
-                ·
-              </span>
-              <span>LOTE {lote.lt}</span>
             </p>
           </div>
         </div>
 
         {cliente && <FranjaCliente cliente={cliente} />}
 
-        <div className="grid shrink-0 grid-cols-3 gap-4">
-          {[
-            ["Metraje", `${lote.metraje_m2} m²`],
-            ["Ubicación", lote.ubicacion],
-            ["Etapa", lote.etapa],
-          ].map(([k, val]) => (
-            <div
-              key={k}
-              className="rounded-[22px] bg-[#3b82f6]/12 px-4 text-center"
-              style={{ paddingTop: v(26), paddingBottom: v(26) }}
-            >
-              <p className={`m-0 ${TIPO.eyebrow} text-[#2563eb]`}>{k}</p>
-              <p className="m-0 mt-1 text-[26px] leading-tight font-bold">
+        {/* Misma estructura que «Fraccionamiento»: títulos resaltados arriba y la información en blanco debajo */}
+        <div className="shrink-0 overflow-hidden rounded-[28px] border-2 border-[var(--border)] bg-white">
+          <div
+            className="grid bg-[#3b82f6]/12"
+            style={{
+              gridTemplateColumns: `repeat(${datosDelLote.length}, minmax(0, 1fr))`,
+            }}
+          >
+            {datosDelLote.map(([k], i) => (
+              <p
+                key={k}
+                className={`m-0 px-4 text-center ${TIPO.eyebrow} text-[#2563eb] ${i > 0 ? "border-l-2 border-white/70" : ""}`}
+                style={{ paddingTop: v(18), paddingBottom: v(18) }}
+              >
+                {k}
+              </p>
+            ))}
+          </div>
+          <div
+            className="grid"
+            style={{
+              gridTemplateColumns: `repeat(${datosDelLote.length}, minmax(0, 1fr))`,
+            }}
+          >
+            {datosDelLote.map(([k, val], i) => (
+              <p
+                key={k}
+                className={`m-0 px-4 text-center text-[28px] leading-tight font-bold ${i > 0 ? "border-l-2 border-[var(--border)]" : ""}`}
+                style={{ paddingTop: v(22), paddingBottom: v(22) }}
+              >
                 {val}
               </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         <div className="shrink-0 overflow-hidden rounded-[28px] border-2 border-[var(--border)] bg-white">
@@ -314,37 +390,49 @@ function ContenidoCara1({ lote, inicialModo, emitida, cliente }: DatosFicha) {
             className="bg-[#10b981]/15 px-10 text-[26px] font-bold text-[#059669]"
             style={{ paddingTop: v(20), paddingBottom: v(20) }}
           >
-            Fraccionamiento
+            Fraccionamiento{" "}
+            <span className="ml-2 text-[18px] font-semibold tracking-wider uppercase">
+              (sin intereses)
+            </span>
           </div>
 
           <div
-            className="grid grid-cols-[1fr_auto_1fr] items-center gap-6 px-8 text-center"
+            className="grid grid-cols-[minmax(0,1.3fr)_auto_minmax(0,1fr)] items-start gap-6 px-8 text-center"
             style={{ paddingTop: v(36), paddingBottom: v(36) }}
           >
+            {/* Igual que el cotizador: la cifra va centrada bajo su etiqueta y «/ mes» cuelga a la derecha sin contar */}
             <div>
-              <Etiqueta color="#10b981">Cuota mensual</Etiqueta>
-              <p className="m-0 mt-3 flex items-baseline justify-center gap-2 leading-none whitespace-nowrap [font-variant-numeric:tabular-nums]">
-                <span
-                  className={
-                    formatearMonto(cuota).length > 7
-                      ? "text-[52px] font-extrabold text-[var(--text-primary)]"
-                      : TIPO.cifra
-                  }
-                >
-                  <Soles monto={cuota} />
-                </span>
-                <span className="text-[26px] font-medium text-[var(--text-muted)]">
-                  / mes
+              <Etiqueta color="#10b981" centrada>
+                Cuota mensual
+              </Etiqueta>
+              <p className="m-0 mt-3 flex h-[84px] items-center justify-center leading-none whitespace-nowrap [font-variant-numeric:tabular-nums]">
+                <span className="relative inline-flex items-baseline">
+                  <span
+                    className={
+                      formatearMonto(cuota).length > 7
+                        ? "text-[52px] font-extrabold text-[var(--text-primary)]"
+                        : TIPO.cifra
+                    }
+                  >
+                    <Soles monto={cuota} />
+                  </span>
+                  <span className="absolute bottom-[0.1em] left-full ml-2 text-[26px] font-medium text-[var(--text-muted)]">
+                    / mes
+                  </span>
                 </span>
               </p>
             </div>
-            <span className="h-[100px] w-[2px] bg-[var(--border)]" />
+            <span className="mt-1 h-[100px] w-[2px] bg-[var(--border)]" />
             <div>
-              <Etiqueta color="#10b981">Cant. de cuotas</Etiqueta>
-              <p className="m-0 mt-3 flex items-baseline justify-center gap-2 leading-none">
-                <span className={TIPO.cifra}>{plazoDe(lote)}</span>
-                <span className="text-[26px] font-medium text-[var(--text-muted)]">
-                  cuotas
+              <Etiqueta color="#10b981" centrada>
+                Cant. de cuotas
+              </Etiqueta>
+              <p className="m-0 mt-3 flex h-[84px] items-center justify-center gap-2 leading-none">
+                <span className="inline-flex items-baseline gap-2">
+                  <span className={TIPO.cifra}>{plazoDe(lote)}</span>
+                  <span className="text-[26px] font-medium text-[var(--text-muted)]">
+                    cuotas
+                  </span>
                 </span>
               </p>
             </div>
@@ -354,26 +442,47 @@ function ContenidoCara1({ lote, inicialModo, emitida, cliente }: DatosFicha) {
             className="border-t-2 border-[var(--border)] px-10"
             style={{ paddingTop: v(14), paddingBottom: v(14) }}
           >
-            <div
-              className="flex items-center justify-between text-[26px]"
-              style={{ paddingTop: v(16), paddingBottom: v(16) }}
-            >
-              <span className="text-[var(--text-secondary)]">Precio total</span>
-              <span className="font-semibold text-[var(--text-muted)] line-through [font-variant-numeric:tabular-nums]">
-                <Soles monto={lote.precio_lista} />
-              </span>
-            </div>
-            <div
-              className="flex items-center justify-between border-t-2 border-[var(--border)]/50 text-[26px]"
-              style={{ paddingTop: v(16), paddingBottom: v(16) }}
-            >
-              <span className="text-[var(--text-secondary)]">
-                Precio con dscto
-              </span>
-              <span className="text-[32px] font-bold [font-variant-numeric:tabular-nums]">
-                <Soles monto={lote.precio_con_dscto} />
-              </span>
-            </div>
+            {lote.precio_lista === lote.precio_con_dscto ? (
+              <div
+                className="flex items-center justify-between text-[26px]"
+                style={{ paddingTop: v(16), paddingBottom: v(16) }}
+              >
+                <span className="text-[var(--text-secondary)]">
+                  Precio total
+                </span>
+                <span className="text-[32px] font-bold [font-variant-numeric:tabular-nums]">
+                  <Soles monto={lote.precio_con_dscto} />
+                </span>
+              </div>
+            ) : (
+              <div
+                className="grid grid-cols-2 gap-5"
+                style={{ paddingTop: v(10), paddingBottom: v(10) }}
+              >
+                <div
+                  className="flex flex-col items-center rounded-[20px] border-2 border-[var(--border)] bg-[var(--surface-2)] px-4 text-center"
+                  style={{ gap: v(12), paddingTop: v(22), paddingBottom: v(22) }}
+                >
+                  <span className="rounded-full bg-[var(--ceinys-grafito-100)] px-5 py-1 text-[19px] font-bold tracking-[0.12em] whitespace-nowrap text-[var(--text-secondary)] uppercase">
+                    Precio total
+                  </span>
+                  <span className="text-[34px] font-medium text-[var(--text-muted)] line-through [font-variant-numeric:tabular-nums]">
+                    <Soles monto={lote.precio_lista} />
+                  </span>
+                </div>
+                <div
+                  className="flex flex-col items-center rounded-[20px] border-2 border-[#10b981]/35 bg-[#10b981]/10 px-4 text-center"
+                  style={{ gap: v(12), paddingTop: v(22), paddingBottom: v(22) }}
+                >
+                  <span className="rounded-full bg-[#10b981]/15 px-5 py-1 text-[19px] font-bold tracking-[0.12em] whitespace-nowrap text-[#059669] uppercase">
+                    Precio con dscto
+                  </span>
+                  <span className="text-[38px] font-extrabold [font-variant-numeric:tabular-nums]">
+                    <Soles monto={lote.precio_con_dscto} />
+                  </span>
+                </div>
+              </div>
+            )}
           </div>
 
           <div
@@ -440,11 +549,21 @@ export const FichaCara1 = forwardRef<HTMLDivElement, DatosFicha>(
 
 function ContenidoCara2({ lote, inicialModo, emitida, cliente }: DatosFicha) {
   const v = useV();
+  const compacto = useCompacto();
   const segmentos = modalidadesDe(lote).map((m) => ({
     ...m,
     tramos: segmentosDeTramo(lote, m.key),
   }));
   const base = segmentos[0].tramos;
+  // Plazo de un solo año: las tres modalidades coinciden, así que en vez de una tabla de una fila se muestra mes por mes
+  const porMes = plazoDe(lote) <= PARAMETROS.meses_por_tramo;
+  const titulo = porMes
+    ? "Tu cronograma de cuotas"
+    : segmentos.length > 1
+      ? "Escoge tu opción de pago"
+      : "Tu plan de cuotas";
+  const cuotaFija = lote.planes.fija.cuotas_por_tramo[0];
+  const mesesPlan = base.reduce((t, b) => t + b.meses, 0);
   const partes = partesDeInicial(lote, inicialModo, emitida);
   const columnas = `1.15fr ${"1fr ".repeat(segmentos.length)}`.trim();
 
@@ -456,92 +575,178 @@ function ContenidoCara2({ lote, inicialModo, emitida, cliente }: DatosFicha) {
         {cliente && <FranjaCliente cliente={cliente} />}
 
         <>
-          <div className="flex shrink-0 items-end justify-between">
+          {/* Misma tarjeta del lote que la primera hoja: «Manzana y lote» a la izquierda y la inicial a la derecha */}
+          <div
+            className="flex shrink-0 items-center justify-between gap-6 rounded-[28px] border-2 border-[var(--border)] bg-white px-8"
+            style={{ paddingTop: v(22), paddingBottom: v(22) }}
+          >
             <div>
-              <Etiqueta color="#F5A623">Elige tu tipo de cuota</Etiqueta>
-              <p className={`m-0 mt-3 ${TIPO.h1}`}>
-                MZ {lote.mz} · LOTE {lote.lt}
-                <span className="ml-4 text-[26px] font-medium text-[var(--text-muted)]">
-                  {lote.metraje_m2} m²
+              <p className={`m-0 ${TIPO.eyebrow} text-[var(--text-muted)]`}>
+                Manzana y lote
+              </p>
+              <p className="m-0 mt-1 flex items-center gap-3 text-[42px] leading-none font-extrabold text-[var(--text-primary)]">
+                <SelloVerificado tamano={32} />
+                <span className="flex items-baseline gap-2.5">
+                  <span className="font-semibold text-[var(--text-secondary)]">
+                    MZ {lote.mz}
+                  </span>
+                  <span className="text-[32px] font-semibold text-[var(--text-muted)]">
+                    ·
+                  </span>
+                  <span>LOTE {lote.lt}</span>
                 </span>
               </p>
             </div>
-            <div className="text-right text-[26px] leading-snug text-[var(--text-secondary)]">
-              <p className="m-0">
-                Inicial{" "}
-                <strong className="text-[var(--text-primary)]">
-                  <Soles monto={lote.inicial} />
-                </strong>
+            <span
+              aria-hidden
+              className="h-[72px] w-[2px] shrink-0 bg-[var(--border)]"
+            />
+            <div className="text-right">
+              <p className={`m-0 ${TIPO.eyebrow} text-[var(--text-muted)]`}>
+                Inicial
               </p>
-              <p className="m-0 text-[20px] text-[var(--text-muted)]">
-                {" "}
+              <p className="m-0 mt-1 text-[40px] leading-none font-extrabold text-[var(--text-primary)] [font-variant-numeric:tabular-nums]">
+                <Soles monto={lote.inicial} />
+              </p>
+              <p className="m-0 mt-2 text-[20px] leading-none text-[var(--text-muted)]">
                 {partes.map((p) => p.fecha).join(" · ")}
               </p>
             </div>
           </div>
 
-          <div className="shrink-0 overflow-hidden rounded-[28px] border-2 border-[var(--border)] bg-white">
-            <div
-              className="grid items-center gap-3 px-6"
-              style={{
-                gridTemplateColumns: columnas,
-                paddingTop: v(20),
-                paddingBottom: v(20),
-              }}
-            >
-              <span className={`${TIPO.eyebrow} text-[var(--text-muted)]`}>
-                Año (meses*)
-              </span>
-              {segmentos.map((m) => (
-                <span
-                  key={m.key}
-                  className="rounded-full py-2.5 text-center text-[24px] font-bold"
-                  style={{
-                    background: `color-mix(in srgb, ${m.color} 14%, white)`,
-                    color: m.color,
-                  }}
+          {/* El título y la tabla van juntos: el espacio sobrante se reparte alrededor del conjunto, no entre ellos */}
+          <div className="shrink-0">
+            {porMes ? (
+              <div className="overflow-hidden rounded-[28px] border-2 border-[var(--border)] bg-white">
+                <div
+                  className="bg-[var(--ceinys-grafito-700)] px-10 text-center text-[26px] font-extrabold tracking-[0.14em] text-white uppercase"
+                  style={{ paddingTop: v(20), paddingBottom: v(20) }}
                 >
-                  {m.label}
-                </span>
-              ))}
-            </div>
-            {base.map((t, i) => (
-              <div
-                key={t.label}
-                className="grid items-center gap-3 border-t-2 border-[var(--border)] px-6"
-                style={{
-                  gridTemplateColumns: columnas,
-                  background: i % 2 === 0 ? "var(--surface-2)" : "white",
-                  paddingTop: v(18),
-                  paddingBottom: v(18),
-                }}
-              >
-                <span className="text-[26px] font-semibold text-[var(--text-secondary)]">
-                  {t.label}{" "}
-                  <span className="font-medium text-[var(--text-muted)]">
-                    ({t.meses}*)
-                  </span>
-                </span>
-                {segmentos.map((m) => (
-                  <span
-                    key={m.key}
-                    className="text-center text-[32px] font-bold [font-variant-numeric:tabular-nums]"
+                  {titulo}
+                </div>
+                <div
+                  className="grid grid-cols-3 items-center gap-3 px-6"
+                  style={{ paddingTop: v(18), paddingBottom: v(18) }}
+                >
+                  {["Cuota", "Mes de pago", "Monto"].map((t, k) => (
+                    <span
+                      key={t}
+                      className={`${TIPO.eyebrow} text-[var(--text-muted)] ${k === 0 ? "" : k === 1 ? "text-center" : "text-right"}`}
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                {Array.from({ length: mesesPlan }, (_, i) => (
+                  <div
+                    key={i}
+                    className="grid grid-cols-3 items-center gap-3 border-t-2 border-[var(--border)] px-6"
+                    style={{
+                      background: i % 2 === 0 ? "var(--surface-2)" : "white",
+                      paddingTop: v(compacto ? 4 : 10),
+                      paddingBottom: v(compacto ? 4 : 10),
+                    }}
                   >
-                    <Soles monto={m.tramos[i].monto} />
-                  </span>
+                    <span className="text-[26px] font-semibold text-[var(--text-secondary)]">
+                      Cuota {i + 1}
+                    </span>
+                    <span className="text-center text-[26px] font-medium text-[var(--text-secondary)]">
+                      {etiquetaMes(i + 2, emitida)}
+                    </span>
+                    <span className="text-right text-[30px] font-bold [font-variant-numeric:tabular-nums]">
+                      <Soles monto={cuotaFija} />
+                    </span>
+                  </div>
                 ))}
               </div>
-            ))}
+            ) : (
+              <div className="overflow-hidden rounded-[28px] border-2 border-[var(--border)] bg-white">
+                <div
+                  className="bg-[var(--ceinys-grafito-700)] px-10 text-center text-[26px] font-extrabold tracking-[0.14em] text-white uppercase"
+                  style={{ paddingTop: v(20), paddingBottom: v(20) }}
+                >
+                  {titulo}
+                </div>
+                {/* Cada tipo de cuota es una columna con su color (encabezado sólido y celdas teñidas) para que no se confunda */}
+                <div className="grid" style={{ gridTemplateColumns: columnas }}>
+                  <span
+                    className={`${TIPO.eyebrow} flex items-center pl-6 text-[var(--text-muted)]`}
+                  >
+                    Año (meses*)
+                  </span>
+                  {segmentos.map((m) => (
+                    <span
+                      key={m.key}
+                      className="flex flex-col items-center justify-center border-l-2 border-white text-center text-white"
+                      style={{
+                        background: m.color,
+                        paddingTop: v(16),
+                        paddingBottom: v(16),
+                      }}
+                    >
+                      <span className="block text-[19px] leading-none font-semibold opacity-90">
+                        Cuota
+                      </span>
+                      <span className="mt-1 block text-[26px] leading-none font-extrabold">
+                        {m.label}
+                      </span>
+                    </span>
+                  ))}
+                </div>
+                {base.map((t, i) => (
+                  <div
+                    key={t.label}
+                    className="grid border-t-2 border-white"
+                    style={{ gridTemplateColumns: columnas }}
+                  >
+                    <span
+                      className="flex items-center pl-6 text-[26px] font-semibold text-[var(--text-secondary)]"
+                      style={{
+                        background: i % 2 === 0 ? "var(--surface-2)" : "white",
+                        paddingTop: v(18),
+                        paddingBottom: v(18),
+                      }}
+                    >
+                      <span>
+                        {t.label}{" "}
+                        <span className="font-medium text-[var(--text-muted)]">
+                          ({t.meses}*)
+                        </span>
+                      </span>
+                    </span>
+                    {segmentos.map((m) => (
+                      <span
+                        key={m.key}
+                        className="flex items-center justify-center border-l-2 border-white text-center text-[32px] font-bold [font-variant-numeric:tabular-nums]"
+                        style={{
+                          background: `color-mix(in srgb, ${m.color} ${i % 2 === 0 ? 20 : 11}%, white)`,
+                          paddingTop: v(18),
+                          paddingBottom: v(18),
+                        }}
+                      >
+                        <Soles monto={m.tramos[i].monto} />
+                      </span>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </>
 
         <p
           className={`m-0 mx-auto max-w-[900px] shrink-0 text-center ${TIPO.legal}`}
         >
-          <strong className="font-semibold text-[var(--text-secondary)]">
-            (*) Meses de vigencia.
-          </strong>{" "}
-          {notaMeses(base)} Las cuotas incluyen el costo del fraccionamiento.
+          {porMes ? (
+            <>{mesesPlan} cuotas mensuales, fraccionamiento incluido.</>
+          ) : (
+            <>
+              <strong className="font-semibold text-[var(--text-secondary)]">
+                (*) Meses que se paga cada cuota.
+              </strong>{" "}
+              {mesesPlan} cuotas en total, fraccionamiento incluido.
+            </>
+          )}
         </p>
       </Bloques>
 
@@ -568,18 +773,36 @@ export const FichaCara2 = forwardRef<HTMLDivElement, DatosFicha>(
 const AVISO_CUENTAS =
   "Realiza tus pagos únicamente a las cuentas a nombre de la empresa. Conserva tu voucher y envíalo a tu asesor para validar el pago.";
 
-function FilaCuenta({ etiqueta, valor }: { etiqueta: string; valor: string }) {
+/** Dato de la cuenta en el mismo formato de «Metraje / Ubicación»: título resaltado arriba y el valor en blanco debajo. */
+function FilaCuenta({
+  etiqueta,
+  valor,
+  color,
+}: {
+  etiqueta: string;
+  valor: string;
+  color: string;
+}) {
   return (
-    <div>
-      <p className={`m-0 ${TIPO.eyebrow} text-[var(--text-muted)]`}>
+    <div className="overflow-hidden rounded-[20px] border-2 border-[var(--border)] bg-white">
+      <p
+        className={`m-0 px-7 py-2 ${TIPO.eyebrow} text-[var(--text-secondary)]`}
+        style={{ background: `${color}14` }}
+      >
         {etiqueta}
       </p>
-      <p className="m-0 mt-2 text-[44px] leading-none font-extrabold [font-variant-numeric:tabular-nums]">
+      <p className="m-0 px-7 py-3.5 text-[42px] leading-none font-extrabold [font-variant-numeric:tabular-nums]">
         {valor}
       </p>
     </div>
   );
 }
+
+const PASOS_PAGO = [
+  "Elige la cuenta de tu preferencia",
+  "Paga por depósito o transferencia",
+  "Envía tu voucher a tu asesor",
+];
 
 function ContenidoCuentas({ emitida }: { emitida: Date }) {
   return (
@@ -587,15 +810,34 @@ function ContenidoCuentas({ emitida }: { emitida: Date }) {
       <Cabecera etiqueta="Cuentas de pago" emitida={emitida} />
 
       <Bloques>
-        <div>
-          <Etiqueta color="#10b981">Medios de pago</Etiqueta>
-          <p className={`m-0 mt-3 ${TIPO.h1}`}>Cuentas para tu pago</p>
-          <p className={`m-0 mt-4 ${TIPO.medio}`}>
-            Depósitos y transferencias a nombre de{" "}
-            <strong className="font-bold text-[var(--text-primary)]">
+        {/* Misma tarjeta de presentación que la cotización: el proyecto a la izquierda y el título a la derecha */}
+        <div className="flex shrink-0 items-center justify-between gap-6 rounded-[28px] border-2 border-[var(--border)] bg-white px-10 py-5">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logos-arenas/logo-arenas.png"
+            alt={PROYECTO}
+            className="h-[88px] w-auto"
+          />
+          <div className="text-right">
+            <div className="flex items-center justify-end">
+              <Etiqueta color="#10b981">Medios de pago</Etiqueta>
+            </div>
+            <p className="m-0 mt-2 text-[44px] leading-none font-extrabold whitespace-nowrap">
+              Cuentas bancarias
+            </p>
+          </div>
+        </div>
+
+        <div className="flex shrink-0 items-center justify-between gap-8 rounded-[24px] border-2 border-[var(--border)] bg-[var(--ceinys-grafito-100)] px-9 py-4">
+          <div className="min-w-0">
+            <p className={`m-0 ${TIPO.eyebrow} text-[var(--text-muted)]`}>
+              Depósitos y transferencias a nombre de
+            </p>
+            <p className="m-0 mt-1.5 text-[24px] leading-tight font-extrabold uppercase">
               {TITULAR}
-            </strong>
-          </p>
+            </p>
+          </div>
+          <SelloVerificado tamano={56} />
         </div>
 
         {BANCOS.map((banco) => (
@@ -604,7 +846,7 @@ function ContenidoCuentas({ emitida }: { emitida: Date }) {
             className="shrink-0 overflow-hidden rounded-[28px] border-2 border-[var(--border)] bg-white"
           >
             <div
-              className="flex items-center justify-center border-b-2 py-6"
+              className="relative flex items-center justify-center border-b-2 py-4"
               style={{
                 background: `${banco.color}12`,
                 borderColor: `${banco.color}33`,
@@ -616,28 +858,54 @@ function ContenidoCuentas({ emitida }: { emitida: Date }) {
                 alt={banco.nombre}
                 className="block h-[52px] w-auto"
               />
+              <span
+                className={`absolute right-8 inline-flex items-center gap-3 rounded-full bg-white px-5 py-2 ${TIPO.eyebrow}`}
+                style={{ color: COLOR_MONEDA[banco.cuentas[0].moneda] }}
+              >
+                <span
+                  className="h-[12px] w-[12px] rounded-full"
+                  style={{ background: COLOR_MONEDA[banco.cuentas[0].moneda] }}
+                />
+                {banco.cuentas[0].moneda}
+              </span>
             </div>
             {banco.cuentas.map((c) => (
-              <div key={c.numero} className="flex flex-col gap-7 px-10 py-9">
-                <span
-                  className={`inline-flex w-fit items-center gap-3 rounded-full px-5 py-2 ${TIPO.eyebrow}`}
-                  style={{
-                    background: `${COLOR_MONEDA[c.moneda]}1a`,
-                    color: COLOR_MONEDA[c.moneda],
-                  }}
-                >
-                  <span
-                    className="h-[12px] w-[12px] rounded-full"
-                    style={{ background: COLOR_MONEDA[c.moneda] }}
-                  />
-                  {c.moneda}
-                </span>
-                <FilaCuenta etiqueta="N° de cuenta" valor={c.numero} />
-                <FilaCuenta etiqueta="Código CCI" valor={c.cci} />
+              <div key={c.numero} className="flex flex-col gap-3 px-8 py-5">
+                <FilaCuenta
+                  etiqueta="N° de cuenta"
+                  valor={c.numero}
+                  color={banco.color}
+                />
+                <FilaCuenta
+                  etiqueta="Código CCI"
+                  valor={c.cci}
+                  color={banco.color}
+                />
               </div>
             ))}
           </div>
         ))}
+
+        <div className="shrink-0 overflow-hidden rounded-[28px] border-2 border-[var(--border)] bg-white">
+          <div className="bg-[#10b981]/15 px-10 py-3 text-center text-[24px] font-medium text-[#059669]">
+            Cómo realizar tu pago
+          </div>
+          <div className="grid grid-cols-3">
+            {PASOS_PAGO.map((texto, i) => (
+              <div
+                key={texto}
+                className={`flex items-center justify-center gap-4 px-6 py-4 ${i > 0 ? "border-l-2 border-[var(--border)]" : ""}`}
+              >
+                <span className="flex h-[48px] w-[48px] shrink-0 items-center justify-center rounded-full bg-[#10b981] text-[26px] font-semibold text-white">
+                  {i + 1}
+                </span>
+                <p className="m-0 text-[21px] leading-snug font-normal text-[var(--text-secondary)]">
+                  {texto}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </Bloques>
 
       <Pie legal={AVISO_CUENTAS} />

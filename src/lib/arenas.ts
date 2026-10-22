@@ -1,9 +1,9 @@
-import data from "@/data/precios-altos-de-sacta.json";
+import data from "@/data/arenas-lotes.json";
 
-// Fuente oficial de datos y reglas: docs/contexto-simulador-altos-de-sacta.md
-// El JSON trae los 1,112 lotes de Altos de Sacta (Tercera Etapa, Mz 5 y 6) con
-// precios y cuotas YA CALCULADOS. Este archivo solo los lee, expande el
-// cronograma mensual real y los da formato: no recalcula el modelo financiero.
+// Datos y pendientes: docs/pendientes-arenas.md. El JSON (src/data/arenas-lotes.json) lo genera
+// scripts/consolidar-arenas.py a partir de los dos Excel de Arenas y trae, por lote, metraje, precio
+// de lanzamiento, contado, inicial y (en 138 lotes) las condiciones de promoción. Aquí se convierte
+// en `Lote` con el plan de cuotas fijas y se da formato a los montos.
 
 export type TipoModalidad = "fija" | "ascendente" | "descendente";
 
@@ -12,7 +12,7 @@ export type EstadoLote = "libre" | "bloqueado" | "vendido";
 /** Cómo se nombra cada estado en pantalla. */
 export const ESTADO_ETIQUETA: Record<EstadoLote, string> = {
   libre: "Disponible",
-  bloqueado: "Reservado",
+  bloqueado: "Separado",
   vendido: "Vendido",
 };
 
@@ -27,16 +27,32 @@ export type Plan = {
   precio_financiado: number;
 };
 
+/** Promoción especial del Excel de promoción (solo algunos lotes). */
+export type Promocion = {
+  tipo: "standard" | "preferencial";
+  /** Precio «real» (el más alto, tachado). */
+  precio_real: number;
+  precio_promo_contado: number;
+  /** Solo Standard: precio promocional financiado y su cuota fija a `PLAZO_PROMOCION` cuotas. Preferencial: no aplica. */
+  precio_promo_financiado?: number;
+  cuota_promo?: number;
+};
+
+/** Cantidad de cuotas de la promoción financiada: está fijada en el Excel de promoción (`/60`). */
+export const PLAZO_PROMOCION = 60;
+
 export type Lote = {
   lote: string;
-  etapa: string;
-  mz: number;
+  /** El Excel de Arenas no indica la etapa de cada lote: queda sin mostrar (ver docs/pendientes-arenas.md). */
+  etapa?: string;
+  /** Manzana tal como la nombra el Excel: «R1», «R10»… */
+  mz: string;
   lt: number;
   metraje_m2: number;
   ubicacion: string;
   tarifa_m2: number;
   precio_lista: number;
-  /** Contado + inicial: es el «Precio con dscto» que ve el cliente (en el Excel, columna H). */
+  /** Contado + inicial: es el «Precio con dscto» que ve el cliente (en el Excel, el precio de lanzamiento). */
   precio_con_dscto: number;
   precio_contado: number;
   inicial: number;
@@ -45,11 +61,15 @@ export type Lote = {
   planes: Record<TipoModalidad, Plan>;
   /** Cantidad de cuotas de `planes`. Si falta, son las del proyecto (PARAMETROS.numero_cuotas = 80). */
   plazo?: number;
+  /** Cotización puntual con una sola cuota fija (sin plan ascendente ni descendente). */
+  soloFija?: boolean;
   // El tarifario no indica disponibilidad. Campo listo para cuando llegue
   // esa data; hasta entonces se debe verificar manualmente antes del live
   // (ver "Cuidados" en el contexto oficial).
   /** Estado comercial; si falta (JSON de respaldo) el lote se considera libre. */
   estado?: EstadoLote;
+  /** Presente solo en los lotes con promoción especial. */
+  promocion?: Promocion;
 };
 
 export type Parametros = {
@@ -72,26 +92,45 @@ export type Parametros = {
   calendario: string;
 };
 
-type Data = {
-  proyecto: string;
-  moneda: string;
-  version: string;
-  parametros: Parametros;
-  tarifas_m2: Record<string, number>;
-  lotes: Lote[];
+type LoteJson = {
+  lote: string;
+  mz: string;
+  lt: number;
+  metraje_m2: number;
+  ubicacion: string;
+  tarifa_m2: number;
+  /** Precio de lanzamiento: contado + inicial. */
+  precio_lista: number;
+  precio_contado: number;
+  inicial: number;
+  promocion: {
+    tipo: "standard" | "preferencial";
+    precio_real: number;
+    promo_contado: number;
+    promo_financiado: number | null;
+  } | null;
 };
 
-const DATA = data as Data;
+const DATA = data as { proyecto: string; lotes: LoteJson[] };
 
 export const PROYECTO = DATA.proyecto;
-export const VERSION_DATA = DATA.version;
-export const PARAMETROS = DATA.parametros;
-export const TARIFAS_M2 = DATA.tarifas_m2;
-// Ordenados por manzana y lote: el JSON viene en el orden del Excel (la Manzana 6 empieza en el 285) y el
-// lote por defecto de cada manzana es el primero de esta lista. Supabase los devuelve ya ordenados.
-export const LOTES: Lote[] = [...DATA.lotes].sort(
-  (a, b) => a.mz - b.mz || a.lt - b.lt,
-);
+
+/** Reglas de Arenas (Excel «ARENAS Y AURA»): sin interés, inicial S/ 2,000 en dos partes, cuota fija = contado / cuotas. */
+export const PARAMETROS: Parametros = {
+  tasa_mensual: 0,
+  numero_cuotas: 80,
+  meses_por_tramo: 12,
+  tramos: 7,
+  // El Excel de Arenas no tiene cuotas ascendentes ni descendentes: solo la fija.
+  variacion_anual_ascendente: 0,
+  variacion_anual_descendente: 0,
+  inicial_minima: 2000,
+  inicial_porcentaje_contado: 0,
+  // En el Excel de promoción, «precio real» = precio de lanzamiento + 4,000.
+  recargo_lista: 4000,
+  modelo: "arenas-2026",
+  calendario: "inicial 1000 + 1000; cuotas = contado / cantidad de cuotas",
+};
 
 export const MODALIDADES: {
   key: TipoModalidad;
@@ -107,10 +146,7 @@ export const MODALIDADES: {
   },
 ];
 
-export function buscarLotePorId(
-  id: string,
-  lotes: Lote[] = LOTES,
-): Lote | undefined {
+export function buscarLotePorId(id: string, lotes: Lote[]): Lote | undefined {
   const normalizado = id.trim().toUpperCase();
   if (!normalizado) return undefined;
   return lotes.find((l) => l.lote.toUpperCase() === normalizado);
@@ -118,7 +154,7 @@ export function buscarLotePorId(
 
 export function filtrarLotesPorTexto(
   texto: string,
-  opciones?: { mz?: number; limite?: number },
+  opciones?: { mz?: string; limite?: number },
   lotes: Lote[] = LOTES,
 ): Lote[] {
   const q = texto.trim().toUpperCase();
@@ -129,8 +165,10 @@ export function filtrarLotesPorTexto(
   return base.filter((l) => l.lote.toUpperCase().includes(q)).slice(0, limite);
 }
 
-export function manzanasDisponibles(lotes: Lote[] = LOTES): number[] {
-  return Array.from(new Set(lotes.map((l) => l.mz))).sort((a, b) => a - b);
+export function manzanasDisponibles(lotes: Lote[] = LOTES): string[] {
+  return Array.from(new Set(lotes.map((l) => l.mz))).sort(
+    (a, b) => numeroDeManzana(a) - numeroDeManzana(b),
+  );
 }
 
 // --- Cronograma mensual real (calendario de la sección 4 del contexto) ---
@@ -370,11 +408,53 @@ export function conPlazo(
   };
 }
 
-/** Con un plazo de un solo año las tres modalidades dan lo mismo: solo se ofrece la fija. */
-export function modalidadesDe(lote: Lote) {
-  return plazoDe(lote) > PARAMETROS.meses_por_tramo
-    ? MODALIDADES
-    : MODALIDADES.filter((m) => m.key === "fija");
+function aLote(l: LoteJson): Lote {
+  const inicial = l.inicial;
+  const saldo = l.precio_lista - inicial; // = contado
+  const fija = planParaPlazo(saldo, inicial, PARAMETROS.numero_cuotas, 0, PARAMETROS);
+  const pj = l.promocion;
+  return {
+    lote: l.lote,
+    mz: l.mz,
+    lt: l.lt,
+    metraje_m2: l.metraje_m2,
+    ubicacion: l.ubicacion,
+    tarifa_m2: l.tarifa_m2,
+    precio_lista: pj?.precio_real ?? l.precio_lista + (PARAMETROS.recargo_lista ?? 0),
+    precio_con_dscto: l.precio_lista,
+    precio_contado: l.precio_contado,
+    inicial,
+    inicial_mes_1: inicial / 2,
+    inicial_mes_2: inicial / 2,
+    planes: { fija, ascendente: fija, descendente: fija },
+    promocion: pj
+      ? {
+          tipo: pj.tipo,
+          precio_real: pj.precio_real,
+          precio_promo_contado: aCentimos(pj.promo_contado),
+          ...(pj.promo_financiado != null && {
+            precio_promo_financiado: aCentimos(pj.promo_financiado),
+            cuota_promo: aCentimos((pj.promo_financiado - inicial) / PLAZO_PROMOCION),
+          }),
+        }
+      : undefined,
+  };
+}
+
+/** «R10» → 10: orden natural de las manzanas. */
+const numeroDeManzana = (mz: string) => Number(mz.replace(/\D/g, "")) || 0;
+
+// Ordenados por manzana (R1, R2… R10, no R1, R10, R2) y lote; el lote por defecto es el primero de la lista.
+export const LOTES: Lote[] = DATA.lotes
+  .map(aLote)
+  .sort(
+    (a, b) => numeroDeManzana(a.mz) - numeroDeManzana(b.mz) || a.lt - b.lt,
+  );
+
+/** Arenas solo tiene cuota fija (el Excel no define ascendente ni descendente). */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function modalidadesDe(_lote: Lote) {
+  return MODALIDADES.filter((m) => m.key === "fija");
 }
 
 /** Etiqueta de cada tramo para el gráfico comparativo (7 barras). */

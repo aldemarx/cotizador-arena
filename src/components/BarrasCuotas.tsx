@@ -1,4 +1,4 @@
-import { type SegmentoTramo } from "@/lib/altosDeSacta";
+import { etiquetaMes, type SegmentoTramo } from "@/lib/arenas";
 import { Soles } from "@/components/Soles";
 
 type BarrasCuotasProps = {
@@ -47,6 +47,65 @@ export function BarrasCuotas({ segmentos, color }: BarrasCuotasProps) {
               </span>
             </div>
           </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/**
+ * Plazo de un solo año (12 cuotas): en vez de una barra única se muestra el cronograma mes por mes, como en la
+ * cotización, en DOS partes (cuotas 1-6 y 7-12) para que cada cifra se lea grande. `mesInicial` es el mes (desde hoy)
+ * de la primera cuota.
+ */
+export function CuotasPorMes({
+  monto,
+  cuotas,
+  color,
+  mesInicial = 2,
+}: {
+  monto: number;
+  cuotas: number;
+  color: string;
+  mesInicial?: number;
+}) {
+  const mitad = Math.ceil(cuotas / 2);
+  const partes = [
+    Array.from({ length: mitad }, (_, i) => i),
+    Array.from({ length: cuotas - mitad }, (_, i) => mitad + i),
+  ];
+  return (
+    <div className="grid min-h-[24rem] grid-cols-2 content-center gap-3">
+      {partes.map((indices, k) => (
+        <div key={k} className="flex flex-col gap-1.5">
+          <p className="m-0 px-1 text-center text-[11px] font-semibold tracking-wider text-[var(--text-muted)] uppercase sm:text-xs">
+            Cuotas {indices[0] + 1} a {indices[indices.length - 1] + 1}
+          </p>
+          {indices.map((i, j) => (
+            <div
+              key={i}
+              className="flex flex-col gap-0.5 rounded-xl px-3 py-2 min-[480px]:flex-row min-[480px]:items-center min-[480px]:justify-between min-[480px]:gap-2 min-[480px]:py-2.5"
+              style={{
+                backgroundColor:
+                  j % 2 === 0 ? "var(--surface-2)" : "transparent",
+              }}
+            >
+              <span className="leading-tight whitespace-nowrap">
+                <span className="block text-sm font-semibold text-[var(--text-primary)]">
+                  Cuota {i + 1}
+                </span>
+                <span className="block text-xs text-[var(--text-muted)]">
+                  {etiquetaMes(i + mesInicial)}
+                </span>
+              </span>
+              <span
+                className="text-[15px] font-extrabold whitespace-nowrap min-[480px]:text-base [font-variant-numeric:tabular-nums]"
+                style={{ color }}
+              >
+                <Soles monto={monto} />
+              </span>
+            </div>
+          ))}
         </div>
       ))}
     </div>

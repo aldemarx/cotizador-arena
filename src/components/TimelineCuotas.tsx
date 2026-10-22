@@ -1,4 +1,4 @@
-import { formatSoles, type SegmentoTramo } from "@/lib/altosDeSacta";
+import { formatSoles, type SegmentoTramo } from "@/lib/arenas";
 import { Soles } from "@/components/Soles";
 
 type TimelineCuotasProps = {

@@ -1,15 +1,13 @@
-# Plantilla de cotizador (marca blanca)
+# Cotizador Arenas del Valle
 
-Cotizador inmobiliario de Altos de Sacta **sin base de datos y sin panel de administración**, para usarlo como punto de partida de un cotizador de otro nicho.
+Cotizador de lotes de **Arenas del Valle** (CEINYS), basado en la plantilla de cotizador sin base de datos.
 
-- Guía completa: [docs/plantilla-cotizador-marca-blanca.md](docs/plantilla-cotizador-marca-blanca.md)
-- Datos: `src/data/*.json` (los precios ya vienen calculados). Motor de cuotas: `src/lib/altosDeSacta.ts`.
-- Cuentas de pago: `src/lib/cuentasDePago.ts` (aquí con datos ficticios).
+- **Datos y pendientes:** [docs/pendientes-arenas.md](docs/pendientes-arenas.md)
+- **Precios:** `src/data/arenas-lotes.json`, generado con `python -I scripts/consolidar-arenas.py "<ARENAS Y AURA.xlsx>" "<PRECIOS PROMOCION ARENAS.xlsx>"`. El Excel consolidado para revisión queda en `datos/`.
+- **Motor y datos en código:** `src/lib/arenas.ts`.
+- **Guía de la plantilla (referencia):** [docs/plantilla-cotizador-marca-blanca.md](docs/plantilla-cotizador-marca-blanca.md)
 
 ```bash
 npm install
-npm run dev -- -p 3100   # http://localhost:3100
-npm run build            # genera también los tipos (LayoutProps) que pide `tsc`
+npm run dev
 ```
-
-Todavía conserva la marca, los textos, las fotos y los precios de Altos de Sacta: cambiarlos es el paso 3–6 de la guía.

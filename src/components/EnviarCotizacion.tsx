@@ -9,8 +9,8 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import { toBlob } from "html-to-image";
-import type { InicialModo, Lote } from "@/lib/altosDeSacta";
-import { PEDIR_DATOS_CLIENTE } from "@/lib/configCotizacion";
+import type { InicialModo, Lote } from "@/lib/arenas";
+import { FORMATOS_FICHA, PEDIR_DATOS_CLIENTE } from "@/lib/configCotizacion";
 import {
   cssDeFuentes,
   invalidarCacheFuentes,
@@ -21,8 +21,16 @@ import {
   FICHA_ANCHO,
   FichaCara1,
   FichaCara2,
+  FichaCuentas,
   type ClienteFicha,
 } from "@/components/FichaCotizacion";
+import {
+  celularValido,
+  enlaceWaMe,
+  enlaceWhatsAppWeb,
+  mensajeCotizacion,
+  soloCelular,
+} from "@/lib/whatsapp";
 import {
   ModalDatosCliente,
   type ErroresModal,
@@ -32,6 +40,9 @@ import {
 /** Las imágenes preparadas dejan de ser "frescas" a los 10 minutos (llevan fecha y hora de emisión). */
 const FRESCURA_MS = 10 * 60 * 1000;
 
+/** La hoja de cuentas siempre usa el lienzo vertical. */
+const ALTO_CUENTAS = FORMATOS_FICHA.vertical.alto;
+
 type Preparadas = { clave: string; archivos: File[]; en: number };
 
 /** ¿Puede el navegador copiar una imagen al portapapeles? (Firefox antiguo: no). */
@@ -40,8 +51,36 @@ function puedeCopiarImagenes(): boolean {
 }
 
 function nombreArchivo(lote: Lote, n: number) {
-  return `cotizacion-altos-de-sacta-mz${lote.mz}-lote${lote.lt}-${n}de2.png`;
+  return `cotizacion-arenas-del-valle-mz${lote.mz}-lote${lote.lt}-${n}de3.png`;
 }
+
+/**
+ * Nombre automático del PDF: proyecto, lote, cliente y fecha. Ej.: Cotizacion_Arenas-del-Valle_MZ5-LT20_ANA-PEREZ_2026-10-13.pdf
+ * El cliente va sin tildes ni símbolos para que el nombre sea válido en cualquier sistema.
+ */
+function nombrePdf(lote: Lote, cliente: string, fecha: Date) {
+  const persona = cliente
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[^A-Za-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .toUpperCase()
+    .slice(0, 40);
+  const dia = [
+    fecha.getFullYear(),
+    String(fecha.getMonth() + 1).padStart(2, "0"),
+    String(fecha.getDate()).padStart(2, "0"),
+  ].join("-");
+  return `Cotizacion_Arenas-del-Valle_MZ${lote.mz}-LT${lote.lt}${persona ? `_${persona}` : ""}_${dia}.pdf`;
+}
+
+const leerComoDataUrl = (archivo: File) =>
+  new Promise<string>((resolve, reject) => {
+    const lector = new FileReader();
+    lector.onload = () => resolve(String(lector.result));
+    lector.onerror = () => reject(lector.error);
+    lector.readAsDataURL(archivo);
+  });
 
 const dosFotogramas = () =>
   new Promise<void>((r) =>
@@ -53,18 +92,24 @@ function normalizarNombre(v: string) {
   return v.replace(/\s+/g, " ").trim();
 }
 
-function validar(nombre: string, dni: string): ErroresModal {
+function validar(nombre: string, dni: string, celular: string): ErroresModal {
   const errores: ErroresModal = {};
   const limpio = normalizarNombre(nombre);
-  if (limpio.length < 5 || !/\p{L}/u.test(limpio)) {
-    errores.nombre = "Escribe el nombre completo del cliente.";
+  // Basta con un nombre (el apellido es opcional).
+  if (limpio.length < 2 || !/\p{L}/u.test(limpio)) {
+    errores.nombre = "Escribe el nombre del cliente.";
   }
-  if (!/^\d{8}$/.test(dni)) errores.dni = "El DNI debe tener 8 dígitos.";
+  // El DNI es opcional: si se escribe, debe tener 8 dígitos.
+  if (dni !== "" && !/^\d{8}$/.test(dni))
+    errores.dni = "El DNI debe tener 8 dígitos (o déjalo vacío).";
+  if (celular !== "" && !celularValido(celular))
+    errores.celular =
+      "Escribe el celular (9 dígitos, o con el código de país si no es de Perú) o déjalo vacío.";
   return errores;
 }
 
 /**
- * Botón "Enviar": genera las dos caras de la cotización como PNG y abre el menú de compartir del
+ * Botón "Enviar": genera las dos caras de la cotización y la hoja de cuentas de pago como PNG y abre el menú de compartir del
  * sistema para mandarlas por WhatsApp como un álbum de dos fotos; el asesor elige el chat desde su
  * propio WhatsApp.
  *
@@ -86,6 +131,8 @@ export function EnviarCotizacion({
 }) {
   const cara1 = useRef<HTMLDivElement>(null);
   const cara2 = useRef<HTMLDivElement>(null);
+  // Hoja de cuentas de pago: tercera imagen de WhatsApp y tercera página del PDF.
+  const cuentas = useRef<HTMLDivElement>(null);
   const boton = useRef<HTMLButtonElement>(null);
   // true solo en el navegador (el portal necesita document); evita desajustes de hidratación.
   const montado = useSyncExternalStore(
@@ -103,6 +150,8 @@ export function EnviarCotizacion({
   const [fase, setFase] = useState<FaseModal | null>(null);
   const [nombre, setNombre] = useState("");
   const [dni, setDni] = useState("");
+  // Celular del cliente (opcional): solo sirve para armar el enlace al chat; no se guarda.
+  const [celular, setCelular] = useState("");
   const [errores, setErrores] = useState<ErroresModal>({});
   const [cliente, setCliente] = useState<ClienteFicha | null>(null);
   const [archivos, setArchivos] = useState<File[]>([]);
@@ -118,25 +167,28 @@ export function EnviarCotizacion({
     window.setTimeout(() => setAviso(null), 4500);
   }, []);
 
-  /** Convierte las dos fichas en archivos PNG. */
+  /** Convierte las fichas (2 hojas de cotización + hoja de cuentas de pago) en archivos PNG. */
   const generar = useCallback(async (): Promise<File[]> => {
-    const nodos = [cara1.current, cara2.current];
+    const nodos = [cara1.current, cara2.current, cuentas.current];
     if (nodos.some((n) => !n)) throw new Error("La ficha aún no está lista");
     await document.fonts?.ready;
     const fontEmbedCSS = await cssDeFuentes();
     if (!fontEmbedCSS) invalidarCacheFuentes(); // no había fuentes que leer: se reintenta la próxima vez
-    const opciones = {
+    const opciones = (alto: number) => ({
       width: FICHA_ANCHO,
-      height: FICHA_ALTO,
+      height: alto,
       pixelRatio: 1,
       backgroundColor: "#FAFAF9",
       fontEmbedCSS,
-    };
+    });
     // Safari: la primera captura suele salir sin imágenes o sin fuentes. Se hace una pasada previa y se descarta.
-    await toBlob(nodos[0]!, opciones).catch(() => null);
+    await toBlob(nodos[0]!, opciones(FICHA_ALTO)).catch(() => null);
     const resultado: File[] = [];
     for (const [i, nodo] of nodos.entries()) {
-      const blob = await toBlob(nodo!, opciones);
+      const blob = await toBlob(
+        nodo!,
+        opciones(i === 2 ? ALTO_CUENTAS : FICHA_ALTO),
+      );
       if (!blob) throw new Error("No se pudo generar la imagen");
       resultado.push(
         new File([blob], nombreArchivo(lote, i + 1), { type: "image/png" }),
@@ -231,7 +283,7 @@ export function EnviarCotizacion({
       avisar("Imágenes listas. Toca «Enviar» otra vez para compartirlas.");
     } else if (r === "sin-menu") {
       descargar(listas);
-      avisar("Se descargaron las 2 imágenes. Envíalas por WhatsApp.");
+      avisar("Se descargaron las 3 imágenes. Envíalas por WhatsApp.");
     }
   }
 
@@ -240,6 +292,7 @@ export function EnviarCotizacion({
   function abrirModal() {
     setNombre("");
     setDni("");
+    setCelular("");
     setErrores({});
     setCliente(null);
     setArchivos([]);
@@ -256,6 +309,7 @@ export function EnviarCotizacion({
     // Los datos del cliente no se conservan: cada cotización es de una persona distinta.
     setNombre("");
     setDni("");
+    setCelular("");
     setCliente(null);
     setArchivos([]);
     setMiniaturas([]);
@@ -268,9 +322,9 @@ export function EnviarCotizacion({
   }, [miniaturas]);
 
   async function generarConDatos() {
-    const faltas = validar(nombre, dni);
+    const faltas = validar(nombre, dni, celular);
     setErrores(faltas);
-    if (faltas.nombre || faltas.dni) return;
+    if (faltas.nombre || faltas.dni || faltas.celular) return;
 
     setFase("preparando");
     setErrores({});
@@ -311,6 +365,45 @@ export function EnviarCotizacion({
     }
   }
 
+  /** PDF oficial: las mismas 3 hojas (cotización x2 y cuentas de pago); se descarga con nombre automático. */
+  async function descargarPdf() {
+    if (archivos.length === 0) return;
+    try {
+      const { jsPDF } = await import("jspdf"); // se carga solo al pedir el PDF
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "px",
+        format: [FICHA_ANCHO, FICHA_ALTO],
+        hotfixes: ["px_scaling"],
+        compress: true,
+      });
+      for (const [i, archivo] of archivos.entries()) {
+        // La tercera hoja (cuentas) usa siempre el lienzo vertical.
+        const alto = i === 2 ? ALTO_CUENTAS : FICHA_ALTO;
+        if (i > 0) pdf.addPage([FICHA_ANCHO, alto], "portrait");
+        pdf.addImage(
+          await leerComoDataUrl(archivo),
+          "PNG",
+          0,
+          0,
+          FICHA_ANCHO,
+          alto,
+        );
+      }
+      pdf.setProperties({
+        title: `Cotización Arenas del Valle · MZ ${lote.mz} · LOTE ${lote.lt}`,
+        author: "CEINYS Constructora e Inmobiliaria",
+      });
+      pdf.save(nombrePdf(lote, cliente?.nombre ?? "", emitida));
+      setErrores({});
+    } catch {
+      setErrores({
+        general:
+          "No se pudo crear el PDF. Descarga las imágenes e intenta de nuevo.",
+      });
+    }
+  }
+
   async function copiarImagen(i: number) {
     try {
       await navigator.clipboard.write([
@@ -322,7 +415,7 @@ export function EnviarCotizacion({
     } catch {
       setErrores({
         general:
-          "El navegador no permitió copiar la imagen. Usa «Descargar las 2 imágenes».",
+          "El navegador no permitió copiar la imagen. Usa «Descargar las 3 imágenes».",
       });
     }
   }
@@ -333,6 +426,15 @@ export function EnviarCotizacion({
     if (escritorio) setDescargadas(true);
     else setFase("descargado");
   }
+
+  // Enlaces al chat del cliente (solo si escribió un celular válido).
+  const textoChat = mensajeCotizacion(nombre, lote.mz, lote.lt);
+  const enlaceChat = celularValido(celular)
+    ? enlaceWaMe(celular, textoChat)
+    : null;
+  const enlaceChatWeb = celularValido(celular)
+    ? enlaceWhatsAppWeb(celular, textoChat)
+    : null;
 
   function alTocarEnviar() {
     if (bloqueo) return;
@@ -349,7 +451,7 @@ export function EnviarCotizacion({
         disabled={ocupado || !!bloqueo}
         aria-label={bloqueo ?? "Enviar cotización por WhatsApp"}
         title={bloqueo}
-        className="flex shrink-0 items-center gap-1.5 rounded-lg border border-[var(--border)] bg-[var(--surface-1)] px-3 py-2 text-xs font-semibold text-[var(--text-secondary)] transition-colors hover:bg-[var(--surface-2)] disabled:cursor-not-allowed disabled:opacity-60 max-[360px]:px-2.5"
+        className="flex shrink-0 items-center gap-1.5 rounded-lg border border-[var(--border)] bg-[var(--surface-1)] px-3 py-2 text-xs font-semibold sm:text-[13px] text-[var(--text-secondary)] transition-colors hover:bg-[var(--surface-2)] disabled:cursor-not-allowed disabled:opacity-60 max-[360px]:px-2.5"
       >
         <svg
           viewBox="0 0 24 24"
@@ -388,6 +490,9 @@ export function EnviarCotizacion({
             fase={fase}
             nombre={nombre}
             dni={dni}
+            celular={celular}
+            enlaceChat={enlaceChat}
+            enlaceChatWeb={enlaceChatWeb}
             errores={errores}
             miniaturas={miniaturas}
             onNombre={(v) => {
@@ -402,10 +507,19 @@ export function EnviarCotizacion({
               setDni(v.replace(/\D/g, "").slice(0, 8));
               setErrores((e) => ({ ...e, dni: undefined, general: undefined }));
             }}
+            onCelular={(v) => {
+              setCelular(soloCelular(v));
+              setErrores((e) => ({
+                ...e,
+                celular: undefined,
+                general: undefined,
+              }));
+            }}
             onEnviar={generarConDatos}
             onCerrar={cerrarModal}
             onCompartir={compartirDesdeModal}
             onDescargar={descargarDesdeModal}
+            onPdf={descargarPdf}
             onEditar={() => setFase("datos")}
             escritorio={escritorio}
             puedeCopiar={puedeCopiar}
@@ -438,6 +552,7 @@ export function EnviarCotizacion({
               emitida={emitida}
               cliente={cliente}
             />
+            <FichaCuentas ref={cuentas} emitida={emitida} />
           </div>,
           document.body,
         )}

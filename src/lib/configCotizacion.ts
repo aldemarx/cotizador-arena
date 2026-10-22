@@ -41,7 +41,7 @@ export const COMPARTIR_EN_ESCRITORIO = false;
 
 /**
  * Cantidades de cuotas que el asesor puede elegir en el cotizador. La regla es que el TOTAL NO CAMBIA
- * con el plazo (precio con dscto = contado + inicial): solo se divide en más o menos cuotas. Cámbialo
- * según las reglas de tu producto.
+ * con el plazo (precio con dscto = contado + inicial): solo se divide en más o menos cuotas. Más
+ * adelante saldrá de los parámetros de cada proyecto (docs/plan-escalamiento-supabase.md, fase 6).
  */
-export const PLAZOS_CUOTAS = [12, 24, 36, 48, 60, 80] as const;
+export const PLAZOS_CUOTAS = [60, 80] as const;

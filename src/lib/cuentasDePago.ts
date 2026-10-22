@@ -11,7 +11,7 @@ export type Banco = {
   cuentas: Cuenta[];
 };
 
-export const TITULAR = "Nombre de la Empresa S.A.C.";
+export const TITULAR = "Constructora y Urbanizadora Las Pampas S.A.C.";
 
 export const BANCOS: Banco[] = [
   {
@@ -20,7 +20,7 @@ export const BANCOS: Banco[] = [
     alto: "h-8",
     color: "#20a6ff",
     cuentas: [
-      { moneda: "SOLES", numero: "0000000000", cci: "038-710-100000000000-08" },
+      { moneda: "SOLES", numero: "7000763736", cci: "038-710-107000763736-08" },
     ],
   },
   {
@@ -31,9 +31,15 @@ export const BANCOS: Banco[] = [
     cuentas: [
       {
         moneda: "SOLES",
-        numero: "000-0000000000",
-        cci: "000-000-000000000000-00",
+        numero: "400-3005850188",
+        cci: "003-400-003005850188-90",
       },
+      // Cuenta en dólares: oculta por ahora (descomentar para volver a mostrarla).
+      // {
+      //   moneda: "DÓLARES",
+      //   numero: "400-3005850195",
+      //   cci: "003-400-003005850195-95",
+      // },
     ],
   },
 ];

@@ -127,7 +127,7 @@ const TOTAL = BONDADES.length;
 const AUTOPLAY_MS = 3500;
 
 /**
- * Amenidades de Altos de Sacta. Mismo lenguaje visual que el resto de la página:
+ * Amenidades del proyecto. Mismo lenguaje visual que el resto de la página:
  * tarjeta dentro del mismo contenedor que el cotizador, con la lista de
  * amenidades a la izquierda y la foto a la derecha.
  */
@@ -155,7 +155,7 @@ export function BondadesCarrusel() {
       <div className="card p-6 lg:p-10">
         <div className="mb-4 flex flex-col gap-2 border-b border-[var(--border)] pb-4 lg:mb-8 lg:flex-row lg:items-end lg:justify-between lg:gap-10 lg:pb-8">
           <div className="text-center lg:pl-6 lg:text-left">
-            <p className="flex items-center justify-center gap-3 text-xs font-semibold tracking-[0.14em] text-[var(--text-muted)] uppercase lg:justify-start">
+            <p className="flex items-center justify-center gap-3 text-xs font-semibold tracking-[0.14em] text-[var(--text-muted)] uppercase sm:text-[13px] lg:justify-start">
               <span className="flex shrink-0 items-center gap-1" aria-hidden>
                 <span className="h-2.5 w-2.5 rounded-full bg-[#10b981]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#F5A623]" />
@@ -262,7 +262,7 @@ export function BondadesCarrusel() {
               <img
                 key={b.label}
                 src={b.foto}
-                alt={`${b.label} - Altos de Sacta`}
+                alt={`${b.label} - Arenas del Valle`}
                 draggable={false}
                 className="pointer-events-none absolute inset-0 h-full w-full object-cover transition-opacity duration-700 select-none [-webkit-user-drag:none]"
                 style={{ opacity: i === activo ? 1 : 0 }}

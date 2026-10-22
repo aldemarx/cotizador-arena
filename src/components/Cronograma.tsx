@@ -1,4 +1,4 @@
-import { type FilaCalendario } from "@/lib/altosDeSacta";
+import { type FilaCalendario } from "@/lib/arenas";
 import { Soles } from "@/components/Soles";
 
 type CronogramaProps = {

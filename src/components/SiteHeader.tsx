@@ -21,7 +21,7 @@ export function SiteHeader() {
             aria-hidden
             className="h-4 w-px bg-[var(--ceinys-grafito-300)]"
           />
-          <span className="text-[var(--text-primary)]">Altos de Sacta</span>
+          <span className="text-[var(--text-primary)]">Arenas del Valle</span>
         </p>
 
         <p className="m-0 flex items-center gap-2 justify-self-end text-[length:clamp(0.6875rem,0.6vw,0.8125rem)] font-medium tracking-wide whitespace-nowrap text-[var(--text-secondary)] col-start-3">

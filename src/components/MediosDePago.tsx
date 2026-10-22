@@ -20,7 +20,7 @@ function Dato({ etiqueta, valor }: { etiqueta: string; valor: string }) {
   return (
     <div className="flex items-center justify-between gap-3">
       <div className="min-w-0">
-        <p className="m-0 text-[10px] font-semibold tracking-wide text-[var(--text-muted)] uppercase sm:text-xs sm:tracking-wider">
+        <p className="m-0 text-[10px] font-semibold tracking-wide text-[var(--text-muted)] uppercase sm:text-[13px] sm:tracking-wider">
           {etiqueta}
         </p>
         <p className="m-0 mt-0.5 text-[13px] max-[340px]:text-[11px] font-semibold whitespace-nowrap text-[var(--text-primary)] [font-variant-numeric:tabular-nums] min-[400px]:text-sm sm:text-base">
@@ -71,7 +71,7 @@ export function MediosDePago() {
       <div className="card p-6 max-[340px]:p-4 lg:p-10">
         <div className="mb-4 flex flex-col gap-2 border-b border-[var(--border)] pb-4 lg:mb-8 lg:flex-row lg:items-end lg:justify-between lg:gap-10 lg:pb-8">
           <div className="text-center lg:pl-6 lg:text-left">
-            <p className="flex items-center justify-center gap-3 text-xs font-semibold tracking-[0.14em] text-[var(--text-muted)] uppercase lg:justify-start">
+            <p className="flex items-center justify-center gap-3 text-xs font-semibold tracking-[0.14em] text-[var(--text-muted)] uppercase sm:text-[13px] lg:justify-start">
               <span className="flex shrink-0 items-center gap-1" aria-hidden>
                 <span className="h-2.5 w-2.5 rounded-full bg-[#10b981]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#F5A623]" />
@@ -124,7 +124,7 @@ export function MediosDePago() {
                     className="flex flex-col gap-4 px-4 py-5 max-[340px]:px-3 sm:px-8"
                   >
                     <span
-                      className="inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 text-[11px] font-bold tracking-wider uppercase"
+                      className="inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 text-[11px] font-bold tracking-wider uppercase sm:text-[13px]"
                       style={{
                         background: `${COLOR_MONEDA[c.moneda]}1a`,
                         color: COLOR_MONEDA[c.moneda],
