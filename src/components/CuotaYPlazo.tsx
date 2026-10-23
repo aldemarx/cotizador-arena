@@ -24,7 +24,7 @@ export function CuotaYPlazo({
   return (
     <div className="flex flex-col items-center gap-3 px-2 pt-4 pb-3 text-center">
       <p className="m-0 flex items-center justify-center gap-2 text-[10px] font-semibold tracking-wide text-[var(--text-muted)] uppercase sm:text-[15px] sm:tracking-wider">
-        <span aria-hidden className="h-2 w-2 shrink-0 rounded-full bg-[#5f9b3c]" />
+        <span aria-hidden className={`h-2 w-2 shrink-0 rounded-full transition-colors ${plazo === PLAZOS_CUOTAS[0] ? "bg-[#2b7de0]" : "bg-[#5f9b3c]"}`} />
         Tu cuota mensual
       </p>
 
@@ -50,7 +50,7 @@ export function CuotaYPlazo({
         className="grid w-full max-w-[22rem] grid-cols-2 gap-1 rounded-xl bg-[var(--surface-2)] p-1"
         style={{ gridTemplateColumns: `repeat(${PLAZOS_CUOTAS.length}, minmax(0, 1fr))` }}
       >
-        {PLAZOS_CUOTAS.map((n) => {
+        {PLAZOS_CUOTAS.map((n, i) => {
           const activo = n === plazo;
           return (
             <button
@@ -61,7 +61,7 @@ export function CuotaYPlazo({
               onClick={() => onCambiarPlazo(n)}
               className={`h-11 rounded-lg text-sm font-semibold transition-colors sm:text-base ${
                 activo
-                  ? "bg-[#5f9b3c] text-white shadow-sm"
+                  ? `${i === 0 ? "bg-[#2b7de0]" : "bg-[#5f9b3c]"} text-white shadow-sm`
                   : "text-[var(--text-secondary)] hover:bg-white"
               }`}
             >

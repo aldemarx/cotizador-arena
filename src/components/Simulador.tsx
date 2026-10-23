@@ -132,10 +132,21 @@ export function Simulador({
     [loteBase, plazo],
   );
   // La vista previa del lote (otra parte de la página) sigue al lote que se cotiza.
-  const { elegir: publicarLote } = useLoteActivo();
+  const { elegir: publicarLote, pedido } = useLoteActivo();
   useEffect(() => {
     publicarLote(loteBase.lote);
   }, [loteBase.lote, publicarLote]);
+  // Un lote tocado en la vista previa pasa a ser el que se cotiza.
+  useEffect(() => {
+    if (!pedido) return;
+    const l = buscarLotePorId(pedido.codigo, lotes);
+    if (!l) return;
+    // Atiende un pedido de otro componente (sistema externo al cotizador).
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMzFiltro(l.mz);
+    elegirLote(l.lote);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pedido]);
   const modalidades = modalidadesDe(lote);
   const libre = estaLibre(lote);
   const manzanas = manzanasDisponibles(lotes);
@@ -478,6 +489,7 @@ export function Simulador({
             <InicialDinamica
               lote={lote}
               modo={inicialModo}
+              azul={plazo === PLAZOS_CUOTAS[0]}
               onCambiar={setInicialModo}
             />
           </TarjetaInfo>
@@ -698,10 +710,13 @@ function FilaDato({
 function InicialDinamica({
   lote,
   modo,
+  azul,
   onCambiar,
 }: {
   lote: Lote;
   modo: InicialModo;
+  /** Con el plazo corto (60) la selección va en azul, igual que en el selector de cuotas. */
+  azul: boolean;
   onCambiar: (m: InicialModo) => void;
 }) {
   const partes = partesDeInicial(lote, modo);
@@ -726,7 +741,7 @@ function InicialDinamica({
               onClick={() => onCambiar(m.key)}
               className={`rounded-lg border py-2.5 text-sm font-semibold transition-colors sm:text-base ${
                 modo === m.key
-                  ? "border-[#5f9b3c] bg-[#5f9b3c] text-white shadow-sm"
+                  ? `${azul ? "border-[#2b7de0] bg-[#2b7de0]" : "border-[#5f9b3c] bg-[#5f9b3c]"} text-white shadow-sm`
                   : "border-[var(--border)] bg-[var(--surface-1)] text-[var(--text-secondary)] hover:bg-[var(--surface-2)]"
               }`}
             >

@@ -1,13 +1,12 @@
 import { Simulador } from "@/components/Simulador";
 import { LOTES } from "@/lib/arenas";
-import { ClubHouseShowcase } from "@/components/ClubHouseShowcase";
+import { ColumnaDerecha } from "@/components/ColumnaDerecha";
 import { BondadesCarrusel } from "@/components/BondadesCarrusel";
 import { AjustePantalla } from "@/components/AjustePantalla";
 import { RedesSociales } from "@/components/RedesSociales";
 import { MediosDePago } from "@/components/MediosDePago";
 import { BotonVerPlano } from "@/components/BotonVerPlano";
 import { LoteActivoProvider } from "@/components/LoteActivo";
-import { VistaPreviaLote } from "@/components/VistaPreviaLote";
 
 // Plantilla sin base de datos: los productos salen del JSON de src/data (ver docs/plantilla-cotizador-marca-blanca.md).
 export default async function Home({
@@ -31,15 +30,7 @@ export default async function Home({
             </p>
           )}
         </div>
-        <div className="flex w-full flex-col gap-4 lg:min-h-0 lg:flex-1">
-          {/* Mitad y mitad: cada bloque va en su propia caja sin relleno, para que el reparto del alto sea exactamente igual. */}
-          <div className="flex flex-col lg:min-h-0 lg:flex-[1_1_0px]">
-            <VistaPreviaLote />
-          </div>
-          <div className="flex flex-col lg:min-h-0 lg:flex-[1_1_0px]">
-            <ClubHouseShowcase />
-          </div>
-        </div>
+        <ColumnaDerecha />
       </AjustePantalla>
       </LoteActivoProvider>
       <BondadesCarrusel />

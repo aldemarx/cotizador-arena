@@ -41,7 +41,7 @@ const ESTILO = `
 .mapa-lotes.con-filtro path[id^="lote-"][data-f="0"] { fill: #efe9d8; }
 .mapa-lotes.con-filtro #metrajes text[data-f="0"] { display: none; }
 .mapa-lotes.sin-numeros #metrajes { display: none; }
-.mapa-lotes.sin-numeros .ins text, .mapa-lotes.sin-numeros .ins .aro, .mapa-lotes.sin-numeros .ins .som { display: none; }
+.mapa-lotes.sin-numeros .ins text { display: none; }
 .mapa-lotes #metrajes text { fill: #7a736c; font-weight: 600; paint-order: stroke; stroke: #fef7e2; stroke-opacity: 0.9; stroke-width: 0.35; stroke-linejoin: round; }
 .mapa-lotes .ins.sel .cue { stroke: var(--sel, #1e3a8a); stroke-width: 0.35; }
 `;

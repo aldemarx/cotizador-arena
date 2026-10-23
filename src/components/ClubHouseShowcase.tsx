@@ -19,14 +19,14 @@ const TEMA: "arena" | "ladrillo" = "arena";
 
 const TEMAS = {
   arena: {
-    // Humo claro, liso (sin degradado ni tinte de color): gris perla neutro que se distingue del fondo de la página.
-    panel: "border border-[#dddcd8] text-[#4a2c22] shadow-[0_10px_30px_-18px_rgba(30,30,28,0.3)]",
-    fondo: "#efefed",
+    // Tarjeta blanca con el borde y la sombra de las demás tarjetas del cotizador.
+    panel: "card text-[#4a2c22]",
+    fondo: "var(--surface-1)",
     simbolo: "/images/club-carhuaz/simbolo-club-carhuaz.webp",
     linea: "bg-[#4a2c22]/20",
     titulo: "text-[#4a2c22]",
     subtitulo: "text-[#7a5a4c]",
-    marco: "border-[3px] border-white bg-white shadow-[0_14px_32px_-14px_rgba(74,44,34,0.55)]",
+    marco: "border border-[var(--border)] bg-white",
     foco: "focus-visible:outline-[#b5573b]",
     pastilla: "bg-white/75 text-[#4a2c22]",
     flecha: "bg-white/90 text-[#4a2c22] shadow-md hover:bg-white",
@@ -97,7 +97,7 @@ export function ClubHouseShowcase() {
 
   return (
     <div
-      className={`overflow-hidden rounded-2xl p-6 sm:p-8 lg:flex lg:flex-1 lg:flex-col ${T.panel}`}
+      className={`overflow-hidden rounded-2xl p-6 pt-6 sm:p-8 sm:pt-6 lg:flex lg:flex-1 lg:flex-col ${T.panel}`}
       style={{ background: T.fondo }}
     >
       <div className="flex flex-col items-center gap-3 text-center">
@@ -147,19 +147,28 @@ export function ClubHouseShowcase() {
           else irA(activo + 1);
         }}
       >
-        {/* Fundido entre fotos: todas apiladas, solo la actual es visible */}
-        {FOTOS.map((f, i) => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            key={f.src}
-            src={f.src}
-            alt={i === activo ? `Club Carhuaz: ${f.titulo}` : ""}
-            aria-hidden={i !== activo}
-            draggable={false}
-            loading={i === 0 ? "eager" : "lazy"}
-            className={`pointer-events-none absolute inset-0 h-full w-full object-cover transition-opacity duration-700 [-webkit-user-drag:none] ${i === activo ? "opacity-100" : "opacity-0"}`}
-          />
-        ))}
+        {/* Dos fotos lado a lado (la actual y la siguiente; en el celular solo la actual). Dentro de cada una, fundido: todas apiladas, solo una visible. */}
+        <div className="absolute inset-0 grid grid-cols-1 gap-[3px] bg-white sm:grid-cols-2">
+          {[0, 1].map((lado) => {
+            const visible = (activo + lado) % total;
+            return (
+              <div key={lado} className={`relative overflow-hidden ${lado === 1 ? "hidden sm:block" : ""}`}>
+                {FOTOS.map((f, i) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    key={f.src}
+                    src={f.src}
+                    alt={lado === 0 && i === activo ? `Club Carhuaz: ${f.titulo}` : ""}
+                    aria-hidden={lado === 1 || i !== activo}
+                    draggable={false}
+                    loading={i === 0 ? "eager" : "lazy"}
+                    className={`pointer-events-none absolute inset-0 h-full w-full object-cover transition-opacity duration-700 [-webkit-user-drag:none] ${i === visible ? "opacity-100" : "opacity-0"}`}
+                  />
+                ))}
+              </div>
+            );
+          })}
+        </div>
 
         {/* Pie sobre un degradado oscuro: qué se ve, cuál foto es y el avance de cada una */}
         <div className={`absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t ${T.pie} to-transparent px-3.5 pt-12 pb-2.5`}>
