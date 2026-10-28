@@ -10,7 +10,7 @@ import {
   type ReactNode,
 } from "react";
 import Link from "next/link";
-import { formatSoles } from "@/lib/arenas";
+import { formatSoles, type EstadoLote } from "@/lib/arenas";
 import { SelectorManzana } from "@/components/SelectorManzana";
 
 export type LoteMapa = {
@@ -23,7 +23,43 @@ export type LoteMapa = {
   /** Precio con descuento (el que ve el cliente). */
   precio: number | null;
   promocion?: "standard" | "preferencial";
+  /** Estado del lote (libre, separado o vendido). Sin él se dibuja como libre. */
+  estado?: EstadoLote;
+  /** Bloqueado por gerencia (el asesor lo ve como «Reservado»; solo el administrador lo recibe). */
+  bloqueoGerencia?: boolean;
+  /** Existe en el plano pero no tiene precio cargado. */
+  sinPrecio?: boolean;
+  /** Identificador en la base de datos (solo el mapa de administración lo necesita). */
+  dbId?: string;
 };
+
+export type ClaseLote = "libre" | "reservado" | "vendido" | "gerencia";
+
+/** Un lote vendido siempre se ve vendido; el bloqueo de gerencia manda sobre disponible y separado. */
+export const claseDeLote = (l: LoteMapa): ClaseLote => {
+  if (l.estado === "vendido") return "vendido";
+  if (l.bloqueoGerencia) return "gerencia";
+  if ((l.estado ?? "libre") === "libre") return "libre";
+  return l.sinPrecio ? "gerencia" : "reservado";
+};
+
+export const NOMBRE_CLASE: Record<ClaseLote, string> = {
+  libre: "Disponible",
+  reservado: "Separado",
+  gerencia: "Bloqueado por gerencia",
+  vendido: "Vendido",
+};
+
+/** Colores de cada estado (los mismos de los marcadores del plano). */
+export const COLOR_CLASE: Record<ClaseLote, string> = {
+  libre: "#10b981",
+  reservado: "#f5a623",
+  vendido: "#e11d48",
+  gerencia: "#6b7280",
+};
+
+/** Datos del lote tocado, para el panel propio del modo administración. */
+export type ContextoPanel = { elegido: LoteMapa | undefined };
 
 type Vista = { x: number; y: number; w: number; h: number };
 
@@ -44,6 +80,11 @@ const ESTILO = `
 .mapa-lotes.sin-numeros .ins text { display: none; }
 .mapa-lotes #metrajes text { fill: #7a736c; font-weight: 600; paint-order: stroke; stroke: #fef7e2; stroke-opacity: 0.9; stroke-width: 0.35; stroke-linejoin: round; }
 .mapa-lotes .ins.sel .cue { stroke: var(--sel, #1e3a8a); stroke-width: 0.35; }
+/* El estado se pinta en el marcador del lote (el disponible conserva el verde del plano). */
+.mapa-lotes g.ins[data-e="reservado"] .cue { fill: ${COLOR_CLASE.reservado}; }
+.mapa-lotes g.ins[data-e="vendido"] .cue { fill: ${COLOR_CLASE.vendido}; }
+.mapa-lotes g.ins[data-e="gerencia"] .cue { fill: ${COLOR_CLASE.gerencia}; }
+.mapa-lotes #metrajes text[data-e="vendido"], .mapa-lotes #metrajes text[data-e="gerencia"] { fill: #b5aea1; }
 `;
 
 const RANGOS_METRAJE = [
@@ -53,7 +94,7 @@ const RANGOS_METRAJE = [
   { texto: "Más de 300 m²", min: "301", max: "" },
 ];
 
-const BTN_MAPA =
+export const BTN_MAPA =
   "min-h-10 rounded-lg border border-[var(--border)] bg-[var(--surface-1)] px-3 text-xs font-semibold text-[var(--text-secondary)] transition-colors hover:bg-[var(--surface-2)] disabled:opacity-50";
 
 /**
@@ -64,8 +105,14 @@ export function MapaLotes({
   lotes,
   loteInicial,
   volver,
+  panel,
+  alSeleccionar,
 }: {
   lotes: LoteMapa[];
+  /** Panel propio para el lote tocado (el mapa de administración pone aquí sus botones de estado). Sin él se muestra la ficha con «Cotizar». */
+  panel?: (ctx: ContextoPanel) => ReactNode;
+  /** Se llama cada vez que se toca otro lote (o el fondo): sirve para limpiar confirmaciones pendientes. */
+  alSeleccionar?: () => void;
   /** Lote («R4-32») que arranca seleccionado y con el plano acercado a él. */
   loteInicial?: string;
   /** Botón de regreso (flota arriba a la izquierda del plano). */
@@ -151,6 +198,8 @@ export function MapaLotes({
     raiz.querySelectorAll<SVGGElement>("g.ins[data-lote]").forEach((g) => {
       const l = porClave.get(g.getAttribute("data-lote") ?? "");
       if (!l) return;
+      const clase = claseDeLote(l);
+      g.setAttribute("data-e", clase);
       const pos = g.getAttribute("data-m")?.split(" ").map(Number);
       if (!l.metraje || !pos || pos.length < 6) return;
       const [x, y, giro, largo, alto, lado] = pos;
@@ -166,6 +215,7 @@ export function MapaLotes({
       t.setAttribute("font-size", fuente.toFixed(2));
       t.setAttribute("transform", `rotate(${giro} ${x} ${y})`);
       t.setAttribute("data-lote", g.getAttribute("data-lote") ?? "");
+      t.setAttribute("data-e", clase);
       t.textContent = texto;
       grupo.appendChild(t);
     });
@@ -263,6 +313,7 @@ export function MapaLotes({
   const alHacerClic = (e: React.MouseEvent) => {
     if (arrastre.current.movio) return;
     const p = (e.target as Element).closest('path[id^="lote-"]');
+    alSeleccionar?.();
     setSel(p ? p.id.slice(5) : null);
   };
 
@@ -353,6 +404,7 @@ export function MapaLotes({
   const irA = (clave: string) => {
     setErrorBusca(null);
     setListaAbierta(false);
+    alSeleccionar?.();
     setSel(clave);
     acercarA(clave);
   };
@@ -368,6 +420,12 @@ export function MapaLotes({
   };
 
   const elegido = sel ? porClave.get(sel) : undefined;
+  // Leyenda: solo los estados que de verdad hay en el plano.
+  const clasesPresentes = useMemo(() => {
+    const presentes = new Set(lotes.map(claseDeLote));
+    return (["reservado", "vendido", "gerencia"] as const).filter((c) => presentes.has(c));
+  }, [lotes]);
+  const hayEstados = clasesPresentes.length > 0;
   // ¿Está dibujado en el plano? (el DWG de origen no trae los contornos de algunos lotes)
   const dibujado = useMemo(
     () => !!elegido && !!svg && svg.includes(`id="lote-${elegido.id}"`),
@@ -516,12 +574,22 @@ export function MapaLotes({
             ×
           </button>
           <div className="max-h-[52dvh] overflow-y-auto rounded-2xl shadow-[0_10px_30px_-10px_rgba(20,22,28,0.4)] lg:max-h-[calc(100dvh-14rem)]">
-            <FichaLote lote={elegido} dibujado={dibujado} />
+            {panel ? panel({ elegido }) : <FichaLote lote={elegido} dibujado={dibujado} />}
           </div>
         </div>
 
         {/* Filtro por metraje: abajo a la izquierda; el panel se abre hacia arriba */}
         <div className="absolute bottom-2 left-2 z-10 flex flex-col items-start gap-2 lg:bottom-3 lg:left-3">
+          {hayEstados && (
+            <ul className="m-0 flex list-none flex-wrap items-center gap-x-3 gap-y-1 rounded-xl border border-[var(--border)] bg-white/95 px-3 py-2 text-[11px] font-semibold text-[var(--text-secondary)] shadow-sm">
+              {(["libre", ...clasesPresentes] as ClaseLote[]).map((c) => (
+                <li key={c} className="flex items-center gap-1.5">
+                  <span aria-hidden className="h-2.5 w-2.5 rounded-full" style={{ background: COLOR_CLASE[c] }} />
+                  {c === "gerencia" && !panel ? "Reservado" : NOMBRE_CLASE[c]}
+                </li>
+              ))}
+            </ul>
+          )}
           {filtroAbierto && (
             <div className="w-[17.5rem] rounded-2xl border border-[var(--border)] bg-white/95 p-3.5 shadow-[0_10px_30px_-10px_rgba(20,22,28,0.4)] backdrop-blur">
               <p className="m-0 mb-2.5 text-[11px] font-semibold tracking-[0.16em] text-[var(--text-muted)] uppercase">
@@ -673,6 +741,16 @@ function FichaLote({ lote, dibujado }: { lote: LoteMapa | undefined; dibujado: b
             </h2>
           </div>
 
+          {claseDeLote(lote) !== "libre" && (
+            <p
+              role="status"
+              className="m-0 border-t border-[var(--border)] px-4 py-2.5 text-xs font-bold tracking-wider uppercase sm:px-5"
+              style={{ color: COLOR_CLASE[claseDeLote(lote)] }}
+            >
+              ● {claseDeLote(lote) === "gerencia" ? "Reservado" : NOMBRE_CLASE[claseDeLote(lote)]}{claseDeLote(lote) === "gerencia" ? " · no está disponible" : " · no se puede enviar la cotización"}
+            </p>
+          )}
+
           <dl className="m-0 border-t border-[var(--border)] max-lg:grid max-lg:grid-cols-2">
             <div className="flex items-center justify-between gap-4 px-4 py-2.5 max-lg:flex-col max-lg:items-center max-lg:justify-center max-lg:gap-0.5 max-lg:py-2 sm:px-5">
               <dt className="text-sm text-[var(--text-secondary)]">Metraje</dt>
@@ -702,6 +780,7 @@ function FichaLote({ lote, dibujado }: { lote: LoteMapa | undefined; dibujado: b
             </p>
           )}
 
+          {claseDeLote(lote) !== "gerencia" && (
           <div className="border-t border-[var(--border)] p-4 max-lg:p-3 sm:px-5">
             <Link
               href={`/?lote=${encodeURIComponent(lote.id)}`}
@@ -710,6 +789,7 @@ function FichaLote({ lote, dibujado }: { lote: LoteMapa | undefined; dibujado: b
               Cotizar este lote
             </Link>
           </div>
+          )}
         </div>
       )}
     </section>

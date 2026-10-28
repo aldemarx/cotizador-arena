@@ -11,11 +11,14 @@ export function SelectorManzana({
   valor,
   onCambiar,
   compacto = false,
+  anchoCompleto = false,
 }: {
   manzanas: string[];
   valor: string;
   onCambiar: (mz: string) => void;
   compacto?: boolean;
+  /** La lista abre con el ancho del contenedor que la rodea (que debe ser `relative`), no con el del botón: para cuando el botón ocupa media columna. */
+  anchoCompleto?: boolean;
 }) {
   const [abierto, setAbierto] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -38,7 +41,7 @@ export function SelectorManzana({
   }, [abierto]);
 
   return (
-    <div ref={ref} className={`relative ${compacto ? "shrink-0" : "w-full"}`}>
+    <div ref={ref} className={anchoCompleto ? "" : `relative ${compacto ? "shrink-0" : "w-full"}`}>
       <button
         type="button"
         aria-haspopup="listbox"
@@ -48,7 +51,7 @@ export function SelectorManzana({
         className={
           compacto
             ? "flex h-10 items-center gap-1.5 rounded-lg border border-[var(--border)] bg-[var(--surface-1)] px-2.5 text-sm font-semibold text-[var(--text-secondary)] transition-colors hover:bg-[var(--surface-2)]"
-            : "selectCampo relative flex h-12 w-full items-center !py-0 !pr-3 !pl-12 text-left !font-semibold"
+            : "selectCampo relative flex h-12 w-full items-center !py-0 !pr-12 !pl-12 text-center !font-semibold"
         }
       >
         {!compacto && (
@@ -64,7 +67,14 @@ export function SelectorManzana({
             </svg>
           </span>
         )}
-        <span className="min-w-0 flex-1 truncate">{compacto ? `Mz ${valor}` : `Manzana ${valor}`}</span>
+        <span className="min-w-0 flex-1 truncate">
+          {compacto ? `Mz ${valor}` : anchoCompleto ? (
+            <>
+              <span className="sm:hidden">Mz</span>
+              <span className="max-sm:hidden">Manzana</span> {valor}
+            </>
+          ) : `Manzana ${valor}`}
+        </span>
         <svg
           aria-hidden
           viewBox="0 0 24 24"
@@ -73,7 +83,7 @@ export function SelectorManzana({
           strokeWidth={2}
           strokeLinecap="round"
           strokeLinejoin="round"
-          className={`h-4 w-4 shrink-0 text-[var(--text-muted)] transition-transform ${abierto ? "rotate-180" : ""}`}
+          className={`h-4 w-4 shrink-0 text-[var(--text-muted)] transition-transform ${compacto ? "" : "absolute top-1/2 right-3 -translate-y-1/2"} ${abierto ? "rotate-180" : ""}`}
         >
           <path d="m6 9 6 6 6-6" />
         </svg>
@@ -83,9 +93,13 @@ export function SelectorManzana({
         <div
           role="listbox"
           aria-label="Manzanas"
-          className={`absolute top-full left-0 z-30 mt-1.5 rounded-xl border border-[var(--border)] bg-white p-2 shadow-[0_12px_32px_rgba(20,22,28,0.14)] ${compacto ? "w-52" : "w-full"}`}
+          className={`absolute top-full z-30 rounded-xl border border-[var(--border)] bg-white p-2 shadow-[0_12px_32px_rgba(20,22,28,0.14)] ${
+            anchoCompleto ? "inset-x-4 -mt-1" : `left-0 mt-1.5 ${compacto ? "w-52" : "w-full"}`
+          }`}
         >
-          <div className="grid max-h-64 grid-cols-2 gap-1.5 overflow-y-auto sm:gap-1">
+          <div
+            className={`grid max-h-64 gap-1.5 overflow-y-auto sm:gap-1 ${anchoCompleto ? "grid-cols-3 sm:grid-cols-4" : "grid-cols-2"}`}
+          >
             {manzanas.map((mz) => {
               const elegida = mz === valor;
               return (
@@ -99,13 +113,13 @@ export function SelectorManzana({
                     onCambiar(mz);
                     setAbierto(false);
                   }}
-                  className={`rounded-lg px-3 py-2.5 text-left text-xs font-semibold transition-colors sm:text-sm ${
+                  className={`rounded-lg px-3 py-2.5 text-xs font-semibold transition-colors sm:text-sm ${anchoCompleto ? "text-center" : "text-left"} ${
                     elegida
                       ? "bg-[var(--ceinys-grafito-700)] text-white"
                       : "text-[var(--text-secondary)] hover:bg-[var(--surface-2)] hover:text-[var(--text-primary)] max-sm:border max-sm:border-[var(--border)]"
                   }`}
                 >
-                  Manzana {mz}
+                  {anchoCompleto ? `Mz ${mz}` : `Manzana ${mz}`}
                 </button>
               );
             })}

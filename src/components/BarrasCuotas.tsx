@@ -62,7 +62,7 @@ export function CuotasPorMes({
   monto,
   cuotas,
   color,
-  mesInicial = 2,
+  mesInicial = 1,
 }: {
   monto: number;
   cuotas: number;

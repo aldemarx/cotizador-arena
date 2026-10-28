@@ -451,7 +451,7 @@ export function EnviarCotizacion({
         disabled={ocupado || !!bloqueo}
         aria-label={bloqueo ?? "Enviar cotización por WhatsApp"}
         title={bloqueo}
-        className="flex shrink-0 items-center gap-1.5 rounded-lg border border-[var(--border)] bg-[var(--surface-1)] px-3 py-2 text-xs font-semibold sm:text-[13px] text-[var(--text-secondary)] transition-colors hover:bg-[var(--surface-2)] disabled:cursor-not-allowed disabled:opacity-60 max-[360px]:px-2.5"
+        className="flex shrink-0 items-center gap-2 rounded-xl border border-[#4c8030] bg-[#5f9b3c] px-4 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[#528a33] active:translate-y-px disabled:cursor-not-allowed disabled:opacity-60 sm:px-6 sm:py-3 sm:text-base max-[360px]:px-3"
       >
         <svg
           viewBox="0 0 24 24"
@@ -460,7 +460,7 @@ export function EnviarCotizacion({
           strokeWidth={2}
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="h-4 w-4"
+          className="h-5 w-5 sm:h-[22px] sm:w-[22px]"
           aria-hidden
         >
           <circle cx="18" cy="5" r="3" />
@@ -469,9 +469,7 @@ export function EnviarCotizacion({
           <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" />
           <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" />
         </svg>
-        <span className="max-[420px]:sr-only">
-          {ocupado ? "Preparando…" : "Enviar"}
-        </span>
+        <span>{ocupado ? "Preparando…" : "Enviar"}</span>
       </button>
 
       {aviso && (

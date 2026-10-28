@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Splash } from "@/components/Splash";
+import { nombreDeSesion } from "@/lib/asesor/sesion";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -15,12 +16,13 @@ export const metadata: Metadata = {
   description: "Comparador de cuotas: clásico, ascendente y descendente.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const usuario = await nombreDeSesion();
   return (
     <html lang="es" className={`${montserrat.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col lg:flex-row" suppressHydrationWarning>
         <Splash />
-        <SiteHeader />
+        <SiteHeader usuario={usuario} />
         <div className="min-w-0 flex-1 pt-[var(--barra-h)] lg:pt-0">{children}</div>
       </body>
     </html>

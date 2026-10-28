@@ -1,11 +1,13 @@
 import { notFound } from "next/navigation";
 import {
   buscarLotePorId,
+  conInicial,
   conPlazo,
   INICIAL_MODOS,
-  LOTES,
+  INICIAL_POR_DEFECTO,
   type InicialModo,
 } from "@/lib/arenas";
+import { LOTES_JSON } from "@/lib/lotesJson";
 import {
   FORMATO_FICHA,
   FORMATOS_FICHA,
@@ -19,8 +21,8 @@ import {
 
 /**
  * Vista previa en pantalla de las dos imágenes de la cotización (solo desarrollo).
- *   /ficha                          → lote 5-1, inicial en 2 partes, formato configurado
- *   /ficha?lote=5-440&inicial=tres  → otro lote / forma de pago (completa | dos | tres)
+ *   /ficha                          → lote 5-1, inicial de S/ 2,000, formato configurado
+ *   /ficha?lote=5-440&inicial=500   → otro lote / otra inicial (500 | 1000 | 2000)
  *   /ficha?zoom=1                   → tamaño real
  *   /ficha?formato=cuadrado         → compara con el formato anterior (cuadrado | vertical)
  *   /ficha?nombre=Ana%20Pérez&dni=74123456 → con otros datos del cliente
@@ -58,13 +60,16 @@ export default async function VistaPreviaFicha({
     cuotas,
     solo,
   } = await searchParams;
-  const lotes = LOTES;
+  const lotes = LOTES_JSON;
+  const inicialModo = (INICIAL_MODOS.find((m) => m.key === inicial)?.key ??
+    INICIAL_POR_DEFECTO) as InicialModo;
   const lote = conPlazo(
-    (idLote && buscarLotePorId(idLote, lotes)) || lotes[0],
+    conInicial(
+      (idLote && buscarLotePorId(idLote, lotes)) || lotes[0],
+      Number(inicialModo),
+    ),
     Number(cuotas) || 80,
   );
-  const inicialModo = (INICIAL_MODOS.find((m) => m.key === inicial)?.key ??
-    "dos") as InicialModo;
   const formato = (
     f && f in FORMATOS_FICHA ? f : FORMATO_FICHA
   ) as FormatoFicha;

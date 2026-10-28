@@ -1,4 +1,3 @@
-import data from "@/data/arenas-lotes.json";
 
 // Datos y pendientes: docs/pendientes-arenas.md. El JSON (src/data/arenas-lotes.json) lo genera
 // scripts/consolidar-arenas.py a partir de los dos Excel de Arenas y trae, por lote, metraje, precio
@@ -92,7 +91,8 @@ export type Parametros = {
   calendario: string;
 };
 
-type LoteJson = {
+/** Un lote tal como lo guarda el JSON (y como se reconstruye desde Supabase). */
+export type LoteJson = {
   lote: string;
   mz: string;
   lt: number;
@@ -111,9 +111,7 @@ type LoteJson = {
   } | null;
 };
 
-const DATA = data as { proyecto: string; lotes: LoteJson[] };
-
-export const PROYECTO = DATA.proyecto;
+export const PROYECTO = "Arenas del Valle";
 
 /** Reglas de Arenas (Excel «ARENAS Y AURA»): sin interés, inicial S/ 2,000 en dos partes, cuota fija = contado / cuotas. */
 export const PARAMETROS: Parametros = {
@@ -154,8 +152,8 @@ export function buscarLotePorId(id: string, lotes: Lote[]): Lote | undefined {
 
 export function filtrarLotesPorTexto(
   texto: string,
-  opciones?: { mz?: string; limite?: number },
-  lotes: Lote[] = LOTES,
+  opciones: { mz?: string; limite?: number } | undefined,
+  lotes: Lote[],
 ): Lote[] {
   const q = texto.trim().toUpperCase();
   const limite = opciones?.limite ?? 8;
@@ -165,7 +163,7 @@ export function filtrarLotesPorTexto(
   return base.filter((l) => l.lote.toUpperCase().includes(q)).slice(0, limite);
 }
 
-export function manzanasDisponibles(lotes: Lote[] = LOTES): string[] {
+export function manzanasDisponibles(lotes: Lote[]): string[] {
   return Array.from(new Set(lotes.map((l) => l.mz))).sort(
     (a, b) => numeroDeManzana(a) - numeroDeManzana(b),
   );
@@ -205,9 +203,8 @@ export function expandirCuotas(
         tramo: i + 1,
         monto,
         esInicioTramo: j === 0,
-        // Calendario real: la cuota "numero" se paga en el mes numero+1
-        // (mes 0 = firma, mes 1 = 2da parte de la inicial).
-        mesIndice: numero + 1,
+        // Calendario real: la inicial se paga en el mes 0 (firma) y la cuota "numero" en el mes numero.
+        mesIndice: numero,
       });
       numero++;
     }
@@ -240,47 +237,60 @@ export function etiquetaMes(
 
 // --- Forma de pago de la inicial ---
 
-/** Cómo se paga la inicial: de una vez, en 2 partes o en 3 partes. */
-export type InicialModo = "completa" | "dos" | "tres";
+/** Inicial que elige el cliente: solo hay tres, se paga completa al firmar y el precio total no cambia (cambia la cuota). */
+export type InicialModo = "500" | "1000" | "2000";
 
 export const INICIAL_MODOS: {
   key: InicialModo;
   label: string;
-  partes: number;
+  monto: number;
 }[] = [
-  { key: "completa", label: "Completa", partes: 1 },
-  { key: "dos", label: "2 partes", partes: 2 },
-  { key: "tres", label: "3 partes", partes: 3 },
+  { key: "500", label: "S/ 500", monto: 500 },
+  { key: "1000", label: "S/ 1,000", monto: 1000 },
+  { key: "2000", label: "S/ 2,000", monto: 2000 },
 ];
+
+export const INICIAL_POR_DEFECTO: InicialModo = "2000";
 
 export type ParteInicial = { monto: number; fecha: string };
 
-/** Monto fijo de la 2.ª y la 3.ª parte cuando la inicial se paga en 3 partes. */
-const PARTE_FIJA_INICIAL = 500;
-
-/**
- * Reparte la inicial del lote en 1, 2 o 3 pagos consecutivos (mes 0 = firma).
- * En 2 partes usa las cifras oficiales del JSON. En 3 partes la 2.ª y la 3.ª
- * son fijas (S/ 500 cada una) y la 1.ª lleva el resto: S/ 1,000 en una inicial
- * de S/ 2,000, y cualquier excedente sobre ese mínimo va en la 1.ª parte.
- * La suma siempre es exactamente la inicial; el total no cambia.
- */
+/** La inicial se paga de una vez, al firmar (mes 0). */
 export function partesDeInicial(
   lote: Lote,
-  modo: InicialModo,
   base: Date = new Date(),
 ): ParteInicial[] {
-  let montos: number[];
-  if (modo === "completa") montos = [lote.inicial];
-  else if (modo === "dos") montos = [lote.inicial_mes_1, lote.inicial_mes_2];
-  else {
-    montos = [
-      lote.inicial - PARTE_FIJA_INICIAL * 2,
-      PARTE_FIJA_INICIAL,
-      PARTE_FIJA_INICIAL,
-    ];
-  }
-  return montos.map((monto, i) => ({ monto, fecha: etiquetaMes(i, base) }));
+  return [{ monto: lote.inicial, fecha: etiquetaMes(0, base) }];
+}
+
+/**
+ * El mismo lote con otra inicial. El precio con dscto no cambia: lo que baja o sube es el saldo que se reparte
+ * en cuotas (precio con dscto − inicial). Se conserva el plazo que ya traía el lote.
+ */
+export function conInicial(
+  lote: Lote,
+  inicial: number,
+  params: Parametros = PARAMETROS,
+): Lote {
+  if (inicial === lote.inicial) return lote;
+  const saldo = lote.precio_con_dscto - inicial;
+  const fija = planParaPlazo(saldo, inicial, plazoDe(lote), 0, params);
+  const promo = lote.promocion;
+  return {
+    ...lote,
+    inicial,
+    inicial_mes_1: inicial,
+    inicial_mes_2: 0,
+    planes: { fija, ascendente: fija, descendente: fija },
+    promocion:
+      promo?.precio_promo_financiado != null
+        ? {
+            ...promo,
+            cuota_promo: aCentimos(
+              (promo.precio_promo_financiado - inicial) / PLAZO_PROMOCION,
+            ),
+          }
+        : promo,
+  };
 }
 
 export type FilaCalendario = {
@@ -305,16 +315,9 @@ export function construirCalendarioCompleto(
   const filas: FilaCalendario[] = [
     {
       concepto: "Inicial (al firmar)",
-      monto: lote.inicial_mes_1,
+      monto: lote.inicial,
       mesIndice: 0,
       fecha: etiquetaMes(0, base),
-      esInicial: true,
-    },
-    {
-      concepto: "Inicial (2da parte)",
-      monto: lote.inicial_mes_2,
-      mesIndice: 1,
-      fecha: etiquetaMes(1, base),
       esInicial: true,
     },
   ];
@@ -408,7 +411,8 @@ export function conPlazo(
   };
 }
 
-function aLote(l: LoteJson): Lote {
+/** Arma el lote con sus cuotas calculadas. `estado` viene de Supabase; sin él (JSON de respaldo) el lote se considera libre. */
+export function aLote(l: LoteJson, estado?: EstadoLote): Lote {
   const inicial = l.inicial;
   const saldo = l.precio_lista - inicial; // = contado
   const fija = planParaPlazo(saldo, inicial, PARAMETROS.numero_cuotas, 0, PARAMETROS);
@@ -427,6 +431,7 @@ function aLote(l: LoteJson): Lote {
     inicial_mes_1: inicial / 2,
     inicial_mes_2: inicial / 2,
     planes: { fija, ascendente: fija, descendente: fija },
+    ...(estado && { estado }),
     promocion: pj
       ? {
           tipo: pj.tipo,
@@ -442,14 +447,8 @@ function aLote(l: LoteJson): Lote {
 }
 
 /** «R10» → 10: orden natural de las manzanas. */
-const numeroDeManzana = (mz: string) => Number(mz.replace(/\D/g, "")) || 0;
+export const numeroDeManzana = (mz: string) => Number(mz.replace(/\D/g, "")) || 0;
 
-// Ordenados por manzana (R1, R2… R10, no R1, R10, R2) y lote; el lote por defecto es el primero de la lista.
-export const LOTES: Lote[] = DATA.lotes
-  .map(aLote)
-  .sort(
-    (a, b) => numeroDeManzana(a.mz) - numeroDeManzana(b.mz) || a.lt - b.lt,
-  );
 
 /** Arenas solo tiene cuota fija (el Excel no define ascendente ni descendente). */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

@@ -1,5 +1,6 @@
 import { Simulador } from "@/components/Simulador";
-import { LOTES } from "@/lib/arenas";
+import { cargarLotes } from "@/lib/lotesSupabase";
+import { requerirAsesor } from "@/lib/asesor/acceso";
 import { ColumnaDerecha } from "@/components/ColumnaDerecha";
 import { BondadesCarrusel } from "@/components/BondadesCarrusel";
 import { AjustePantalla } from "@/components/AjustePantalla";
@@ -8,14 +9,15 @@ import { MediosDePago } from "@/components/MediosDePago";
 import { BotonVerPlano } from "@/components/BotonVerPlano";
 import { LoteActivoProvider } from "@/components/LoteActivo";
 
-// Plantilla sin base de datos: los productos salen del JSON de src/data (ver docs/plantilla-cotizador-marca-blanca.md).
+// Los lotes y su estado salen de Supabase (proyecto «arenas-del-valle», misma base que Altos de Sacta); src/data/arenas-lotes.json es solo la fuente de la carga inicial.
 export default async function Home({
   searchParams,
 }: {
   searchParams: Promise<{ lote?: string }>;
 }) {
   const { lote } = await searchParams;
-  const lotes = LOTES;
+  // La sesión y la lectura de los lotes van en paralelo; sin sesión se redirige y los lotes se descartan.
+  const [, lotes] = await Promise.all([requerirAsesor(), cargarLotes()]);
   return (
     <>
       <BotonVerPlano />

@@ -4,11 +4,13 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import {
   PROYECTO,
   buscarLotePorId,
+  conInicial,
   conPlazo,
   modalidadesDe,
   plazoDe,
   PARAMETROS,
   INICIAL_MODOS,
+  INICIAL_POR_DEFECTO,
   filtrarLotesPorTexto,
   formatearMonto,
   manzanasDisponibles,
@@ -16,7 +18,6 @@ import {
   estaLibre,
   segmentosDeTramo,
   notaMeses,
-  partesDeInicial,
   type InicialModo,
   type Lote,
   type TipoModalidad,
@@ -44,6 +45,9 @@ import { useLoteActivo } from "@/components/LoteActivo";
 //   resumenModalidad,
 // } from "@/lib/arenas";
 // import { Cronograma } from "@/components/Cronograma";
+
+/** Botón «Ver opciones de cuotas» de la cabecera: desactivado, solo queda «Enviar». Poner en true para volver a mostrarlo. */
+const MOSTRAR_VISTA_OPCIONES = false;
 
 type Vista = "normal" | "opciones";
 
@@ -78,7 +82,8 @@ export function Simulador({
   const [mzFiltro, setMzFiltro] = useState<string>(LOTE_INICIAL.mz);
   const [textoBusqueda, setTextoBusqueda] = useState("");
   const [codigo, setCodigo] = useState(LOTE_INICIAL.lote);
-  const [inicialModo, setInicialModo] = useState<InicialModo>("dos");
+  const [inicialModo, setInicialModo] =
+    useState<InicialModo>(INICIAL_POR_DEFECTO);
   const [buscadorAbierto, setBuscadorAbierto] = useState(false);
   // Tras elegir un lote, el campo muestra lo elegido; al tocarlo se vacía para escribir de nuevo.
   const [mostrandoSeleccion, setMostrandoSeleccion] = useState(true);
@@ -128,8 +133,8 @@ export function Simulador({
   }, [loteBase.lote]);
 
   const lote: Lote = useMemo(
-    () => conPlazo(loteBase, plazo),
-    [loteBase, plazo],
+    () => conPlazo(conInicial(loteBase, Number(inicialModo)), plazo),
+    [loteBase, inicialModo, plazo],
   );
   // La vista previa del lote (otra parte de la página) sigue al lote que se cotiza.
   const { elegir: publicarLote, pedido } = useLoteActivo();
@@ -220,6 +225,7 @@ export function Simulador({
                   : `Lote ${ESTADO_ETIQUETA[lote.estado ?? "libre"].toLowerCase()}: no se puede enviar la cotización`
               }
             />
+            {MOSTRAR_VISTA_OPCIONES && (
             <button
               onClick={() => setVista(siguienteVista)}
               className="flex h-9 shrink-0 items-center gap-1.5 rounded-lg border border-[var(--border)] bg-[var(--surface-1)] px-3 text-xs font-semibold sm:text-[13px] max-[360px]:px-2 max-[360px]:text-[11px] text-[var(--text-secondary)] transition-colors hover:bg-[var(--surface-2)]"
@@ -258,6 +264,7 @@ export function Simulador({
                 TEXTO_BOTON_VISTA[vista]
               )}
             </button>
+            )}
           </div>
         </div>
         <div className="border-t border-[var(--border)] pt-4">
@@ -319,71 +326,75 @@ export function Simulador({
               </svg>
             }
           >
-            <div className="px-4 pt-2 pb-3">
-              <div className="pb-2">
-                <SelectorManzana
-                  manzanas={manzanas}
-                  valor={mzFiltro}
-                  onCambiar={elegirManzana}
-                />
-              </div>
-              <div ref={buscadorRef} className="relative">
-                <input
-                  type="text"
-                  inputMode="numeric"
-                  pattern="[0-9]*"
-                  maxLength={4}
-                  enterKeyHint="search"
-                  autoComplete="off"
-                  value={mostrandoSeleccion ? `Lote ${lote.lt}` : textoBusqueda}
-                  onChange={(e) => {
-                    setMostrandoSeleccion(false);
-                    // Los lotes son numéricos: solo se aceptan dígitos.
-                    setTextoBusqueda(e.target.value.replace(/\D/g, ""));
-                    setBuscadorAbierto(true);
-                  }}
-                  onFocus={() => {
-                    if (mostrandoSeleccion) {
-                      setMostrandoSeleccion(false);
-                      setTextoBusqueda("");
+            {/* Manzana y lote en dos columnas; las listas emergentes se anclan a este contenedor y abren con todo el ancho debajo. */}
+            <div className="relative grid grid-cols-2 gap-3 px-4 pt-3 pb-3">
+              <SelectorManzana
+                manzanas={manzanas}
+                valor={mzFiltro}
+                onCambiar={elegirManzana}
+                anchoCompleto
+              />
+              <div ref={buscadorRef}>
+                <div className="relative">
+                  <input
+                    type="text"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
+                    maxLength={4}
+                    enterKeyHint="search"
+                    autoComplete="off"
+                    value={
+                      mostrandoSeleccion ? `Lote ${lote.lt}` : textoBusqueda
                     }
-                    setBuscadorAbierto(true);
-                  }}
-                  onBlur={() => {
-                    // Si no escribió nada, vuelve a mostrarse el lote elegido.
-                    if (textoBusqueda.trim() === "")
-                      setMostrandoSeleccion(true);
-                  }}
-                  onKeyDown={(e) => {
-                    if (e.key === "Escape") setBuscadorAbierto(false);
-                    onBuscarSubmit(e);
-                  }}
-                  placeholder={`Buscar lote en Manzana ${mzFiltro} (ej. 9)…`}
-                  className={`selectCampo h-12 w-full !py-0 !pl-12 ${mostrandoSeleccion ? "!font-semibold" : ""}`}
-                />
-                <button
-                  type="button"
-                  onClick={buscarAhora}
-                  aria-label="Buscar lote"
-                  className="absolute top-1/2 left-2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-[var(--ceinys-grafito-700)] text-white transition-colors hover:bg-[var(--ceinys-grafito-900)]"
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-4 w-4"
+                    onChange={(e) => {
+                      setMostrandoSeleccion(false);
+                      // Los lotes son numéricos: solo se aceptan dígitos.
+                      setTextoBusqueda(e.target.value.replace(/\D/g, ""));
+                      setBuscadorAbierto(true);
+                    }}
+                    onFocus={() => {
+                      if (mostrandoSeleccion) {
+                        setMostrandoSeleccion(false);
+                        setTextoBusqueda("");
+                      }
+                      setBuscadorAbierto(true);
+                    }}
+                    onBlur={() => {
+                      // Si no escribió nada, vuelve a mostrarse el lote elegido.
+                      if (textoBusqueda.trim() === "")
+                        setMostrandoSeleccion(true);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Escape") setBuscadorAbierto(false);
+                      onBuscarSubmit(e);
+                    }}
+                    placeholder="Buscar lote (ej. 9)"
+                    className={`selectCampo h-12 w-full !py-0 !pr-12 !pl-12 text-center ${mostrandoSeleccion ? "!font-semibold" : ""}`}
+                  />
+                  <button
+                    type="button"
+                    onClick={buscarAhora}
+                    aria-label="Buscar lote"
+                    className="absolute top-1/2 left-2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-[var(--ceinys-grafito-700)] text-white transition-colors hover:bg-[var(--ceinys-grafito-900)]"
                   >
-                    <circle cx="11" cy="11" r="7" />
-                    <path d="M20.5 20.5l-4.6-4.6" />
-                  </svg>
-                </button>
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-4 w-4"
+                    >
+                      <circle cx="11" cy="11" r="7" />
+                      <path d="M20.5 20.5l-4.6-4.6" />
+                    </svg>
+                  </button>
+                </div>
                 {buscadorAbierto && (
-                  <div className="absolute inset-x-0 top-full z-20 mt-1.5 rounded-xl border border-[var(--border)] bg-white p-2 shadow-[0_12px_32px_rgba(20,22,28,0.14)]">
+                  <div className="absolute inset-x-4 top-full z-20 -mt-1 rounded-xl border border-[var(--border)] bg-white p-2 shadow-[0_12px_32px_rgba(20,22,28,0.14)]">
                     {resultados.length > 0 ? (
-                      <div className="grid max-h-56 grid-cols-2 gap-1.5 sm:max-h-64 sm:gap-1 overflow-y-auto">
+                      <div className="grid max-h-56 grid-cols-2 gap-1.5 sm:max-h-64 sm:grid-cols-3 sm:gap-1 overflow-y-auto">
                         {resultados.map((l, i) => (
                           <button
                             key={l.lote}
@@ -440,8 +451,26 @@ export function Simulador({
               </svg>
             }
           >
-            <FilaDato label="Metraje" valor={`${lote.metraje_m2} m²`} />
-            <FilaDato label="Ubicación" valor={lote.ubicacion} resaltado />
+            <div className="grid grid-cols-2 gap-3 px-4 pt-3 pb-3">
+              <CajaPrecio etiqueta="Metraje" grande>
+                {/* La cifra va más grande que el resto y la unidad en letra menor, para que quepa en media columna. */}
+                <span className="text-[1.75rem] leading-none sm:text-[2.5rem]">
+                  {lote.metraje_m2}
+                </span>
+                <span className="ml-1 text-base font-bold text-[var(--text-secondary)] sm:ml-1.5 sm:text-[1.35rem]">
+                  m²
+                </span>
+              </CajaPrecio>
+              <CajaPrecio etiqueta="Ubicación" azul grande>
+                {/* «ESQUINA - FRENTE AL PARQUE»: la ubicación va grande y el detalle debajo, en letra menor. */}
+                <span className="block">{lote.ubicacion.split(" - ")[0]}</span>
+                {lote.ubicacion.includes(" - ") && (
+                  <span className="mt-1 block text-[11px] leading-tight font-bold text-[#2468bd] sm:text-sm">
+                    {lote.ubicacion.split(" - ").slice(1).join(" - ")}
+                  </span>
+                )}
+              </CajaPrecio>
+            </div>
             {lote.etapa && <FilaDato label="Etapa" valor={lote.etapa} />}
           </TarjetaInfo>
 
@@ -450,7 +479,11 @@ export function Simulador({
             titulo="Fraccionamiento"
             acciones={
               lote.promocion && (
-                <ChipPromocion promocion={lote.promocion} tono="verde" alinear="derecha" />
+                <ChipPromocion
+                  promocion={lote.promocion}
+                  tono="verde"
+                  alinear="derecha"
+                />
               )
             }
             icono={
@@ -479,15 +512,14 @@ export function Simulador({
               tamano={tamanoFila}
             />
             <div className="grid grid-cols-2 gap-3 px-4 pt-3 pb-3">
-              <CajaPrecio etiqueta="Precio total" tachado>
+              <CajaPrecio etiqueta="Precio total" tachado medio>
                 <Soles monto={lote.precio_lista} />
               </CajaPrecio>
-              <CajaPrecio etiqueta="Precio con dscto" destacado>
+              <CajaPrecio etiqueta="Precio con dscto" destacado medio>
                 <Soles monto={lote.precio_con_dscto} />
               </CajaPrecio>
             </div>
             <InicialDinamica
-              lote={lote}
               modo={inicialModo}
               azul={plazo === PLAZOS_CUOTAS[0]}
               onCambiar={setInicialModo}
@@ -678,7 +710,9 @@ function FilaDato({
       className={`flex border-t border-[var(--border)] first:border-t-0 ${grande ? "py-[0.6rem]" : "py-2"}`}
     >
       <div className="flex w-full items-center justify-between gap-4 px-4">
-        <span className="text-sm text-[var(--text-secondary)] sm:text-[18px]">{label}</span>
+        <span className="text-sm text-[var(--text-secondary)] sm:text-[18px]">
+          {label}
+        </span>
         <span
           className={`text-right [font-variant-numeric:tabular-nums] ${
             grande
@@ -703,33 +737,27 @@ function FilaDato({
   );
 }
 
-/**
- * Inicial con forma de pago elegible (completa, 2 o 3 partes). La caja mide
- * siempre lo mismo: solo cambia cuántas celdas se muestran en la fila.
- */
+/** Inicial a elegir entre tres montos (S/ 500, 1,000 o 2,000); se paga completa al firmar y cambia la cuota. */
 function InicialDinamica({
-  lote,
   modo,
   azul,
   onCambiar,
 }: {
-  lote: Lote;
   modo: InicialModo;
   /** Con el plazo corto (60) la selección va en azul, igual que en el selector de cuotas. */
   azul: boolean;
   onCambiar: (m: InicialModo) => void;
 }) {
-  const partes = partesDeInicial(lote, modo);
   return (
-    <div className="rounded-xl border border-[var(--border)] p-3">
-      <div className="flex w-full flex-col gap-2.5">
-        <p className="m-0 text-center text-xs font-semibold tracking-wider text-[var(--text-muted)] uppercase sm:text-[13px]">
-          Forma de pago de tu inicial
+    <div className="rounded-xl border border-[var(--border)] p-4">
+      <div className="flex w-full flex-col gap-3.5">
+        <p className="m-0 text-center text-sm font-semibold tracking-wider text-[var(--text-muted)] uppercase sm:text-base">
+          Elige tu inicial
         </p>
 
         <div
           role="radiogroup"
-          aria-label="Forma de pago de la inicial"
+          aria-label="Monto de la inicial"
           className="grid grid-cols-3 gap-2"
         >
           {INICIAL_MODOS.map((m) => (
@@ -739,7 +767,7 @@ function InicialDinamica({
               role="radio"
               aria-checked={modo === m.key}
               onClick={() => onCambiar(m.key)}
-              className={`rounded-lg border py-2.5 text-sm font-semibold transition-colors sm:text-base ${
+              className={`rounded-lg border py-3.5 text-base font-bold transition-colors sm:py-4 sm:text-xl ${
                 modo === m.key
                   ? `${azul ? "border-[#2b7de0] bg-[#2b7de0]" : "border-[#5f9b3c] bg-[#5f9b3c]"} text-white shadow-sm`
                   : "border-[var(--border)] bg-[var(--surface-1)] text-[var(--text-secondary)] hover:bg-[var(--surface-2)]"
@@ -747,27 +775,6 @@ function InicialDinamica({
             >
               {m.label}
             </button>
-          ))}
-        </div>
-
-        <div
-          className="grid gap-2"
-          style={{
-            gridTemplateColumns: `repeat(${partes.length}, minmax(0, 1fr))`,
-          }}
-        >
-          {partes.map((p, i) => (
-            <div
-              key={i}
-              className="rounded-lg bg-[var(--surface-2)] px-1.5 py-2.5 text-center"
-            >
-              <p className="m-0 text-[11px] font-semibold tracking-wide whitespace-nowrap text-[var(--text-muted)] uppercase sm:text-[13px]">
-                {p.fecha}
-              </p>
-              <p className="m-0 mt-1 text-base max-[340px]:text-sm font-bold whitespace-nowrap [font-variant-numeric:tabular-nums] text-[var(--text-primary)] sm:text-xl">
-                <Soles monto={p.monto} />
-              </p>
-            </div>
           ))}
         </div>
       </div>

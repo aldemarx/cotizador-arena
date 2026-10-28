@@ -36,69 +36,42 @@ const svgIcono = (children: React.ReactNode) => (
 
 const BONDADES: Bondad[] = [
   {
-    label: "Cancha de polo",
+    label: "Laguna y plaza central",
     icono: svgIcono(
       <>
-        <circle cx="12" cy="6" r="3" />
-        <path d="M5 21c0-4 3-7 7-7s7 3 7 7" />
-        <path d="M3 13c1-2 3-3 5-3M21 13c-1-2-3-3-5-3" />
+        <path d="M2 12c2-4 4-6 6-6s4 4 6 4 4-4 6-4" />
+        <path d="M2 18c2-4 4-6 6-6s4 4 6 4 4-4 6-4" />
       </>,
     ),
-    foto: "/images/bondades-arenas/bondad-01.webp",
+    foto: "/images/club-carhuaz/club-01.webp",
   },
   {
-    label: "Equitación",
-    // Herradura dibujada en código; reemplazable por un SVG de caballo.
+    label: "Canchas deportivas",
+    // Cancha vista desde arriba: borde, línea central y círculo.
     icono: svgIcono(
       <>
-        <path d="M5 21V11a7 7 0 0 1 14 0v10h-4.5V11a2.5 2.5 0 0 0-5 0v10z" />
-        <path d="M5 16h4.5M14.5 16H19" />
+        <rect x="3" y="5" width="18" height="14" rx="1.5" />
+        <path d="M12 5v14" />
+        <circle cx="12" cy="12" r="2.6" />
       </>,
     ),
-    foto: "/images/bondades-arenas/bondad-02.webp",
+    foto: "/images/club-carhuaz/club-02.webp",
   },
   {
-    label: "Zona de golf",
-    // Bandera con hoyo y pelota dibujados en código; reemplazable por un SVG de golf.
+    label: "Piscina tipo laguna",
+    // Piscina con escalera y dos líneas de agua.
     icono: svgIcono(
       <>
-        <path d="M9 21V3l8 4-8 4" />
-        <path d="M4 21h16" />
-        <circle cx="16.5" cy="18.2" r="1" />
+        <path d="M8 3v11M16 3v11" />
+        <path d="M8 6h8M8 10h8" />
+        <path d="M2 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0" />
+        <path d="M2 22c2-2 4-2 6 0s4 2 6 0 4-2 6 0" />
       </>,
     ),
-    foto: "/images/bondades-arenas/bondad-03.webp",
+    foto: "/images/club-carhuaz/club-03.webp",
   },
   {
-    label: "Pérgola",
-    // Pérgola dibujada en código; reemplazable por un SVG propio.
-    icono: svgIcono(
-      <>
-        <path d="M2.5 6h19" />
-        <path d="M5 6v15M19 6v15" />
-        <path d="M7 3.5v2.5M12 3.5v2.5M17 3.5v2.5" />
-        <path d="M5 11l-2 0M19 11l2 0" />
-      </>,
-    ),
-    foto: "/images/bondades-arenas/bondad-04.webp",
-  },
-  {
-    label: "Parques",
-    icono: imgIcono("parques"),
-    foto: "/images/bondades-arenas/bondad-05.webp",
-  },
-  {
-    label: "Playground",
-    icono: imgIcono("playground"),
-    foto: "/images/bondades-arenas/bondad-06.webp",
-  },
-  {
-    label: "Gimnasio al aire libre",
-    icono: imgIcono("gimnasio"),
-    foto: "/images/bondades-arenas/bondad-07.webp",
-  },
-  {
-    label: "Alameda",
+    label: "Áreas verdes y juegos",
     // Árbol dibujado en código; reemplazable por un SVG propio.
     icono: svgIcono(
       <>
@@ -106,17 +79,12 @@ const BONDADES: Bondad[] = [
         <path d="M12 19v3" />
       </>,
     ),
-    foto: "/images/bondades-arenas/bondad-08.webp",
+    foto: "/images/club-carhuaz/club-04.webp",
   },
   {
-    label: "Laguna artificial",
-    icono: svgIcono(
-      <>
-        <path d="M2 12c2-4 4-6 6-6s4 4 6 4 4-4 6-4" />
-        <path d="M2 18c2-4 4-6 6-6s4 4 6 4 4-4 6-4" />
-      </>,
-    ),
-    foto: "/images/bondades-arenas/bondad-09.webp",
+    label: "Parque y zona de juegos",
+    icono: imgIcono("playground"),
+    foto: "/images/club-carhuaz/club-05.webp",
   },
 ];
 
@@ -154,23 +122,26 @@ export function BondadesCarrusel() {
     <section className="mx-auto w-full max-w-[88rem] px-4 pb-10 lg:px-6 lg:pb-14">
       <div className="card p-6 lg:p-10">
         <div className="mb-4 flex flex-col gap-2 border-b border-[var(--border)] pb-4 lg:mb-8 lg:flex-row lg:items-end lg:justify-between lg:gap-10 lg:pb-8">
-          <div className="text-center lg:pl-6 lg:text-left">
-            <p className="flex items-center justify-center gap-3 text-xs font-semibold tracking-[0.14em] text-[var(--text-muted)] uppercase sm:text-[13px] lg:justify-start">
-              <span className="flex shrink-0 items-center gap-1" aria-hidden>
-                <span className="h-2.5 w-2.5 rounded-full bg-[#10b981]" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#F5A623]" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#3b82f6]" />
-              </span>
-              Entorno natural
-            </p>
-            <h2 className="mt-3 text-2xl font-extrabold text-[var(--text-primary)] sm:text-3xl">
-              Áreas Comunes y Espacios Recreativos
-            </h2>
+          {/* Símbolo del club, en su color original, junto al nombre */}
+          <div className="flex items-center justify-center gap-4 sm:gap-5 lg:justify-start lg:pl-6">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/club-carhuaz/simbolo-club-carhuaz.webp"
+              alt=""
+              aria-hidden
+              className="block h-14 w-auto shrink-0 sm:h-[4.5rem]"
+            />
+            <span aria-hidden className="h-12 w-px shrink-0 bg-[var(--border)] sm:h-16" />
+            <div className="text-left">
+              <h2 className="m-0 text-2xl leading-none font-medium text-[var(--text-primary)] sm:text-4xl">
+                Club <strong className="font-extrabold">Carhuaz</strong>
+              </h2>
+              <p className="m-0 mt-1 text-[13px] leading-none text-[var(--text-secondary)] sm:mt-1.5 sm:text-base">
+                El club más grande de Ica.{" "}
+                <strong className="font-semibold text-[var(--text-primary)]">Conoce más.</strong>
+              </p>
+            </div>
           </div>
-          <p className="text-center text-sm leading-relaxed text-[var(--text-secondary)] sm:text-base lg:text-right">
-            Más de 978,000 m² destinados
-            <br />a deporte, naturaleza y convivencia familiar.
-          </p>
         </div>
 
         <div className="grid gap-5 lg:grid-cols-[minmax(0,21rem)_1fr] lg:items-stretch lg:gap-8">

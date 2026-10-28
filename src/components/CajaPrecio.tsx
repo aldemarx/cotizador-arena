@@ -3,32 +3,63 @@ export function CajaPrecio({
   etiqueta,
   tachado = false,
   destacado = false,
+  azul = false,
+  grande = false,
+  medio = false,
   children,
 }: {
   etiqueta: string;
   tachado?: boolean;
   destacado?: boolean;
+  /** Variante azul (la del color de la tarjeta «Datos del lote»). */
+  azul?: boolean;
+  /** Caja blanca con la etiqueta en gris y letra mayor (Metraje y Ubicación). */
+  grande?: boolean;
+  /** Mismos colores que la caja normal, pero más alta y con la cifra mayor (los precios). */
+  medio?: boolean;
   children: React.ReactNode;
 }) {
   return (
     <div
-      className={`flex flex-col items-center gap-1.5 rounded-xl border px-2 py-3 text-center sm:py-4 ${
+      className={`flex flex-col items-center justify-center rounded-xl border px-2 text-center ${
+        grande
+          ? "min-h-[6rem] gap-2 py-3.5 sm:min-h-[7rem] sm:py-4"
+          : medio
+            ? "gap-2 py-4 sm:py-6"
+            : "gap-1.5 py-3 sm:py-4"
+      } ${
         destacado
           ? "border-[#5f9b3c]/35 bg-[#5f9b3c]/10"
-          : "border-[var(--border)] bg-[var(--surface-2)]"
+          : azul
+            ? "border-[#2b7de0]/35 bg-[#2b7de0]/10"
+            : grande
+              ? "border-[var(--border)] bg-white"
+              : "border-[var(--border)] bg-[var(--surface-2)]"
       }`}
     >
       <span
-        className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold tracking-[0.04em] whitespace-nowrap uppercase sm:text-xs sm:tracking-[0.12em] ${
+        className={`rounded-full px-2.5 py-0.5 font-bold tracking-[0.04em] whitespace-nowrap uppercase sm:tracking-[0.12em] ${
+          grande ? "text-[10px] sm:text-xs" : medio ? "text-[11px] sm:text-sm" : "text-[10px] sm:text-xs"
+        } ${
           destacado
             ? "bg-[#5f9b3c]/15 text-[#4c8030]"
-            : "bg-[var(--ceinys-grafito-100)] text-[var(--text-secondary)]"
+            : azul
+              ? "bg-[#2b7de0]/15 text-[#2468bd]"
+              : grande
+                ? "border border-[var(--border)] bg-[var(--surface-2)] text-[var(--text-secondary)]"
+                : "bg-[var(--ceinys-grafito-100)] text-[var(--text-secondary)]"
         }`}
       >
         {etiqueta}
       </span>
       <span
-        className={`text-base [font-variant-numeric:tabular-nums] sm:text-2xl ${
+        className={`[font-variant-numeric:tabular-nums] ${
+          grande
+            ? "text-xl sm:text-[28px] sm:leading-none"
+            : medio
+              ? "text-xl sm:text-[30px] sm:leading-none"
+              : "text-base sm:text-2xl"
+        } ${
           tachado
             ? "font-medium text-[var(--text-muted)] line-through"
             : "font-extrabold text-[var(--text-primary)]"
