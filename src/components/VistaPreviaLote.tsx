@@ -3,6 +3,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useLoteActivo } from "@/components/LoteActivo";
+import { COLOR_CLASE, type ClaseLote } from "@/components/MapaLotes";
 
 const URL_SVG = "/plano/arenas.svg";
 /** Metros de alto que se ven alrededor del lote (el ancho sale de la proporción de la caja). */
@@ -26,13 +27,26 @@ const ESTILO = `
 .vista-lote svg { width: 100%; height: 100%; display: block; }
 .vista-lote path.sel { fill: color-mix(in srgb, #000000 12%, #fef7e2); stroke: #1e3a8a !important; stroke-width: 0.6 !important; }
 .vista-lote .ins.sel .cue { stroke: #1e3a8a; stroke-width: 0.35; }
+/* El estado se pinta en el marcador (el disponible conserva el verde del plano), igual que en el plano completo. */
+.vista-lote g.ins[data-e="reservado"] .cue { fill: ${COLOR_CLASE.reservado}; }
+.vista-lote g.ins[data-e="vendido"] .cue { fill: ${COLOR_CLASE.vendido}; }
+.vista-lote g.ins[data-e="gerencia"] .cue { fill: ${COLOR_CLASE.gerencia}; }
 `;
 
 /**
  * Mini vista previa de la ubicación del lote que se cotiza: el plano de Arenas centrado en ese lote. Se puede arrastrar y acercar (rueda, pellizco o botones), sin salir de los lotes;
  * tocar otro lote lo elige en el cotizador; el botón «Ver plano completo» abre el plano en ese lote.
  */
-export function VistaPreviaLote({ expandido = false, onExpandir }: { expandido?: boolean; onExpandir?: () => void }) {
+export function VistaPreviaLote({
+  expandido = false,
+  onExpandir,
+  estados = {},
+}: {
+  expandido?: boolean;
+  onExpandir?: () => void;
+  /** Estado de los lotes que no están disponibles (código «R4-32» → clase); el resto se dibuja como disponible. */
+  estados?: Record<string, ClaseLote>;
+}) {
   const { codigo, pedir } = useLoteActivo();
   const [svg, setSvg] = useState<string | null>(null);
   const [error, setError] = useState(false);
@@ -156,6 +170,17 @@ export function VistaPreviaLote({ expandido = false, onExpandir }: { expandido?:
   useEffect(() => {
     cargarPlano().then(setSvg, () => setError(true));
   }, []);
+
+  // El estado de cada lote se pinta en su marcador (se repite si llegan estados nuevos).
+  useEffect(() => {
+    const raiz = caja.current;
+    if (!raiz || !svg) return;
+    raiz.querySelectorAll<SVGGElement>("g.ins[data-lote]").forEach((g) => {
+      const e = estados[g.getAttribute("data-lote") ?? ""];
+      if (e) g.setAttribute("data-e", e);
+      else g.removeAttribute("data-e");
+    });
+  }, [svg, estados]);
 
   // Cada vez que cambia el lote: se resalta y el plano se centra en él.
   useLayoutEffect(() => {

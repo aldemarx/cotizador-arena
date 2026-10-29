@@ -3,12 +3,13 @@
 import { useState } from "react";
 import { ClubHouseShowcase } from "@/components/ClubHouseShowcase";
 import { VistaPreviaLote } from "@/components/VistaPreviaLote";
+import type { ClaseLote } from "@/components/MapaLotes";
 
 /**
  * Columna derecha: ubicación del lote y carrusel del club, unidos como una sola tarjeta (mitad y mitad). El botón del mapa lo expande
  * a todo el alto y oculta el carrusel, para dejar la pantalla en mitad plano, mitad cotizador.
  */
-export function ColumnaDerecha() {
+export function ColumnaDerecha({ estados }: { estados?: Record<string, ClaseLote> }) {
   const [expandido, setExpandido] = useState(false);
   return (
     <div className="flex w-full flex-col lg:min-h-0 lg:flex-1">
@@ -16,7 +17,7 @@ export function ColumnaDerecha() {
       <div
         className={`flex flex-col lg:min-h-0 lg:flex-[1_1_0px] ${expandido ? "" : "[&>section]:rounded-b-none [&>section]:border-b-0 [&>section]:shadow-none"}`}
       >
-        <VistaPreviaLote expandido={expandido} onExpandir={() => setExpandido((e) => !e)} />
+        <VistaPreviaLote expandido={expandido} onExpandir={() => setExpandido((e) => !e)} estados={estados} />
       </div>
       <div className={`flex-col lg:min-h-0 lg:flex-[1_1_0px] [&>div]:rounded-t-none ${expandido ? "hidden" : "flex"}`}>
         <ClubHouseShowcase />

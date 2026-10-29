@@ -1,5 +1,6 @@
 import { Simulador } from "@/components/Simulador";
-import { cargarLotes } from "@/lib/lotesSupabase";
+import { cargarLotes, cargarLotesBloqueados } from "@/lib/lotesSupabase";
+import type { ClaseLote } from "@/components/MapaLotes";
 import { requerirAsesor } from "@/lib/asesor/acceso";
 import { ColumnaDerecha } from "@/components/ColumnaDerecha";
 import { BondadesCarrusel } from "@/components/BondadesCarrusel";
@@ -17,7 +18,14 @@ export default async function Home({
 }) {
   const { lote } = await searchParams;
   // La sesión y la lectura de los lotes van en paralelo; sin sesión se redirige y los lotes se descartan.
-  const [, lotes] = await Promise.all([requerirAsesor(), cargarLotes()]);
+  const [, lotes, bloqueados] = await Promise.all([requerirAsesor(), cargarLotes(), cargarLotesBloqueados()]);
+  // Estado de los lotes que no están disponibles, para pintarlo en el mapa de ubicación (solo código y estado: sin precios).
+  const estados: Record<string, ClaseLote> = {};
+  for (const l of lotes) {
+    if (l.estado === "vendido") estados[l.lote] = "vendido";
+    else if (l.estado === "bloqueado") estados[l.lote] = "reservado";
+  }
+  for (const b of bloqueados) estados[`${b.mz}-${b.lt}`] = "gerencia";
   return (
     <>
       <BotonVerPlano />
@@ -32,7 +40,7 @@ export default async function Home({
             </p>
           )}
         </div>
-        <ColumnaDerecha />
+        <ColumnaDerecha estados={estados} />
       </AjustePantalla>
       </LoteActivoProvider>
       <BondadesCarrusel />
