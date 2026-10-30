@@ -13,10 +13,13 @@ export function CuotaYPlazo({
   onCambiarPlazo,
   total,
   tamano,
+  bloqueado = false,
 }: {
   cuota: number;
   plazo: number;
   onCambiarPlazo: (cuotas: number) => void;
+  /** Lote con promoción: el plazo viene fijado y los demás botones quedan deshabilitados. */
+  bloqueado?: boolean;
   /** Total a pagar (inicial + cuotas): no cambia con el plazo. */
   total: number;
   tamano: { cifra: string; sufijo: string };
@@ -58,11 +61,14 @@ export function CuotaYPlazo({
               type="button"
               role="radio"
               aria-checked={activo}
+              disabled={bloqueado && !activo}
               onClick={() => onCambiarPlazo(n)}
               className={`h-11 rounded-lg text-sm font-semibold transition-colors sm:text-base ${
                 activo
                   ? `${i === 0 ? "bg-[#2b7de0]" : "bg-[#5f9b3c]"} text-white shadow-sm`
-                  : "text-[var(--text-secondary)] hover:bg-white"
+                  : bloqueado
+                    ? "cursor-not-allowed text-[var(--text-muted)] opacity-40"
+                    : "text-[var(--text-secondary)] hover:bg-white"
               }`}
             >
               {n} cuotas
@@ -70,6 +76,12 @@ export function CuotaYPlazo({
           );
         })}
       </div>
+
+      {bloqueado && (
+        <p className="m-0 -mt-1 text-xs font-medium text-[var(--text-muted)] sm:text-[13px]">
+          La promoción se financia solo a {plazo} cuotas.
+        </p>
+      )}
 
       <p className="m-0 text-xs text-[var(--text-muted)] sm:text-[13px]">
         Total a pagar (inicial + cuotas):{" "}

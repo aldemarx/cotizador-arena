@@ -6,18 +6,22 @@
    "proyecto": "arenas",
    "mz": "R1",
    "lt": 1,
-   "metraje_m2": 148.0,
+   "metraje_m2": 208.8,
    "ubicacion": "ESQUINA",
    "tarifa_m2": 148.0,
-   "precio_lista": 21904.0,
-   "precio_contado": 19904.0,
+   "precio_lista": 30902.4,
+   "precio_contado": 28902.4,
    "inicial": 2000.0,
-   "cuota_60": 331.73,
-   "cuota_80": 248.8,
-   "promocion": null,
-   "pendientes": [
-    "metraje: completo 148.0 m² vs promoción 208.8 m²"
-   ]
+   "cuota_60": 481.71,
+   "cuota_80": 361.28,
+   "promocion": {
+    "tipo": "preferencial",
+    "precio_real": 34902.4,
+    "precio_con_dscto": 30902.4,
+    "promo_contado": 27812.16,
+    "promo_financiado": null
+   },
+   "pendientes": []
   },
   {
    "lote": "R1-2",
@@ -596,18 +600,22 @@
    "proyecto": "arenas",
    "mz": "R1",
    "lt": 28,
-   "metraje_m2": 148.0,
+   "metraje_m2": 208.8,
    "ubicacion": "ESQUINA",
    "tarifa_m2": 148.0,
-   "precio_lista": 21904.0,
-   "precio_contado": 19904.0,
+   "precio_lista": 30902.4,
+   "precio_contado": 28902.4,
    "inicial": 2000.0,
-   "cuota_60": 331.73,
-   "cuota_80": 248.8,
-   "promocion": null,
-   "pendientes": [
-    "metraje: completo 148.0 m² vs promoción 208.8 m²"
-   ]
+   "cuota_60": 481.71,
+   "cuota_80": 361.28,
+   "promocion": {
+    "tipo": "preferencial",
+    "precio_real": 34902.4,
+    "precio_con_dscto": 30902.4,
+    "promo_contado": 27812.16,
+    "promo_financiado": null
+   },
+   "pendientes": []
   },
   {
    "lote": "R10-1",
@@ -638,10 +646,14 @@
    "inicial": 2000.0,
    "cuota_60": 300.67,
    "cuota_80": 225.5,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 24040.0,
+    "precio_con_dscto": 20040.0,
+    "promo_contado": 12733.75,
+    "promo_financiado": 15551.88
+   },
+   "pendientes": []
   },
   {
    "lote": "R10-3",
@@ -656,10 +668,14 @@
    "inicial": 2000.0,
    "cuota_60": 301.07,
    "cuota_80": 225.8,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 24064.0,
+    "precio_con_dscto": 20064.0,
+    "promo_contado": 12749.0,
+    "promo_financiado": 15570.5
+   },
+   "pendientes": []
   },
   {
    "lote": "R10-4",
@@ -674,10 +690,14 @@
    "inicial": 2000.0,
    "cuota_60": 301.27,
    "cuota_80": 225.95,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 24076.0,
+    "precio_con_dscto": 20076.0,
+    "promo_contado": 12756.63,
+    "promo_financiado": 15579.81
+   },
+   "pendientes": []
   },
   {
    "lote": "R10-5",
@@ -692,10 +712,14 @@
    "inicial": 2000.0,
    "cuota_60": 301.27,
    "cuota_80": 225.95,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 24076.0,
+    "precio_con_dscto": 20076.0,
+    "promo_contado": 12756.63,
+    "promo_financiado": 15579.81
+   },
+   "pendientes": []
   },
   {
    "lote": "R10-6",
@@ -710,10 +734,14 @@
    "inicial": 2000.0,
    "cuota_60": 301.27,
    "cuota_80": 225.95,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 24076.0,
+    "precio_con_dscto": 20076.0,
+    "promo_contado": 12756.63,
+    "promo_financiado": 15579.81
+   },
+   "pendientes": []
   },
   {
    "lote": "R10-7",
@@ -728,10 +756,14 @@
    "inicial": 2000.0,
    "cuota_60": 301.07,
    "cuota_80": 225.8,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 24064.0,
+    "precio_con_dscto": 20064.0,
+    "promo_contado": 12749.0,
+    "promo_financiado": 15570.5
+   },
+   "pendientes": []
   },
   {
    "lote": "R10-8",
@@ -746,10 +778,14 @@
    "inicial": 2000.0,
    "cuota_60": 291.27,
    "cuota_80": 218.45,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 23476.0,
+    "precio_con_dscto": 19476.0,
+    "promo_contado": 12375.38,
+    "promo_financiado": 15114.19
+   },
+   "pendientes": []
   },
   {
    "lote": "R10-9",
@@ -764,10 +800,14 @@
    "inicial": 2000.0,
    "cuota_60": 286.87,
    "cuota_80": 215.15,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 23212.0,
+    "precio_con_dscto": 19212.0,
+    "promo_contado": 12207.63,
+    "promo_financiado": 14909.31
+   },
+   "pendientes": []
   },
   {
    "lote": "R10-10",
@@ -782,10 +822,14 @@
    "inicial": 2000.0,
    "cuota_60": 286.87,
    "cuota_80": 215.15,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 23212.0,
+    "precio_con_dscto": 19212.0,
+    "promo_contado": 12207.63,
+    "promo_financiado": 14909.31
+   },
+   "pendientes": []
   },
   {
    "lote": "R10-11",
@@ -800,10 +844,14 @@
    "inicial": 2000.0,
    "cuota_60": 287.07,
    "cuota_80": 215.3,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 23224.0,
+    "precio_con_dscto": 19224.0,
+    "promo_contado": 12215.25,
+    "promo_financiado": 14918.63
+   },
+   "pendientes": []
   },
   {
    "lote": "R10-12",
@@ -818,10 +866,14 @@
    "inicial": 2000.0,
    "cuota_60": 286.87,
    "cuota_80": 215.15,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 23212.0,
+    "precio_con_dscto": 19212.0,
+    "promo_contado": 12207.63,
+    "promo_financiado": 14909.31
+   },
+   "pendientes": []
   },
   {
    "lote": "R10-13",
@@ -836,10 +888,14 @@
    "inicial": 2000.0,
    "cuota_60": 280.67,
    "cuota_80": 210.5,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 22840.0,
+    "precio_con_dscto": 18840.0,
+    "promo_contado": 11971.25,
+    "promo_financiado": 14620.63
+   },
+   "pendientes": []
   },
   {
    "lote": "R10-14",
@@ -854,10 +910,14 @@
    "inicial": 2000.0,
    "cuota_60": 278.47,
    "cuota_80": 208.85,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 22708.0,
+    "precio_con_dscto": 18708.0,
+    "promo_contado": 11887.38,
+    "promo_financiado": 14518.19
+   },
+   "pendientes": []
   },
   {
    "lote": "R10-15",
@@ -872,10 +932,14 @@
    "inicial": 2000.0,
    "cuota_60": 278.47,
    "cuota_80": 208.85,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 22708.0,
+    "precio_con_dscto": 18708.0,
+    "promo_contado": 11887.38,
+    "promo_financiado": 14518.19
+   },
+   "pendientes": []
   },
   {
    "lote": "R10-16",
@@ -889,7 +953,7 @@
    "precio_contado": 44457.2,
    "inicial": 2000.0,
    "cuota_60": 740.95,
-   "cuota_80": 555.71,
+   "cuota_80": 555.72,
    "promocion": null,
    "pendientes": []
   },
@@ -922,10 +986,14 @@
    "inicial": 2000.0,
    "cuota_60": 295.07,
    "cuota_80": 221.3,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 23704.0,
+    "precio_con_dscto": 19704.0,
+    "promo_contado": 12520.25,
+    "promo_financiado": 15291.13
+   },
+   "pendientes": []
   },
   {
    "lote": "R10-19",
@@ -940,10 +1008,14 @@
    "inicial": 2000.0,
    "cuota_60": 294.67,
    "cuota_80": 221.0,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 23680.0,
+    "precio_con_dscto": 19680.0,
+    "promo_contado": 12505.0,
+    "promo_financiado": 15272.5
+   },
+   "pendientes": []
   },
   {
    "lote": "R10-20",
@@ -958,10 +1030,14 @@
    "inicial": 2000.0,
    "cuota_60": 294.87,
    "cuota_80": 221.15,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 23692.0,
+    "precio_con_dscto": 19692.0,
+    "promo_contado": 12512.63,
+    "promo_financiado": 15281.81
+   },
+   "pendientes": []
   },
   {
    "lote": "R10-21",
@@ -976,10 +1052,14 @@
    "inicial": 2000.0,
    "cuota_60": 292.47,
    "cuota_80": 219.35,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 23548.0,
+    "precio_con_dscto": 19548.0,
+    "promo_contado": 12421.13,
+    "promo_financiado": 15170.06
+   },
+   "pendientes": []
   },
   {
    "lote": "R10-22",
@@ -994,10 +1074,14 @@
    "inicial": 2000.0,
    "cuota_60": 286.07,
    "cuota_80": 214.55,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 23164.0,
+    "precio_con_dscto": 19164.0,
+    "promo_contado": 12177.13,
+    "promo_financiado": 14872.06
+   },
+   "pendientes": []
   },
   {
    "lote": "R10-23",
@@ -1012,10 +1096,14 @@
    "inicial": 2000.0,
    "cuota_60": 285.27,
    "cuota_80": 213.95,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 23116.0,
+    "precio_con_dscto": 19116.0,
+    "promo_contado": 12146.63,
+    "promo_financiado": 14834.81
+   },
+   "pendientes": []
   },
   {
    "lote": "R10-24",
@@ -1030,10 +1118,14 @@
    "inicial": 2000.0,
    "cuota_60": 286.27,
    "cuota_80": 214.7,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 23176.0,
+    "precio_con_dscto": 19176.0,
+    "promo_contado": 12184.75,
+    "promo_financiado": 14881.38
+   },
+   "pendientes": []
   },
   {
    "lote": "R10-25",
@@ -1043,15 +1135,13 @@
    "metraje_m2": 159.8,
    "ubicacion": "ESTÁNDAR",
    "tarifa_m2": 120.0,
-   "precio_lista": 19176.0,
-   "precio_contado": 17176.0,
+   "precio_lista": 23171.0,
+   "precio_contado": 21171.0,
    "inicial": 2000.0,
-   "cuota_60": 286.27,
-   "cuota_80": 214.7,
+   "cuota_60": 352.85,
+   "cuota_80": 264.64,
    "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "pendientes": []
   },
   {
    "lote": "R10-26",
@@ -1225,7 +1315,7 @@
    "precio_contado": 24710.8,
    "inicial": 2000.0,
    "cuota_60": 411.85,
-   "cuota_80": 308.88,
+   "cuota_80": 308.89,
    "promocion": null,
    "pendientes": []
   },
@@ -1241,7 +1331,7 @@
    "precio_contado": 24715.6,
    "inicial": 2000.0,
    "cuota_60": 411.93,
-   "cuota_80": 308.94,
+   "cuota_80": 308.95,
    "promocion": null,
    "pendientes": []
   },
@@ -1353,7 +1443,7 @@
    "precio_contado": 19910.8,
    "inicial": 2000.0,
    "cuota_60": 331.85,
-   "cuota_80": 248.88,
+   "cuota_80": 248.89,
    "promocion": null,
    "pendientes": []
   },
@@ -1481,7 +1571,7 @@
    "precio_contado": 22142.8,
    "inicial": 2000.0,
    "cuota_60": 369.05,
-   "cuota_80": 276.78,
+   "cuota_80": 276.79,
    "promocion": null,
    "pendientes": []
   },
@@ -1673,7 +1763,7 @@
    "precio_contado": 24125.2,
    "inicial": 2000.0,
    "cuota_60": 402.09,
-   "cuota_80": 301.56,
+   "cuota_80": 301.57,
    "promocion": null,
    "pendientes": []
   },
@@ -1833,7 +1923,7 @@
    "precio_contado": 22001.2,
    "inicial": 2000.0,
    "cuota_60": 366.69,
-   "cuota_80": 275.01,
+   "cuota_80": 275.02,
    "promocion": null,
    "pendientes": []
   },
@@ -1961,7 +2051,7 @@
    "precio_contado": 22760.4,
    "inicial": 2000.0,
    "cuota_60": 379.34,
-   "cuota_80": 284.5,
+   "cuota_80": 284.51,
    "promocion": null,
    "pendientes": []
   },
@@ -2168,7 +2258,7 @@
    "precio_lista": 23214.5,
    "precio_contado": 21214.5,
    "inicial": 2000.0,
-   "cuota_60": 353.57,
+   "cuota_60": 353.58,
    "cuota_80": 265.18,
    "promocion": null,
    "pendientes": []
@@ -2216,7 +2306,7 @@
    "precio_lista": 31164.5,
    "precio_contado": 29164.5,
    "inicial": 2000.0,
-   "cuota_60": 486.07,
+   "cuota_60": 486.08,
    "cuota_80": 364.56,
    "promocion": null,
    "pendientes": []
@@ -2521,7 +2611,7 @@
    "precio_contado": 20330.0,
    "inicial": 2000.0,
    "cuota_60": 338.83,
-   "cuota_80": 254.12,
+   "cuota_80": 254.13,
    "promocion": null,
    "pendientes": []
   },
@@ -2553,7 +2643,7 @@
    "precio_contado": 20330.0,
    "inicial": 2000.0,
    "cuota_60": 338.83,
-   "cuota_80": 254.12,
+   "cuota_80": 254.13,
    "promocion": null,
    "pendientes": []
   },
@@ -2658,14 +2748,14 @@
    "proyecto": "arenas",
    "mz": "R14",
    "lt": 12,
-   "metraje_m2": 148.0,
+   "metraje_m2": 248.3,
    "ubicacion": "ESQUINA",
    "tarifa_m2": 148.0,
-   "precio_lista": 21904.0,
-   "precio_contado": 19904.0,
+   "precio_lista": 36748.4,
+   "precio_contado": 34748.4,
    "inicial": 2000.0,
-   "cuota_60": 331.73,
-   "cuota_80": 248.8,
+   "cuota_60": 579.14,
+   "cuota_80": 434.36,
    "promocion": null,
    "pendientes": []
   },
@@ -2713,7 +2803,7 @@
    "precio_contado": 27022.0,
    "inicial": 2000.0,
    "cuota_60": 450.37,
-   "cuota_80": 337.77,
+   "cuota_80": 337.78,
    "promocion": null,
    "pendientes": []
   },
@@ -2729,7 +2819,7 @@
    "precio_contado": 21226.0,
    "inicial": 2000.0,
    "cuota_60": 353.77,
-   "cuota_80": 265.32,
+   "cuota_80": 265.33,
    "promocion": null,
    "pendientes": []
   },
@@ -2761,7 +2851,7 @@
    "precio_contado": 21226.0,
    "inicial": 2000.0,
    "cuota_60": 353.77,
-   "cuota_80": 265.32,
+   "cuota_80": 265.33,
    "promocion": null,
    "pendientes": []
   },
@@ -2777,7 +2867,7 @@
    "precio_contado": 27050.0,
    "inicial": 2000.0,
    "cuota_60": 450.83,
-   "cuota_80": 338.12,
+   "cuota_80": 338.13,
    "promocion": null,
    "pendientes": []
   },
@@ -2809,7 +2899,7 @@
    "precio_contado": 27050.0,
    "inicial": 2000.0,
    "cuota_60": 450.83,
-   "cuota_80": 338.12,
+   "cuota_80": 338.13,
    "promocion": null,
    "pendientes": []
   },
@@ -2841,7 +2931,7 @@
    "precio_contado": 26686.0,
    "inicial": 2000.0,
    "cuota_60": 444.77,
-   "cuota_80": 333.57,
+   "cuota_80": 333.58,
    "promocion": null,
    "pendientes": []
   },
@@ -2866,14 +2956,14 @@
    "proyecto": "arenas",
    "mz": "R15",
    "lt": 1,
-   "metraje_m2": 148.0,
+   "metraje_m2": 321.5,
    "ubicacion": "ESQUINA",
    "tarifa_m2": 148.0,
-   "precio_lista": 21904.0,
-   "precio_contado": 19904.0,
+   "precio_lista": 47582.0,
+   "precio_contado": 45582.0,
    "inicial": 2000.0,
-   "cuota_60": 331.73,
-   "cuota_80": 248.8,
+   "cuota_60": 759.7,
+   "cuota_80": 569.78,
    "promocion": null,
    "pendientes": []
   },
@@ -3093,11 +3183,11 @@
    "metraje_m2": 300.8,
    "ubicacion": "ESQUINA - AV PRINCIPAL",
    "tarifa_m2": 153.0,
-   "precio_lista": 46022.4,
-   "precio_contado": 44022.4,
+   "precio_lista": 44518.4,
+   "precio_contado": 42518.4,
    "inicial": 2000.0,
-   "cuota_60": 733.71,
-   "cuota_80": 550.28,
+   "cuota_60": 708.64,
+   "cuota_80": 531.48,
    "promocion": null,
    "pendientes": []
   },
@@ -3129,7 +3219,7 @@
    "precio_contado": 25930.0,
    "inicial": 2000.0,
    "cuota_60": 432.17,
-   "cuota_80": 324.12,
+   "cuota_80": 324.13,
    "promocion": null,
    "pendientes": []
   },
@@ -3145,7 +3235,7 @@
    "precio_contado": 25146.0,
    "inicial": 2000.0,
    "cuota_60": 419.1,
-   "cuota_80": 314.32,
+   "cuota_80": 314.33,
    "promocion": null,
    "pendientes": []
   },
@@ -3161,7 +3251,7 @@
    "precio_contado": 25146.0,
    "inicial": 2000.0,
    "cuota_60": 419.1,
-   "cuota_80": 314.32,
+   "cuota_80": 314.33,
    "promocion": null,
    "pendientes": []
   },
@@ -3177,7 +3267,7 @@
    "precio_contado": 25146.0,
    "inicial": 2000.0,
    "cuota_60": 419.1,
-   "cuota_80": 314.32,
+   "cuota_80": 314.33,
    "promocion": null,
    "pendientes": []
   },
@@ -3193,7 +3283,7 @@
    "precio_contado": 25146.0,
    "inicial": 2000.0,
    "cuota_60": 419.1,
-   "cuota_80": 314.32,
+   "cuota_80": 314.33,
    "promocion": null,
    "pendientes": []
   },
@@ -3209,7 +3299,7 @@
    "precio_contado": 25146.0,
    "inicial": 2000.0,
    "cuota_60": 419.1,
-   "cuota_80": 314.32,
+   "cuota_80": 314.33,
    "promocion": null,
    "pendientes": []
   },
@@ -3225,7 +3315,7 @@
    "precio_contado": 25146.0,
    "inicial": 2000.0,
    "cuota_60": 419.1,
-   "cuota_80": 314.32,
+   "cuota_80": 314.33,
    "promocion": null,
    "pendientes": []
   },
@@ -3241,7 +3331,7 @@
    "precio_contado": 25146.0,
    "inicial": 2000.0,
    "cuota_60": 419.1,
-   "cuota_80": 314.32,
+   "cuota_80": 314.33,
    "promocion": null,
    "pendientes": []
   },
@@ -3257,7 +3347,7 @@
    "precio_contado": 25146.0,
    "inicial": 2000.0,
    "cuota_60": 419.1,
-   "cuota_80": 314.32,
+   "cuota_80": 314.33,
    "promocion": null,
    "pendientes": []
   },
@@ -3273,7 +3363,7 @@
    "precio_contado": 25146.0,
    "inicial": 2000.0,
    "cuota_60": 419.1,
-   "cuota_80": 314.32,
+   "cuota_80": 314.33,
    "promocion": null,
    "pendientes": []
   },
@@ -4930,18 +5020,22 @@
    "proyecto": "arenas",
    "mz": "R2",
    "lt": 1,
-   "metraje_m2": 148.0,
+   "metraje_m2": 295.55,
    "ubicacion": "ESQUINA",
    "tarifa_m2": 148.0,
-   "precio_lista": 21904.0,
-   "precio_contado": 19904.0,
+   "precio_lista": 43741.4,
+   "precio_contado": 41741.4,
    "inicial": 2000.0,
-   "cuota_60": 331.73,
-   "cuota_80": 248.8,
-   "promocion": null,
-   "pendientes": [
-    "metraje: completo 148.0 m² vs promoción 295.55 m²"
-   ]
+   "cuota_60": 695.69,
+   "cuota_80": 521.77,
+   "promocion": {
+    "tipo": "preferencial",
+    "precio_real": 47741.4,
+    "precio_con_dscto": 43741.4,
+    "promo_contado": 39367.26,
+    "promo_financiado": null
+   },
+   "pendientes": []
   },
   {
    "lote": "R2-2",
@@ -5168,18 +5262,22 @@
    "proyecto": "arenas",
    "mz": "R2",
    "lt": 12,
-   "metraje_m2": 148.0,
+   "metraje_m2": 295.55,
    "ubicacion": "ESQUINA",
    "tarifa_m2": 148.0,
-   "precio_lista": 21904.0,
-   "precio_contado": 19904.0,
+   "precio_lista": 43741.4,
+   "precio_contado": 41741.4,
    "inicial": 2000.0,
-   "cuota_60": 331.73,
-   "cuota_80": 248.8,
-   "promocion": null,
-   "pendientes": [
-    "metraje: completo 148.0 m² vs promoción 295.55 m²"
-   ]
+   "cuota_60": 695.69,
+   "cuota_80": 521.77,
+   "promocion": {
+    "tipo": "preferencial",
+    "precio_real": 47741.4,
+    "precio_con_dscto": 43741.4,
+    "promo_contado": 39367.26,
+    "promo_financiado": null
+   },
+   "pendientes": []
   },
   {
    "lote": "R2-13",
@@ -6380,12 +6478,12 @@
    "lt": 1,
    "metraje_m2": 173.0,
    "ubicacion": "ESQUINA - FRENTE AL PARQUE",
-   "tarifa_m2": 157.0,
-   "precio_lista": 27161.0,
-   "precio_contado": 25161.0,
+   "tarifa_m2": 190.0,
+   "precio_lista": 32870.0,
+   "precio_contado": 30870.0,
    "inicial": 2000.0,
-   "cuota_60": 419.35,
-   "cuota_80": 314.51,
+   "cuota_60": 514.5,
+   "cuota_80": 385.88,
    "promocion": null,
    "pendientes": []
   },
@@ -6396,12 +6494,12 @@
    "lt": 2,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - FRENTE AL PARQUE",
-   "tarifa_m2": 145.0,
-   "precio_lista": 23200.0,
-   "precio_contado": 21200.0,
+   "tarifa_m2": 200.0,
+   "precio_lista": 32000.0,
+   "precio_contado": 30000.0,
    "inicial": 2000.0,
-   "cuota_60": 353.33,
-   "cuota_80": 265.0,
+   "cuota_60": 500.0,
+   "cuota_80": 375.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6412,12 +6510,12 @@
    "lt": 3,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - FRENTE AL PARQUE",
-   "tarifa_m2": 145.0,
-   "precio_lista": 23200.0,
-   "precio_contado": 21200.0,
+   "tarifa_m2": 200.0,
+   "precio_lista": 32000.0,
+   "precio_contado": 30000.0,
    "inicial": 2000.0,
-   "cuota_60": 353.33,
-   "cuota_80": 265.0,
+   "cuota_60": 500.0,
+   "cuota_80": 375.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6428,12 +6526,12 @@
    "lt": 4,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - FRENTE AL PARQUE",
-   "tarifa_m2": 145.0,
-   "precio_lista": 23200.0,
-   "precio_contado": 21200.0,
+   "tarifa_m2": 200.0,
+   "precio_lista": 32000.0,
+   "precio_contado": 30000.0,
    "inicial": 2000.0,
-   "cuota_60": 353.33,
-   "cuota_80": 265.0,
+   "cuota_60": 500.0,
+   "cuota_80": 375.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6444,12 +6542,12 @@
    "lt": 5,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - FRENTE AL PARQUE",
-   "tarifa_m2": 145.0,
-   "precio_lista": 23200.0,
-   "precio_contado": 21200.0,
+   "tarifa_m2": 200.0,
+   "precio_lista": 32000.0,
+   "precio_contado": 30000.0,
    "inicial": 2000.0,
-   "cuota_60": 353.33,
-   "cuota_80": 265.0,
+   "cuota_60": 500.0,
+   "cuota_80": 375.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6460,12 +6558,12 @@
    "lt": 6,
    "metraje_m2": 197.0,
    "ubicacion": "ESQUINA - FRENTE AL PARQUE",
-   "tarifa_m2": 157.0,
-   "precio_lista": 30929.0,
-   "precio_contado": 28929.0,
+   "tarifa_m2": 190.0,
+   "precio_lista": 37430.0,
+   "precio_contado": 35430.0,
    "inicial": 2000.0,
-   "cuota_60": 482.15,
-   "cuota_80": 361.61,
+   "cuota_60": 590.5,
+   "cuota_80": 442.88,
    "promocion": null,
    "pendientes": []
   },
@@ -6476,12 +6574,12 @@
    "lt": 7,
    "metraje_m2": 197.0,
    "ubicacion": "ESQUINA - AV PRINCIPAL",
-   "tarifa_m2": 153.0,
-   "precio_lista": 30141.0,
-   "precio_contado": 28141.0,
+   "tarifa_m2": 180.0,
+   "precio_lista": 35460.0,
+   "precio_contado": 33460.0,
    "inicial": 2000.0,
-   "cuota_60": 469.02,
-   "cuota_80": 351.76,
+   "cuota_60": 557.67,
+   "cuota_80": 418.25,
    "promocion": null,
    "pendientes": []
   },
@@ -6492,12 +6590,12 @@
    "lt": 8,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - AV PRINCIPAL",
-   "tarifa_m2": 140.0,
-   "precio_lista": 22400.0,
-   "precio_contado": 20400.0,
+   "tarifa_m2": 160.0,
+   "precio_lista": 25600.0,
+   "precio_contado": 23600.0,
    "inicial": 2000.0,
-   "cuota_60": 340.0,
-   "cuota_80": 255.0,
+   "cuota_60": 393.33,
+   "cuota_80": 295.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6508,12 +6606,12 @@
    "lt": 9,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - AV PRINCIPAL",
-   "tarifa_m2": 140.0,
-   "precio_lista": 22400.0,
-   "precio_contado": 20400.0,
+   "tarifa_m2": 160.0,
+   "precio_lista": 25600.0,
+   "precio_contado": 23600.0,
    "inicial": 2000.0,
-   "cuota_60": 340.0,
-   "cuota_80": 255.0,
+   "cuota_60": 393.33,
+   "cuota_80": 295.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6524,12 +6622,12 @@
    "lt": 10,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - AV PRINCIPAL",
-   "tarifa_m2": 140.0,
-   "precio_lista": 22400.0,
-   "precio_contado": 20400.0,
+   "tarifa_m2": 160.0,
+   "precio_lista": 25600.0,
+   "precio_contado": 23600.0,
    "inicial": 2000.0,
-   "cuota_60": 340.0,
-   "cuota_80": 255.0,
+   "cuota_60": 393.33,
+   "cuota_80": 295.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6540,12 +6638,12 @@
    "lt": 11,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - AV PRINCIPAL",
-   "tarifa_m2": 140.0,
-   "precio_lista": 22400.0,
-   "precio_contado": 20400.0,
+   "tarifa_m2": 160.0,
+   "precio_lista": 25600.0,
+   "precio_contado": 23600.0,
    "inicial": 2000.0,
-   "cuota_60": 340.0,
-   "cuota_80": 255.0,
+   "cuota_60": 393.33,
+   "cuota_80": 295.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6556,12 +6654,12 @@
    "lt": 12,
    "metraje_m2": 181.0,
    "ubicacion": "ESQUINA - AV PRINCIPAL",
-   "tarifa_m2": 153.0,
-   "precio_lista": 27693.0,
-   "precio_contado": 25693.0,
+   "tarifa_m2": 180.0,
+   "precio_lista": 32580.0,
+   "precio_contado": 30580.0,
    "inicial": 2000.0,
-   "cuota_60": 428.22,
-   "cuota_80": 321.16,
+   "cuota_60": 509.67,
+   "cuota_80": 382.25,
    "promocion": null,
    "pendientes": []
   },
@@ -6572,12 +6670,12 @@
    "lt": 1,
    "metraje_m2": 268.9,
    "ubicacion": "ESQUINA - FRENTE AL PARQUE",
-   "tarifa_m2": 157.0,
-   "precio_lista": 42217.3,
-   "precio_contado": 40217.3,
+   "tarifa_m2": 190.0,
+   "precio_lista": 51091.0,
+   "precio_contado": 49091.0,
    "inicial": 2000.0,
-   "cuota_60": 670.29,
-   "cuota_80": 502.72,
+   "cuota_60": 818.18,
+   "cuota_80": 613.64,
    "promocion": null,
    "pendientes": []
   },
@@ -6588,12 +6686,12 @@
    "lt": 2,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - FRENTE AL PARQUE",
-   "tarifa_m2": 145.0,
-   "precio_lista": 23200.0,
-   "precio_contado": 21200.0,
+   "tarifa_m2": 200.0,
+   "precio_lista": 32000.0,
+   "precio_contado": 30000.0,
    "inicial": 2000.0,
-   "cuota_60": 353.33,
-   "cuota_80": 265.0,
+   "cuota_60": 500.0,
+   "cuota_80": 375.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6604,12 +6702,12 @@
    "lt": 3,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - FRENTE AL PARQUE",
-   "tarifa_m2": 145.0,
-   "precio_lista": 23200.0,
-   "precio_contado": 21200.0,
+   "tarifa_m2": 200.0,
+   "precio_lista": 32000.0,
+   "precio_contado": 30000.0,
    "inicial": 2000.0,
-   "cuota_60": 353.33,
-   "cuota_80": 265.0,
+   "cuota_60": 500.0,
+   "cuota_80": 375.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6620,12 +6718,12 @@
    "lt": 4,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - FRENTE AL PARQUE",
-   "tarifa_m2": 145.0,
-   "precio_lista": 23200.0,
-   "precio_contado": 21200.0,
+   "tarifa_m2": 200.0,
+   "precio_lista": 32000.0,
+   "precio_contado": 30000.0,
    "inicial": 2000.0,
-   "cuota_60": 353.33,
-   "cuota_80": 265.0,
+   "cuota_60": 500.0,
+   "cuota_80": 375.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6636,12 +6734,12 @@
    "lt": 5,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - FRENTE AL PARQUE",
-   "tarifa_m2": 145.0,
-   "precio_lista": 23200.0,
-   "precio_contado": 21200.0,
+   "tarifa_m2": 200.0,
+   "precio_lista": 32000.0,
+   "precio_contado": 30000.0,
    "inicial": 2000.0,
-   "cuota_60": 353.33,
-   "cuota_80": 265.0,
+   "cuota_60": 500.0,
+   "cuota_80": 375.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6652,12 +6750,12 @@
    "lt": 6,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - FRENTE AL PARQUE",
-   "tarifa_m2": 145.0,
-   "precio_lista": 23200.0,
-   "precio_contado": 21200.0,
+   "tarifa_m2": 200.0,
+   "precio_lista": 32000.0,
+   "precio_contado": 30000.0,
    "inicial": 2000.0,
-   "cuota_60": 353.33,
-   "cuota_80": 265.0,
+   "cuota_60": 500.0,
+   "cuota_80": 375.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6668,12 +6766,12 @@
    "lt": 7,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - FRENTE AL PARQUE",
-   "tarifa_m2": 145.0,
-   "precio_lista": 23200.0,
-   "precio_contado": 21200.0,
+   "tarifa_m2": 200.0,
+   "precio_lista": 32000.0,
+   "precio_contado": 30000.0,
    "inicial": 2000.0,
-   "cuota_60": 353.33,
-   "cuota_80": 265.0,
+   "cuota_60": 500.0,
+   "cuota_80": 375.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6684,12 +6782,12 @@
    "lt": 8,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - FRENTE AL PARQUE",
-   "tarifa_m2": 145.0,
-   "precio_lista": 23200.0,
-   "precio_contado": 21200.0,
+   "tarifa_m2": 200.0,
+   "precio_lista": 32000.0,
+   "precio_contado": 30000.0,
    "inicial": 2000.0,
-   "cuota_60": 353.33,
-   "cuota_80": 265.0,
+   "cuota_60": 500.0,
+   "cuota_80": 375.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6700,12 +6798,12 @@
    "lt": 9,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - FRENTE AL PARQUE",
-   "tarifa_m2": 145.0,
-   "precio_lista": 23200.0,
-   "precio_contado": 21200.0,
+   "tarifa_m2": 200.0,
+   "precio_lista": 32000.0,
+   "precio_contado": 30000.0,
    "inicial": 2000.0,
-   "cuota_60": 353.33,
-   "cuota_80": 265.0,
+   "cuota_60": 500.0,
+   "cuota_80": 375.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6716,12 +6814,12 @@
    "lt": 10,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - FRENTE AL PARQUE",
-   "tarifa_m2": 145.0,
-   "precio_lista": 23200.0,
-   "precio_contado": 21200.0,
+   "tarifa_m2": 200.0,
+   "precio_lista": 32000.0,
+   "precio_contado": 30000.0,
    "inicial": 2000.0,
-   "cuota_60": 353.33,
-   "cuota_80": 265.0,
+   "cuota_60": 500.0,
+   "cuota_80": 375.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6732,12 +6830,12 @@
    "lt": 11,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - FRENTE AL PARQUE",
-   "tarifa_m2": 145.0,
-   "precio_lista": 23200.0,
-   "precio_contado": 21200.0,
+   "tarifa_m2": 200.0,
+   "precio_lista": 32000.0,
+   "precio_contado": 30000.0,
    "inicial": 2000.0,
-   "cuota_60": 353.33,
-   "cuota_80": 265.0,
+   "cuota_60": 500.0,
+   "cuota_80": 375.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6748,12 +6846,12 @@
    "lt": 12,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6764,12 +6862,12 @@
    "lt": 13,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6780,12 +6878,12 @@
    "lt": 14,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6796,12 +6894,12 @@
    "lt": 15,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6812,12 +6910,12 @@
    "lt": 16,
    "metraje_m2": 268.9,
    "ubicacion": "ESQUINA - AV PRINCIPAL",
-   "tarifa_m2": 153.0,
-   "precio_lista": 41141.7,
-   "precio_contado": 39141.7,
+   "tarifa_m2": 180.0,
+   "precio_lista": 48402.0,
+   "precio_contado": 46402.0,
    "inicial": 2000.0,
-   "cuota_60": 652.36,
-   "cuota_80": 489.27,
+   "cuota_60": 773.37,
+   "cuota_80": 580.03,
    "promocion": null,
    "pendientes": []
   },
@@ -6828,12 +6926,12 @@
    "lt": 17,
    "metraje_m2": 268.9,
    "ubicacion": "ESQUINA - AV PRINCIPAL",
-   "tarifa_m2": 153.0,
-   "precio_lista": 41141.7,
-   "precio_contado": 39141.7,
+   "tarifa_m2": 180.0,
+   "precio_lista": 48402.0,
+   "precio_contado": 46402.0,
    "inicial": 2000.0,
-   "cuota_60": 652.36,
-   "cuota_80": 489.27,
+   "cuota_60": 773.37,
+   "cuota_80": 580.03,
    "promocion": null,
    "pendientes": []
   },
@@ -6844,12 +6942,12 @@
    "lt": 18,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6860,12 +6958,12 @@
    "lt": 19,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6876,12 +6974,12 @@
    "lt": 20,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6892,12 +6990,12 @@
    "lt": 21,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6908,12 +7006,12 @@
    "lt": 22,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6924,12 +7022,12 @@
    "lt": 23,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6940,12 +7038,12 @@
    "lt": 24,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6956,12 +7054,12 @@
    "lt": 25,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6972,12 +7070,12 @@
    "lt": 26,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -6988,12 +7086,12 @@
    "lt": 27,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7004,12 +7102,12 @@
    "lt": 28,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7020,12 +7118,12 @@
    "lt": 29,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7036,12 +7134,12 @@
    "lt": 30,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7052,12 +7150,12 @@
    "lt": 31,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7068,12 +7166,12 @@
    "lt": 32,
    "metraje_m2": 148.0,
    "ubicacion": "ESQUINA",
-   "tarifa_m2": 125.0,
-   "precio_lista": 18500.0,
-   "precio_contado": 16500.0,
+   "tarifa_m2": 175.0,
+   "precio_lista": 25900.0,
+   "precio_contado": 23900.0,
    "inicial": 2000.0,
-   "cuota_60": 275.0,
-   "cuota_80": 206.25,
+   "cuota_60": 398.33,
+   "cuota_80": 298.75,
    "promocion": null,
    "pendientes": []
   },
@@ -7084,12 +7182,12 @@
    "lt": 1,
    "metraje_m2": 148.0,
    "ubicacion": "ESQUINA",
-   "tarifa_m2": 148.0,
-   "precio_lista": 21904.0,
-   "precio_contado": 19904.0,
+   "tarifa_m2": 175.0,
+   "precio_lista": 25900.0,
+   "precio_contado": 23900.0,
    "inicial": 2000.0,
-   "cuota_60": 331.73,
-   "cuota_80": 248.8,
+   "cuota_60": 398.33,
+   "cuota_80": 298.75,
    "promocion": null,
    "pendientes": []
   },
@@ -7100,12 +7198,12 @@
    "lt": 2,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7116,12 +7214,12 @@
    "lt": 3,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7132,12 +7230,12 @@
    "lt": 4,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7148,12 +7246,12 @@
    "lt": 5,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7164,12 +7262,12 @@
    "lt": 6,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7180,12 +7278,12 @@
    "lt": 7,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7196,12 +7294,12 @@
    "lt": 8,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 162.5,
+   "precio_lista": 26000.0,
+   "precio_contado": 24000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 400.0,
+   "cuota_80": 300.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7212,12 +7310,12 @@
    "lt": 9,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - FRENTE AL PARQUE",
-   "tarifa_m2": 145.0,
-   "precio_lista": 23200.0,
-   "precio_contado": 21200.0,
+   "tarifa_m2": 200.0,
+   "precio_lista": 32000.0,
+   "precio_contado": 30000.0,
    "inicial": 2000.0,
-   "cuota_60": 353.33,
-   "cuota_80": 265.0,
+   "cuota_60": 500.0,
+   "cuota_80": 375.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7228,12 +7326,12 @@
    "lt": 10,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - FRENTE AL PARQUE",
-   "tarifa_m2": 145.0,
-   "precio_lista": 23200.0,
-   "precio_contado": 21200.0,
+   "tarifa_m2": 200.0,
+   "precio_lista": 32000.0,
+   "precio_contado": 30000.0,
    "inicial": 2000.0,
-   "cuota_60": 353.33,
-   "cuota_80": 265.0,
+   "cuota_60": 500.0,
+   "cuota_80": 375.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7244,12 +7342,12 @@
    "lt": 11,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - FRENTE AL PARQUE",
-   "tarifa_m2": 145.0,
-   "precio_lista": 23200.0,
-   "precio_contado": 21200.0,
+   "tarifa_m2": 200.0,
+   "precio_lista": 32000.0,
+   "precio_contado": 30000.0,
    "inicial": 2000.0,
-   "cuota_60": 353.33,
-   "cuota_80": 265.0,
+   "cuota_60": 500.0,
+   "cuota_80": 375.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7260,12 +7358,12 @@
    "lt": 12,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - FRENTE AL PARQUE",
-   "tarifa_m2": 145.0,
-   "precio_lista": 23200.0,
-   "precio_contado": 21200.0,
+   "tarifa_m2": 200.0,
+   "precio_lista": 32000.0,
+   "precio_contado": 30000.0,
    "inicial": 2000.0,
-   "cuota_60": 353.33,
-   "cuota_80": 265.0,
+   "cuota_60": 500.0,
+   "cuota_80": 375.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7276,12 +7374,12 @@
    "lt": 13,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - FRENTE AL PARQUE",
-   "tarifa_m2": 145.0,
-   "precio_lista": 23200.0,
-   "precio_contado": 21200.0,
+   "tarifa_m2": 200.0,
+   "precio_lista": 32000.0,
+   "precio_contado": 30000.0,
    "inicial": 2000.0,
-   "cuota_60": 353.33,
-   "cuota_80": 265.0,
+   "cuota_60": 500.0,
+   "cuota_80": 375.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7292,12 +7390,12 @@
    "lt": 14,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR - FRENTE AL PARQUE",
-   "tarifa_m2": 145.0,
-   "precio_lista": 23200.0,
-   "precio_contado": 21200.0,
+   "tarifa_m2": 200.0,
+   "precio_lista": 32000.0,
+   "precio_contado": 30000.0,
    "inicial": 2000.0,
-   "cuota_60": 353.33,
-   "cuota_80": 265.0,
+   "cuota_60": 500.0,
+   "cuota_80": 375.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7308,12 +7406,12 @@
    "lt": 15,
    "metraje_m2": 300.0,
    "ubicacion": "ESQUINA - FRENTE AL PARQUE",
-   "tarifa_m2": 157.0,
-   "precio_lista": 47100.0,
-   "precio_contado": 45100.0,
+   "tarifa_m2": 190.0,
+   "precio_lista": 57000.0,
+   "precio_contado": 55000.0,
    "inicial": 2000.0,
-   "cuota_60": 751.67,
-   "cuota_80": 563.75,
+   "cuota_60": 916.67,
+   "cuota_80": 687.5,
    "promocion": null,
    "pendientes": []
   },
@@ -7322,14 +7420,14 @@
    "proyecto": "arenas",
    "mz": "R24",
    "lt": 16,
-   "metraje_m2": 148.0,
+   "metraje_m2": 300.0,
    "ubicacion": "ESQUINA",
-   "tarifa_m2": 148.0,
-   "precio_lista": 21904.0,
-   "precio_contado": 19904.0,
+   "tarifa_m2": 175.0,
+   "precio_lista": 52500.0,
+   "precio_contado": 50500.0,
    "inicial": 2000.0,
-   "cuota_60": 331.73,
-   "cuota_80": 248.8,
+   "cuota_60": 841.67,
+   "cuota_80": 631.25,
    "promocion": null,
    "pendientes": []
   },
@@ -7340,12 +7438,12 @@
    "lt": 17,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7356,12 +7454,12 @@
    "lt": 18,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7372,12 +7470,12 @@
    "lt": 19,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 162.5,
+   "precio_lista": 26000.0,
+   "precio_contado": 24000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 400.0,
+   "cuota_80": 300.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7388,12 +7486,12 @@
    "lt": 20,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 162.5,
+   "precio_lista": 26000.0,
+   "precio_contado": 24000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 400.0,
+   "cuota_80": 300.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7404,12 +7502,12 @@
    "lt": 21,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7420,12 +7518,12 @@
    "lt": 22,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 162.5,
+   "precio_lista": 26000.0,
+   "precio_contado": 24000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 400.0,
+   "cuota_80": 300.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7436,12 +7534,12 @@
    "lt": 23,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 162.5,
+   "precio_lista": 26000.0,
+   "precio_contado": 24000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 400.0,
+   "cuota_80": 300.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7452,12 +7550,12 @@
    "lt": 24,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 162.5,
+   "precio_lista": 26000.0,
+   "precio_contado": 24000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 400.0,
+   "cuota_80": 300.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7468,12 +7566,12 @@
    "lt": 25,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 162.5,
+   "precio_lista": 26000.0,
+   "precio_contado": 24000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 400.0,
+   "cuota_80": 300.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7484,12 +7582,12 @@
    "lt": 26,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7500,12 +7598,12 @@
    "lt": 27,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7516,12 +7614,12 @@
    "lt": 28,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7532,12 +7630,12 @@
    "lt": 29,
    "metraje_m2": 160.0,
    "ubicacion": "ESTÁNDAR",
-   "tarifa_m2": 120.0,
-   "precio_lista": 19200.0,
-   "precio_contado": 17200.0,
+   "tarifa_m2": 187.5,
+   "precio_lista": 30000.0,
+   "precio_contado": 28000.0,
    "inicial": 2000.0,
-   "cuota_60": 286.67,
-   "cuota_80": 215.0,
+   "cuota_60": 466.67,
+   "cuota_80": 350.0,
    "promocion": null,
    "pendientes": []
   },
@@ -7548,12 +7646,12 @@
    "lt": 30,
    "metraje_m2": 148.0,
    "ubicacion": "ESQUINA",
-   "tarifa_m2": 148.0,
-   "precio_lista": 21904.0,
-   "precio_contado": 19904.0,
+   "tarifa_m2": 175.0,
+   "precio_lista": 25900.0,
+   "precio_contado": 23900.0,
    "inicial": 2000.0,
-   "cuota_60": 331.73,
-   "cuota_80": 248.8,
+   "cuota_60": 398.33,
+   "cuota_80": 298.75,
    "promocion": null,
    "pendientes": []
   },
@@ -8555,15 +8653,19 @@
    "metraje_m2": 264.9,
    "ubicacion": "ESQUINA - AV PRINCIPAL",
    "tarifa_m2": 153.0,
-   "precio_lista": 40529.7,
-   "precio_contado": 38529.7,
+   "precio_lista": 39205.2,
+   "precio_contado": 37205.2,
    "inicial": 2000.0,
-   "cuota_60": 642.16,
-   "cuota_80": 481.62,
-   "promocion": null,
-   "pendientes": [
-    "ubicación: completo 'ESQUINA - AV PRINCIPAL' vs promoción 'ESQUINA'"
-   ]
+   "cuota_60": 620.09,
+   "cuota_80": 465.07,
+   "promocion": {
+    "tipo": "preferencial",
+    "precio_real": 43205.2,
+    "precio_con_dscto": 39205.2,
+    "promo_contado": 35284.68,
+    "promo_financiado": null
+   },
+   "pendientes": []
   },
   {
    "lote": "R4-17",
@@ -8573,15 +8675,19 @@
    "metraje_m2": 264.9,
    "ubicacion": "ESQUINA - AV PRINCIPAL",
    "tarifa_m2": 153.0,
-   "precio_lista": 40529.7,
-   "precio_contado": 38529.7,
+   "precio_lista": 39205.2,
+   "precio_contado": 37205.2,
    "inicial": 2000.0,
-   "cuota_60": 642.16,
-   "cuota_80": 481.62,
-   "promocion": null,
-   "pendientes": [
-    "ubicación: completo 'ESQUINA - AV PRINCIPAL' vs promoción 'ESQUINA'"
-   ]
+   "cuota_60": 620.09,
+   "cuota_80": 465.07,
+   "promocion": {
+    "tipo": "preferencial",
+    "precio_real": 43205.2,
+    "precio_con_dscto": 39205.2,
+    "promo_contado": 35284.68,
+    "promo_financiado": null
+   },
+   "pendientes": []
   },
   {
    "lote": "R4-18",
@@ -9113,11 +9219,11 @@
    "metraje_m2": 300.0,
    "ubicacion": "ESQUINA - AV PRINCIPAL",
    "tarifa_m2": 153.0,
-   "precio_lista": 45900.0,
-   "precio_contado": 43900.0,
+   "precio_lista": 44400.0,
+   "precio_contado": 42400.0,
    "inicial": 2000.0,
-   "cuota_60": 731.67,
-   "cuota_80": 548.75,
+   "cuota_60": 706.67,
+   "cuota_80": 530.0,
    "promocion": null,
    "pendientes": []
   },
@@ -9129,11 +9235,11 @@
    "metraje_m2": 300.0,
    "ubicacion": "ESQUINA - AV PRINCIPAL",
    "tarifa_m2": 153.0,
-   "precio_lista": 45900.0,
-   "precio_contado": 43900.0,
+   "precio_lista": 44400.0,
+   "precio_contado": 42400.0,
    "inicial": 2000.0,
-   "cuota_60": 731.67,
-   "cuota_80": 548.75,
+   "cuota_60": 706.67,
+   "cuota_80": 530.0,
    "promocion": null,
    "pendientes": []
   },
@@ -9372,7 +9478,7 @@
    "precio_lista": 27216.5,
    "precio_contado": 25216.5,
    "inicial": 2000.0,
-   "cuota_60": 420.27,
+   "cuota_60": 420.28,
    "cuota_80": 315.21,
    "promocion": null,
    "pendientes": []
@@ -9404,7 +9510,7 @@
    "precio_lista": 27216.5,
    "precio_contado": 25216.5,
    "inicial": 2000.0,
-   "cuota_60": 420.27,
+   "cuota_60": 420.28,
    "cuota_80": 315.21,
    "promocion": null,
    "pendientes": []
@@ -9436,7 +9542,7 @@
    "precio_lista": 27216.5,
    "precio_contado": 25216.5,
    "inicial": 2000.0,
-   "cuota_60": 420.27,
+   "cuota_60": 420.28,
    "cuota_80": 315.21,
    "promocion": null,
    "pendientes": []
@@ -9789,7 +9895,7 @@
    "precio_contado": 22523.6,
    "inicial": 2000.0,
    "cuota_60": 375.39,
-   "cuota_80": 281.54,
+   "cuota_80": 281.55,
    "promocion": null,
    "pendientes": []
   },
@@ -10013,7 +10119,7 @@
    "precio_contado": 24821.2,
    "inicial": 2000.0,
    "cuota_60": 413.69,
-   "cuota_80": 310.26,
+   "cuota_80": 310.27,
    "promocion": null,
    "pendientes": []
   },
@@ -10077,7 +10183,7 @@
    "precio_contado": 24821.2,
    "inicial": 2000.0,
    "cuota_60": 413.69,
-   "cuota_80": 310.26,
+   "cuota_80": 310.27,
    "promocion": null,
    "pendientes": []
   },
@@ -10093,7 +10199,7 @@
    "precio_contado": 24821.2,
    "inicial": 2000.0,
    "cuota_60": 413.69,
-   "cuota_80": 310.26,
+   "cuota_80": 310.27,
    "promocion": null,
    "pendientes": []
   },
@@ -10109,7 +10215,7 @@
    "precio_contado": 24821.2,
    "inicial": 2000.0,
    "cuota_60": 413.69,
-   "cuota_80": 310.26,
+   "cuota_80": 310.27,
    "promocion": null,
    "pendientes": []
   },
@@ -10125,7 +10231,7 @@
    "precio_contado": 24821.2,
    "inicial": 2000.0,
    "cuota_60": 413.69,
-   "cuota_80": 310.26,
+   "cuota_80": 310.27,
    "promocion": null,
    "pendientes": []
   },
@@ -10141,7 +10247,7 @@
    "precio_contado": 24821.2,
    "inicial": 2000.0,
    "cuota_60": 413.69,
-   "cuota_80": 310.26,
+   "cuota_80": 310.27,
    "promocion": null,
    "pendientes": []
   },
@@ -10190,7 +10296,13 @@
    "inicial": 2000.0,
    "cuota_60": 652.65,
    "cuota_80": 489.49,
-   "promocion": null,
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 45158.8,
+    "precio_con_dscto": 41158.8,
+    "promo_contado": 0.0,
+    "promo_financiado": 0.0
+   },
    "pendientes": []
   },
   {
@@ -10206,10 +10318,14 @@
    "inicial": 2000.0,
    "cuota_60": 301.27,
    "cuota_80": 225.95,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 24076.0,
+    "precio_con_dscto": 20076.0,
+    "promo_contado": 12756.63,
+    "promo_financiado": 15579.81
+   },
+   "pendientes": []
   },
   {
    "lote": "R8-3",
@@ -10224,10 +10340,14 @@
    "inicial": 2000.0,
    "cuota_60": 300.87,
    "cuota_80": 225.65,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 24052.0,
+    "precio_con_dscto": 20052.0,
+    "promo_contado": 12741.38,
+    "promo_financiado": 15561.19
+   },
+   "pendientes": []
   },
   {
    "lote": "R8-4",
@@ -10242,10 +10362,14 @@
    "inicial": 2000.0,
    "cuota_60": 300.67,
    "cuota_80": 225.5,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 24040.0,
+    "precio_con_dscto": 20040.0,
+    "promo_contado": 12733.75,
+    "promo_financiado": 15551.88
+   },
+   "pendientes": []
   },
   {
    "lote": "R8-5",
@@ -10260,10 +10384,14 @@
    "inicial": 2000.0,
    "cuota_60": 300.67,
    "cuota_80": 225.5,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 24040.0,
+    "precio_con_dscto": 20040.0,
+    "promo_contado": 12733.75,
+    "promo_financiado": 15551.88
+   },
+   "pendientes": []
   },
   {
    "lote": "R8-6",
@@ -10278,10 +10406,14 @@
    "inicial": 2000.0,
    "cuota_60": 300.67,
    "cuota_80": 225.5,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 24040.0,
+    "precio_con_dscto": 20040.0,
+    "promo_contado": 12733.75,
+    "promo_financiado": 15551.88
+   },
+   "pendientes": []
   },
   {
    "lote": "R8-7",
@@ -10296,10 +10428,14 @@
    "inicial": 2000.0,
    "cuota_60": 300.87,
    "cuota_80": 225.65,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 24052.0,
+    "precio_con_dscto": 20052.0,
+    "promo_contado": 12741.38,
+    "promo_financiado": 15561.19
+   },
+   "pendientes": []
   },
   {
    "lote": "R8-8",
@@ -10314,10 +10450,14 @@
    "inicial": 2000.0,
    "cuota_60": 301.07,
    "cuota_80": 225.8,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 24064.0,
+    "precio_con_dscto": 20064.0,
+    "promo_contado": 12749.0,
+    "promo_financiado": 15570.5
+   },
+   "pendientes": []
   },
   {
    "lote": "R8-9",
@@ -10332,10 +10472,14 @@
    "inicial": 2000.0,
    "cuota_60": 301.47,
    "cuota_80": 226.1,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 24088.0,
+    "precio_con_dscto": 20088.0,
+    "promo_contado": 12764.25,
+    "promo_financiado": 15589.13
+   },
+   "pendientes": []
   },
   {
    "lote": "R8-10",
@@ -10350,10 +10494,14 @@
    "inicial": 2000.0,
    "cuota_60": 300.87,
    "cuota_80": 225.65,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 24052.0,
+    "precio_con_dscto": 20052.0,
+    "promo_contado": 12741.38,
+    "promo_financiado": 15561.19
+   },
+   "pendientes": []
   },
   {
    "lote": "R8-11",
@@ -10368,10 +10516,14 @@
    "inicial": 2000.0,
    "cuota_60": 302.47,
    "cuota_80": 226.85,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 24148.0,
+    "precio_con_dscto": 20148.0,
+    "promo_contado": 12802.38,
+    "promo_financiado": 15635.69
+   },
+   "pendientes": []
   },
   {
    "lote": "R8-12",
@@ -10386,10 +10538,14 @@
    "inicial": 2000.0,
    "cuota_60": 303.27,
    "cuota_80": 227.45,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 24196.0,
+    "precio_con_dscto": 20196.0,
+    "promo_contado": 12832.88,
+    "promo_financiado": 15672.94
+   },
+   "pendientes": []
   },
   {
    "lote": "R8-13",
@@ -10404,10 +10560,14 @@
    "inicial": 2000.0,
    "cuota_60": 303.87,
    "cuota_80": 227.9,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 24232.0,
+    "precio_con_dscto": 20232.0,
+    "promo_contado": 12855.75,
+    "promo_financiado": 15700.88
+   },
+   "pendientes": []
   },
   {
    "lote": "R8-14",
@@ -10422,10 +10582,14 @@
    "inicial": 2000.0,
    "cuota_60": 296.27,
    "cuota_80": 222.2,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 23776.0,
+    "precio_con_dscto": 19776.0,
+    "promo_contado": 12566.0,
+    "promo_financiado": 15347.0
+   },
+   "pendientes": []
   },
   {
    "lote": "R8-15",
@@ -10440,10 +10604,14 @@
    "inicial": 2000.0,
    "cuota_60": 286.67,
    "cuota_80": 215.0,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 23200.0,
+    "precio_con_dscto": 19200.0,
+    "promo_contado": 12200.0,
+    "promo_financiado": 14900.0
+   },
+   "pendientes": []
   },
   {
    "lote": "R8-16",
@@ -10453,11 +10621,11 @@
    "metraje_m2": 180.8,
    "ubicacion": "ESQUINA - AV PRINCIPAL",
    "tarifa_m2": 153.0,
-   "precio_lista": 27662.4,
-   "precio_contado": 25662.4,
+   "precio_lista": 26758.4,
+   "precio_contado": 24758.4,
    "inicial": 2000.0,
-   "cuota_60": 427.71,
-   "cuota_80": 320.78,
+   "cuota_60": 412.64,
+   "cuota_80": 309.48,
    "promocion": null,
    "pendientes": []
   },
@@ -10469,11 +10637,11 @@
    "metraje_m2": 180.8,
    "ubicacion": "ESQUINA - AV PRINCIPAL",
    "tarifa_m2": 153.0,
-   "precio_lista": 27662.4,
-   "precio_contado": 25662.4,
+   "precio_lista": 26758.4,
+   "precio_contado": 24758.4,
    "inicial": 2000.0,
-   "cuota_60": 427.71,
-   "cuota_80": 320.78,
+   "cuota_60": 412.64,
+   "cuota_80": 309.48,
    "promocion": null,
    "pendientes": []
   },
@@ -10490,10 +10658,14 @@
    "inicial": 2000.0,
    "cuota_60": 286.67,
    "cuota_80": 215.0,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 23200.0,
+    "precio_con_dscto": 19200.0,
+    "promo_contado": 12200.0,
+    "promo_financiado": 14900.0
+   },
+   "pendientes": []
   },
   {
    "lote": "R8-19",
@@ -10508,10 +10680,14 @@
    "inicial": 2000.0,
    "cuota_60": 286.67,
    "cuota_80": 215.0,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 23200.0,
+    "precio_con_dscto": 19200.0,
+    "promo_contado": 12200.0,
+    "promo_financiado": 14900.0
+   },
+   "pendientes": []
   },
   {
    "lote": "R8-20",
@@ -10526,10 +10702,14 @@
    "inicial": 2000.0,
    "cuota_60": 286.47,
    "cuota_80": 214.85,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 23188.0,
+    "precio_con_dscto": 19188.0,
+    "promo_contado": 12192.38,
+    "promo_financiado": 14890.69
+   },
+   "pendientes": []
   },
   {
    "lote": "R8-21",
@@ -10544,10 +10724,14 @@
    "inicial": 2000.0,
    "cuota_60": 284.27,
    "cuota_80": 213.2,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 23056.0,
+    "precio_con_dscto": 19056.0,
+    "promo_contado": 12108.5,
+    "promo_financiado": 14788.25
+   },
+   "pendientes": []
   },
   {
    "lote": "R8-22",
@@ -10562,10 +10746,14 @@
    "inicial": 2000.0,
    "cuota_60": 284.27,
    "cuota_80": 213.2,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 23056.0,
+    "precio_con_dscto": 19056.0,
+    "promo_contado": 12108.5,
+    "promo_financiado": 14788.25
+   },
+   "pendientes": []
   },
   {
    "lote": "R8-23",
@@ -10643,7 +10831,7 @@
    "precio_contado": 21142.0,
    "inicial": 2000.0,
    "cuota_60": 352.37,
-   "cuota_80": 264.27,
+   "cuota_80": 264.28,
    "promocion": null,
    "pendientes": []
   },
@@ -10660,10 +10848,14 @@
    "inicial": 2000.0,
    "cuota_60": 285.07,
    "cuota_80": 213.8,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 23104.0,
+    "precio_con_dscto": 19104.0,
+    "promo_contado": 12139.0,
+    "promo_financiado": 14825.5
+   },
+   "pendientes": []
   },
   {
    "lote": "R8-29",
@@ -10678,10 +10870,14 @@
    "inicial": 2000.0,
    "cuota_60": 285.47,
    "cuota_80": 214.1,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 23128.0,
+    "precio_con_dscto": 19128.0,
+    "promo_contado": 12154.25,
+    "promo_financiado": 14844.13
+   },
+   "pendientes": []
   },
   {
    "lote": "R8-30",
@@ -10696,10 +10892,14 @@
    "inicial": 2000.0,
    "cuota_60": 285.87,
    "cuota_80": 214.4,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 23152.0,
+    "precio_con_dscto": 19152.0,
+    "promo_contado": 12169.5,
+    "promo_financiado": 14862.75
+   },
+   "pendientes": []
   },
   {
    "lote": "R8-31",
@@ -10714,10 +10914,14 @@
    "inicial": 2000.0,
    "cuota_60": 286.27,
    "cuota_80": 214.7,
-   "promocion": null,
-   "pendientes": [
-    "promoción Standard incompleta en el Excel de promoción"
-   ]
+   "promocion": {
+    "tipo": "standard",
+    "precio_real": 23176.0,
+    "precio_con_dscto": 19176.0,
+    "promo_contado": 12184.75,
+    "promo_financiado": 14881.38
+   },
+   "pendientes": []
   },
   {
    "lote": "R8-32",
@@ -10731,7 +10935,7 @@
    "precio_contado": 49755.6,
    "inicial": 2000.0,
    "cuota_60": 829.26,
-   "cuota_80": 621.94,
+   "cuota_80": 621.95,
    "promocion": null,
    "pendientes": []
   },
@@ -10997,7 +11201,9 @@
     "promo_contado": 22707.25,
     "promo_financiado": 27732.62
    },
-   "pendientes": []
+   "pendientes": [
+    "promoción: el Excel trae «promoción contado» 4,300 (error de digitación); se conserva la ya cargada"
+   ]
   },
   {
    "lote": "R9-13",

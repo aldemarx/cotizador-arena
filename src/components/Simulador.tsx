@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   PROYECTO,
+  PLAZO_PROMOCION,
   buscarLotePorId,
   conInicial,
   conPlazo,
@@ -33,6 +34,7 @@ import { Soles } from "@/components/Soles";
 import { EnviarCotizacion } from "@/components/EnviarCotizacion";
 import { CajaPrecio } from "@/components/CajaPrecio";
 import { CuotaYPlazo } from "@/components/CuotaYPlazo";
+import { TarjetaInfo } from "@/components/TarjetaInfo";
 import { ChipPromocion } from "@/components/ChipPromocion";
 import { SelectorManzana } from "@/components/SelectorManzana";
 import { useLoteActivo } from "@/components/LoteActivo";
@@ -132,9 +134,12 @@ export function Simulador({
     window.history.replaceState(null, "", `/?lote=${loteBase.lote}`);
   }, [loteBase.lote]);
 
+  // Los lotes con promoción solo se financian a 60 cuotas; el plazo que eligió el asesor vuelve al cambiar a un lote sin promoción.
+  const plazoBloqueado = loteBase.promocion != null;
+  const plazoActivo = plazoBloqueado ? PLAZO_PROMOCION : plazo;
   const lote: Lote = useMemo(
-    () => conPlazo(conInicial(loteBase, Number(inicialModo)), plazo),
-    [loteBase, inicialModo, plazo],
+    () => conPlazo(conInicial(loteBase, Number(inicialModo)), plazoActivo),
+    [loteBase, inicialModo, plazoActivo],
   );
   // La vista previa del lote (otra parte de la página) sigue al lote que se cotiza.
   const { elegir: publicarLote, pedido } = useLoteActivo();
@@ -506,12 +511,13 @@ export function Simulador({
           >
             <CuotaYPlazo
               cuota={cuotaMensual}
-              plazo={plazo}
+              plazo={plazoActivo}
               onCambiarPlazo={setPlazo}
+              bloqueado={plazoBloqueado}
               total={planFijo.precio_financiado}
               tamano={tamanoFila}
             />
-            <div className="grid grid-cols-2 gap-3 px-4 pt-3 pb-3">
+            <div className="grid grid-cols-2 gap-2 px-3 pt-3 pb-3 sm:gap-3 sm:px-4">
               <CajaPrecio etiqueta="Precio total" tachado medio>
                 <Soles monto={lote.precio_lista} />
               </CajaPrecio>
@@ -521,7 +527,7 @@ export function Simulador({
             </div>
             <InicialDinamica
               modo={inicialModo}
-              azul={plazo === PLAZOS_CUOTAS[0]}
+              azul={plazoActivo === PLAZOS_CUOTAS[0]}
               onCambiar={setInicialModo}
             />
           </TarjetaInfo>
@@ -585,8 +591,9 @@ export function Simulador({
                   />
                 )}
                 <EditorCuotasPie
-                  plazo={plazo}
+                  plazo={plazoActivo}
                   onCambiarPlazo={setPlazo}
+                  bloqueado={plazoBloqueado}
                   color={modalidadActiva.color}
                 />
                 {/* La nota cambia de largo con la cantidad de cuotas (con 80 hay un tramo más que explicar). Se
@@ -645,47 +652,6 @@ export function Simulador({
       </details>
 
       */}
-    </div>
-  );
-}
-
-function TarjetaInfo({
-  color,
-  fondo,
-  titulo,
-  icono,
-  acciones,
-  children,
-}: {
-  color: string;
-  fondo?: string;
-  titulo: React.ReactNode;
-  icono: React.ReactNode;
-  /** Algo a la derecha del título (por ejemplo la etiqueta de promoción). */
-  acciones?: React.ReactNode;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="card rounded-xl p-0">
-      <div
-        className="flex items-center gap-3 rounded-t-[11px] py-3 pr-8 pl-8"
-        style={{ backgroundColor: fondo ?? `${color}26` }}
-      >
-        <div
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[9px]"
-          style={{ backgroundColor: color }}
-        >
-          {icono}
-        </div>
-        <h2
-          className="ml-1.5 text-sm font-bold sm:text-base lg:text-[17px]"
-          style={{ color: color }}
-        >
-          {titulo}
-        </h2>
-        {acciones && <div className="-mr-3 ml-auto shrink-0">{acciones}</div>}
-      </div>
-      <div className="flex flex-col gap-0.5 px-4 py-1.5">{children}</div>
     </div>
   );
 }

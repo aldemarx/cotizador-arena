@@ -167,14 +167,15 @@ export function MapaLotes({
     const r = contenedor.current?.getBoundingClientRect();
     const lotesBox = s.querySelector<SVGGraphicsElement>("#insignias")?.getBBox();
     if (!sel && r && r.width > 0 && lotesBox) {
-      // El plano es horizontal: se encaja entero (con un margen) según la proporción de la pantalla.
-      const prop = r.height / r.width;
-      const ancho = lotesBox.width * 1.06;
-      const w = Math.max(ancho, (lotesBox.height * 1.06) / prop);
-      const h = w * prop;
+      // Se encaja el plano entero (con un margen) según la proporción de la pantalla, dejando libre arriba la franja
+      // de los botones («Volver», buscador) para que no tapen las manzanas del borde.
+      const franjaPx = Math.min(80, r.height * 0.12);
+      const k = Math.max((lotesBox.width * 1.06) / r.width, (lotesBox.height * 1.1) / (r.height - franjaPx)); // m por px
+      const w = k * r.width;
+      const h = k * r.height;
       aplicarVista({
         x: lotesBox.x + lotesBox.width / 2 - w / 2,
-        y: lotesBox.y + lotesBox.height / 2 - h / 2,
+        y: lotesBox.y - k * franjaPx - ((r.height - franjaPx) * k - lotesBox.height) / 2,
         w,
         h,
       });

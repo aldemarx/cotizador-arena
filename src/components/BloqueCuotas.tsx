@@ -401,10 +401,13 @@ export function EditorCuotasPie({
   plazo,
   onCambiarPlazo,
   color,
+  bloqueado = false,
 }: {
   plazo: number;
   onCambiarPlazo: (cuotas: number) => void;
   color: string;
+  /** Lote con promoción: el plazo viene fijado y no se puede cambiar. */
+  bloqueado?: boolean;
 }) {
   const { abierto, setAbierto, ref } = useMenuEmergente();
   return (
@@ -427,19 +430,21 @@ export function EditorCuotasPie({
           <span className="text-sm font-medium text-[var(--text-muted)]">
             cuotas
           </span>
-          <button
-            type="button"
-            onClick={() => setAbierto((a) => !a)}
-            aria-label="Cambiar la cantidad de cuotas"
-            aria-haspopup="listbox"
-            aria-expanded={abierto}
-            className="absolute top-1/2 left-full ml-1.5 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-[var(--text-muted)] transition-colors hover:bg-[var(--surface-2)] hover:text-[var(--text-primary)]"
-          >
-            <IconoLapiz />
-          </button>
+          {!bloqueado && (
+            <button
+              type="button"
+              onClick={() => setAbierto((a) => !a)}
+              aria-label="Cambiar la cantidad de cuotas"
+              aria-haspopup="listbox"
+              aria-expanded={abierto}
+              className="absolute top-1/2 left-full ml-1.5 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-[var(--text-muted)] transition-colors hover:bg-[var(--surface-2)] hover:text-[var(--text-primary)]"
+            >
+              <IconoLapiz />
+            </button>
+          )}
         </span>
       </p>
-      {abierto && (
+      {abierto && !bloqueado && (
         <ListaPlazos
           plazo={plazo}
           onElegir={(n) => {

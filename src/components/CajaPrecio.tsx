@@ -25,7 +25,7 @@ export function CajaPrecio({
         grande
           ? "min-h-[6rem] gap-2 py-3.5 sm:min-h-[7rem] sm:py-4"
           : medio
-            ? "gap-2 py-4 sm:py-6"
+            ? "gap-1.5 py-3 sm:gap-2 sm:py-5"
             : "gap-1.5 py-3 sm:py-4"
       } ${
         destacado
@@ -39,7 +39,7 @@ export function CajaPrecio({
     >
       <span
         className={`rounded-full px-2.5 py-0.5 font-bold tracking-[0.04em] whitespace-nowrap uppercase sm:tracking-[0.12em] ${
-          grande ? "text-[10px] sm:text-xs" : medio ? "text-[11px] sm:text-sm" : "text-[10px] sm:text-xs"
+          grande ? "text-[10px] sm:text-xs" : medio ? "text-xs sm:text-sm" : "text-[10px] sm:text-xs"
         } ${
           destacado
             ? "bg-[#5f9b3c]/15 text-[#4c8030]"
@@ -57,7 +57,7 @@ export function CajaPrecio({
           grande
             ? "text-xl sm:text-[28px] sm:leading-none"
             : medio
-              ? "text-xl sm:text-[30px] sm:leading-none"
+              ? "text-[26px] leading-none sm:text-[34px]"
               : "text-base sm:text-2xl"
         } ${
           tachado
