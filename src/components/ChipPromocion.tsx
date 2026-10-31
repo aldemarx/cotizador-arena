@@ -58,7 +58,7 @@ export function ChipPromocion({
           className={`absolute top-full z-30 mt-2 w-[min(21rem,calc(100vw-3rem))] rounded-xl border border-[#F5A623]/40 bg-white p-3 shadow-[0_12px_32px_rgba(20,22,28,0.18)] ${alinear === "derecha" ? "right-0" : "left-0"}`}
         >
           <p className="m-0 mb-2.5 text-center text-xs font-bold tracking-wider text-[#b45309] uppercase sm:text-[13px]">
-            Promoción {promocion.tipo === "standard" ? "Standard" : "Preferencial"}
+            PROMOCIÓN NOVIEMBRE
           </p>
           <div className="grid grid-cols-2 gap-2.5">
             <div className={financiada ? "" : "col-span-2"}>
