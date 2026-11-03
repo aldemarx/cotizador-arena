@@ -13,6 +13,7 @@ const ALTO_M_EXPANDIDO = 110;
 /** Lo más cerca que se puede acercar (metros de ancho visibles) y margen de calle que se deja alrededor de los lotes. */
 const ANCHO_MIN_M = 18;
 const MARGEN_M = 3;
+const MARGEN_ARRIBA_M = 30; // holgura extra arriba, para alejar un poco más por ese lado
 
 type Vista = { x: number; y: number; w: number };
 
@@ -201,7 +202,13 @@ export function VistaPreviaLote({
       raiz.querySelector(`g.ins[data-lote="${codigo}"]`)?.classList.add("sel");
     }
     const lotes = s.querySelector<SVGGraphicsElement>("#insignias")?.getBBox();
-    if (lotes) limites.current = { x: lotes.x - MARGEN_M, y: lotes.y - MARGEN_M, w: lotes.width + 2 * MARGEN_M, h: lotes.height + 2 * MARGEN_M };
+    // El club (ilustración debajo de las manzanas) también cuenta como parte del plano: se puede alejar hasta verlo entero.
+    const club = s.querySelector<SVGGraphicsElement>("#limite-club")?.getBBox();
+    if (lotes) {
+      const x0 = Math.min(lotes.x, club?.x ?? lotes.x), y0 = Math.min(lotes.y, club?.y ?? lotes.y);
+      const x1 = Math.max(lotes.x + lotes.width, club ? club.x + club.width : 0), y1 = Math.max(lotes.y + lotes.height, club ? club.y + club.height : 0);
+      limites.current = { x: x0 - MARGEN_M, y: y0 - MARGEN_M - MARGEN_ARRIBA_M, w: x1 - x0 + 2 * MARGEN_M, h: y1 - y0 + 2 * MARGEN_M + MARGEN_ARRIBA_M };
+    }
     const b = ref.getBBox();
     const v = vista.current;
     if (v) {
