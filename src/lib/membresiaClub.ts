@@ -17,10 +17,10 @@ export type TandaMembresia = {
 };
 
 export const TANDAS: TandaMembresia[] = [
-  { descuento: 0.7, clientes: "Primeros 30 clientes" },
-  { descuento: 0.6, clientes: "Siguientes 30 clientes" },
-  { descuento: 0.5, clientes: "Siguientes 30 clientes" },
-  { descuento: 0.4, clientes: "Siguientes 30 clientes" },
+  { descuento: 0.7, clientes: "Clientes del 1 al 30" },
+  { descuento: 0.6, clientes: "Clientes del 31 al 60" },
+  { descuento: 0.5, clientes: "Clientes del 61 al 90" },
+  { descuento: 0.4, clientes: "Clientes del 91 al 120" },
   { descuento: 0.3, clientes: "Resto de clientes" },
 ];
 
