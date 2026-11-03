@@ -319,18 +319,18 @@ export function ModalDatosCliente(p: Props) {
                   ? p.puedeCopiar
                     ? "Descárgalas, o copia cada imagen y pégala con Ctrl+V en el chat de WhatsApp Web."
                     : "Descárgalas y súbelas al chat de WhatsApp Web con el clip."
-                  : "Revisa los datos y compártela por WhatsApp. Llegan como 3 fotos (la última, con las cuentas de pago)."
+                  : `Revisa los datos y compártela por WhatsApp. Llegan como ${p.miniaturas.length || 3} fotos (la última, con las cuentas de pago).`
                 : "Súbelas a WhatsApp desde tu galería o carpeta de descargas."}
             </p>
 
             {p.miniaturas.length > 0 && (
-              <div className="mb-1 grid grid-cols-3 gap-2.5">
+              <div className={`mb-1 grid gap-2.5 ${p.miniaturas.length === 2 ? "grid-cols-2" : "grid-cols-3"}`}>
                 {p.miniaturas.map((src, i) => (
                   <div key={src} className="flex flex-col gap-2">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={src}
-                      alt={`Imagen ${i + 1} de 3`}
+                      alt={`Imagen ${i + 1} de ${p.miniaturas.length}`}
                       className="w-full rounded-[10px] border border-[#E3E4E8]"
                     />
                     {p.fase === "listo" && p.escritorio && p.puedeCopiar && (
@@ -382,7 +382,7 @@ export function ModalDatosCliente(p: Props) {
                 <button type="button" onClick={p.onDescargar} className={BOTON}>
                   {p.descargado
                     ? "✓ Descargadas · volver a descargar"
-                    : "Descargar las 3 imágenes"}
+                    : `Descargar las ${p.miniaturas.length || 3} imágenes`}
                 </button>
                 <button type="button" onClick={p.onPdf} className={BOTON_SEC}>
                   Descargar PDF

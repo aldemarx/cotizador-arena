@@ -35,3 +35,10 @@ export function enlaceWaMe(celular: string, texto: string): string {
 export function enlaceWhatsAppWeb(celular: string, texto: string): string {
   return `https://web.whatsapp.com/send?phone=${conPais(celular)}&text=${encodeURIComponent(texto)}`;
 }
+
+/** Mensaje precargado de la membresía del Club Carhuaz. */
+export function mensajeMembresia(nombreCompleto: string): string {
+  const primero = nombreCompleto.trim().split(/\s+/)[0] ?? "";
+  const saludo = primero ? `Hola ${primero}` : "Hola";
+  return `${saludo}, te comparto tu cotización de la membresía del Club Carhuaz de Arenas del Valle.`;
+}

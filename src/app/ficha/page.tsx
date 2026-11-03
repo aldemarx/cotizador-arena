@@ -17,7 +17,10 @@ import {
   FichaCara1,
   FichaCara2,
   FichaCuentas,
+  FichaMembresia,
+  FICHA_ALTO_MEMBRESIA,
 } from "@/components/FichaCotizacion";
+import { TANDAS } from "@/lib/membresiaClub";
 
 /**
  * Vista previa en pantalla de las dos imágenes de la cotización (solo desarrollo).
@@ -28,6 +31,7 @@ import {
  *   /ficha?nombre=Ana%20Pérez&dni=74123456 → con otros datos del cliente
  *   /ficha?solo=cuentas            → solo la hoja de cuentas de pago
  *   /ficha?cuotas=36                → otra cantidad de cuotas (12, 24, 36, 48, 60, 80)
+ *   /ficha?solo=membresia&tanda=4  → la ficha de la membresía del Club Carhuaz (tanda 0 a 4) y la hoja de cuentas
  *   /ficha?sinCliente=1             → sin la franja del cliente (como con PEDIR_DATOS_CLIENTE = false)
  * Por defecto muestra un cliente de ejemplo para poder ver la franja.
  * En producción la ruta no existe.
@@ -45,6 +49,7 @@ export default async function VistaPreviaFicha({
     sinCliente?: string;
     cuotas?: string;
     solo?: string;
+    tanda?: string;
   }>;
 }) {
   if (process.env.NODE_ENV === "production") notFound();
@@ -59,6 +64,7 @@ export default async function VistaPreviaFicha({
     sinCliente,
     cuotas,
     solo,
+    tanda,
   } = await searchParams;
   const lotes = LOTES_JSON;
   const inicialModo = (INICIAL_MODOS.find((m) => m.key === inicial)?.key ??
@@ -81,6 +87,29 @@ export default async function VistaPreviaFicha({
       ? { nombre, dni: dni ?? "" }
       : { nombre: "Juan Pérez Huamán", dni: "72849102" }; // ejemplo
   const emitida = new Date();
+
+  if (solo === "membresia") {
+    const t = TANDAS[Math.min(TANDAS.length - 1, Math.max(0, Number(tanda) || 0))];
+    return (
+      <main className="px-4 py-8">
+        <div className="flex flex-wrap items-start justify-center gap-8">
+          {[
+            [FichaMembresia, FICHA_ALTO_MEMBRESIA],
+            [FichaCuentas, alto],
+          ].map(([Cara, h], i) => {
+            const C = Cara as typeof FichaMembresia;
+            return (
+              <div key={i} className="overflow-hidden rounded-xl shadow-[0_12px_40px_rgba(20,22,28,0.18)]" style={{ width: ancho * z, height: (h as number) * z }}>
+                <div style={{ width: ancho, height: h as number, transform: `scale(${z})`, transformOrigin: "top left" }}>
+                  <C tanda={t} emitida={emitida} cliente={cliente} />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="px-4 py-8">

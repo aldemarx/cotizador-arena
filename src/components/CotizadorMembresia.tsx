@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { CajaPrecio } from "@/components/CajaPrecio";
+import { EnviarMembresia } from "@/components/EnviarMembresia";
 import { Soles } from "@/components/Soles";
 import { TarjetaInfo } from "@/components/TarjetaInfo";
 import { formatSoles, formatearMonto } from "@/lib/arenas";
@@ -131,6 +132,8 @@ export function CotizadorMembresia() {
             </CajaPrecio>
           </div>
         </div>
+
+        <EnviarMembresia tanda={TANDAS[tanda]} />
       </TarjetaInfo>
     </div>
   );

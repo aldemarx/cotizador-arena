@@ -22,6 +22,12 @@ import {
 import { REDES } from "@/components/RedesSociales";
 import { Soles } from "@/components/Soles";
 import { BANCOS, COLOR_MONEDA, TITULAR } from "@/lib/cuentasDePago";
+import {
+  CUOTAS_MEMBRESIA,
+  INICIAL_PORCENTAJE,
+  cotizarMembresia,
+  type TandaMembresia,
+} from "@/lib/membresiaClub";
 
 /** Medidas de las imágenes que se envían; salen de src/lib/configCotizacion.ts. */
 export const FICHA_ANCHO = FORMATOS_FICHA[FORMATO_FICHA].ancho;
@@ -923,3 +929,200 @@ export const FichaCuentas = forwardRef<HTMLDivElement, { emitida: Date }>(
     );
   },
 );
+
+/* ---------- membresía del Club Carhuaz ---------- */
+
+/** La membresía lleva menos contenido que un lote: se usa el lienzo cuadrado (4:5) para que no quede vacía. */
+export const FICHA_ALTO_MEMBRESIA = FORMATOS_FICHA.cuadrado.alto;
+
+const TEXTO_LEGAL_MEMBRESIA =
+  "Propuesta económica sujeta a disponibilidad y a la firma del contrato de membresía. No genera reserva vinculante sin el pago de la inicial.";
+
+function ContenidoMembresia({
+  tanda,
+  emitida,
+  cliente,
+}: {
+  tanda: TandaMembresia;
+  emitida: Date;
+  cliente?: ClienteFicha | null;
+}) {
+  const v = useV();
+  const c = cotizarMembresia(tanda);
+  const datos: [string, string][] = [
+    ["Descuento", `${Math.round(tanda.descuento * 100)} %`],
+    ["Tanda", tanda.clientes],
+  ];
+  return (
+    <>
+      <Cabecera etiqueta="Cotización referencial" emitida={emitida} />
+
+      <Bloques>
+        <div
+          className="flex shrink-0 items-center justify-between rounded-[28px] border-2 border-[var(--border)] bg-white px-10"
+          style={{ paddingTop: v(28), paddingBottom: v(28) }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/club-carhuaz/simbolo-club-carhuaz.webp"
+            alt="Club Carhuaz"
+            className="h-[88px] w-auto"
+          />
+          <div className="text-right">
+            <p className={`m-0 ${TIPO.eyebrow} text-[var(--text-muted)]`}>
+              Membresía básica
+            </p>
+            <p className="m-0 mt-1 flex items-center justify-end gap-3 text-[48px] leading-none font-extrabold">
+              <SelloVerificado />
+              Club Carhuaz
+            </p>
+          </div>
+        </div>
+
+        {cliente && <FranjaCliente cliente={cliente} />}
+
+        <div className="shrink-0 overflow-hidden rounded-[28px] border-2 border-[var(--border)] bg-white">
+          <div className="grid grid-cols-2 bg-[#3b82f6]/12">
+            {datos.map(([k], i) => (
+              <p
+                key={k}
+                className={`m-0 px-4 text-center ${TIPO.eyebrow} text-[#2563eb] ${i > 0 ? "border-l-2 border-white/70" : ""}`}
+                style={{ paddingTop: v(18), paddingBottom: v(18) }}
+              >
+                {k}
+              </p>
+            ))}
+          </div>
+          <div className="grid grid-cols-2">
+            {datos.map(([k, val], i) => (
+              <p
+                key={k}
+                className={`m-0 px-4 text-center text-[28px] leading-tight font-bold ${i > 0 ? "border-l-2 border-[var(--border)]" : ""}`}
+                style={{ paddingTop: v(22), paddingBottom: v(22) }}
+              >
+                {val}
+              </p>
+            ))}
+          </div>
+        </div>
+
+        <div className="shrink-0 overflow-hidden rounded-[28px] border-2 border-[var(--border)] bg-white">
+          <div
+            className="bg-[#10b981]/15 px-10 text-[26px] font-bold text-[#059669]"
+            style={{ paddingTop: v(20), paddingBottom: v(20) }}
+          >
+            Fraccionamiento{" "}
+            <span className="ml-2 text-[18px] font-semibold tracking-wider uppercase">
+              (sin intereses)
+            </span>
+          </div>
+
+          <div
+            className="grid grid-cols-[minmax(0,1.3fr)_auto_minmax(0,1fr)] items-start gap-6 px-8 text-center"
+            style={{ paddingTop: v(32), paddingBottom: v(32) }}
+          >
+            <div>
+              <Etiqueta color="#10b981" centrada>
+                Cuota mensual
+              </Etiqueta>
+              <p className="m-0 mt-3 flex h-[84px] items-center justify-center leading-none whitespace-nowrap [font-variant-numeric:tabular-nums]">
+                <span className="relative inline-flex items-baseline">
+                  <span className={TIPO.cifra}>
+                    <Soles monto={c.cuota} />
+                  </span>
+                  <span className="absolute bottom-[0.1em] left-full ml-2 text-[26px] font-medium text-[var(--text-muted)]">
+                    / mes
+                  </span>
+                </span>
+              </p>
+            </div>
+            <span className="mt-1 h-[100px] w-[2px] bg-[var(--border)]" />
+            <div>
+              <Etiqueta color="#10b981" centrada>
+                Cant. de cuotas
+              </Etiqueta>
+              <p className="m-0 mt-3 flex h-[84px] items-center justify-center gap-2 leading-none">
+                <span className="inline-flex items-baseline gap-2">
+                  <span className={TIPO.cifra}>{CUOTAS_MEMBRESIA}</span>
+                  <span className="text-[26px] font-medium text-[var(--text-muted)]">
+                    cuotas
+                  </span>
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <div
+            className="grid grid-cols-2 gap-5 border-t-2 border-[var(--border)] px-10"
+            style={{ paddingTop: v(24), paddingBottom: v(24) }}
+          >
+            <div
+              className="flex flex-col items-center rounded-[20px] border-2 border-[var(--border)] bg-[var(--surface-2)] px-4 text-center"
+              style={{ gap: v(12), paddingTop: v(22), paddingBottom: v(22) }}
+            >
+              <span className="rounded-full bg-[var(--ceinys-grafito-100)] px-5 py-1 text-[19px] font-bold tracking-[0.12em] whitespace-nowrap text-[var(--text-secondary)] uppercase">
+                Precio total
+              </span>
+              <span className="text-[34px] font-medium text-[var(--text-muted)] line-through [font-variant-numeric:tabular-nums]">
+                <Soles monto={c.regular} />
+              </span>
+            </div>
+            <div
+              className="flex flex-col items-center rounded-[20px] border-2 border-[#10b981]/35 bg-[#10b981]/10 px-4 text-center"
+              style={{ gap: v(12), paddingTop: v(22), paddingBottom: v(22) }}
+            >
+              <span className="rounded-full bg-[#10b981]/15 px-5 py-1 text-[19px] font-bold tracking-[0.12em] whitespace-nowrap text-[#059669] uppercase">
+                Al contado
+              </span>
+              <span className="text-[38px] font-extrabold [font-variant-numeric:tabular-nums]">
+                <Soles monto={c.precio} />
+              </span>
+            </div>
+          </div>
+
+          <div
+            className="grid grid-cols-2 gap-5 border-t-2 border-[var(--border)] px-10"
+            style={{ paddingTop: v(24), paddingBottom: v(28) }}
+          >
+            {(
+              [
+                [`Inicial (${Math.round(INICIAL_PORCENTAJE * 100)} %)`, c.inicial],
+                ["Saldo a financiar", c.saldo],
+              ] as [string, number][]
+            ).map(([k, monto]) => (
+              <div
+                key={k}
+                className="rounded-[18px] bg-[var(--surface-2)] px-4 text-center"
+                style={{ paddingTop: v(16), paddingBottom: v(16) }}
+              >
+                <p
+                  className={`m-0 whitespace-nowrap ${TIPO.eyebrow} text-[var(--text-muted)]`}
+                >
+                  {k}
+                </p>
+                <p className="m-0 mt-1 text-[32px] font-bold [font-variant-numeric:tabular-nums]">
+                  <Soles monto={monto} />
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Bloques>
+
+      <Pie legal={TEXTO_LEGAL_MEMBRESIA} />
+    </>
+  );
+}
+
+export const FichaMembresia = forwardRef<
+  HTMLDivElement,
+  { tanda: TandaMembresia; emitida: Date; cliente?: ClienteFicha | null }
+>(function FichaMembresia(props, ref) {
+  return (
+    <div ref={ref}>
+      <Lienzo formato="cuadrado">
+        <ContenidoMembresia {...props} />
+      </Lienzo>
+    </div>
+  );
+});
