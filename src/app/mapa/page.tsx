@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import { cargarLotes, cargarLotesBloqueados } from "@/lib/lotesSupabase";
 import { requerirAsesor } from "@/lib/asesor/acceso";
-import { MapaLotes, type LoteMapa } from "@/components/MapaLotes";
+import { MapaLotes, type LoteMapa, type MedidasLote } from "@/components/MapaLotes";
+import medidasJson from "@/data/arenas-medidas.json";
 import { EnlaceVolver } from "./EnlaceVolver";
 
 export const metadata: Metadata = {
   title: "Plano de lotes | Arenas del Valle",
 };
+
+const MEDIDAS = medidasJson as Record<string, MedidasLote>;
 
 /** Plano de Arenas del Valle: ubicación de cada lote y acceso directo a su cotización. */
 export default async function PaginaMapa({
@@ -23,6 +26,7 @@ export default async function PaginaMapa({
     lt: l.lt,
     metraje: l.metraje_m2,
     ubicacion: l.ubicacion,
+    medidas: MEDIDAS[l.lote],
     precio: l.precio_con_dscto,
     promocion: l.promocion?.tipo,
     estado: l.estado,
@@ -35,6 +39,7 @@ export default async function PaginaMapa({
       lt: b.lt,
       metraje: b.metraje,
       ubicacion: b.ubicacion,
+      medidas: MEDIDAS[`${b.mz}-${b.lt}`],
       precio: null,
       bloqueoGerencia: true,
     });

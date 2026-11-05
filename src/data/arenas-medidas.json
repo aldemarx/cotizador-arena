@@ -1,0 +1,5234 @@
+{
+ "R1-1": {
+  "frente": 8.1,
+  "fondo": 10.6,
+  "derecha": 17.5,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 59.74
+ },
+ "R1-2": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-3": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-4": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-5": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-6": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-7": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-8": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-9": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-10": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-11": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-12": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-13": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-14": {
+  "frente": 6.9,
+  "fondo": 8.41,
+  "derecha": 20,
+  "izquierda": 16.88,
+  "chaflan": 3.54,
+  "perimetro": 55.73
+ },
+ "R1-15": {
+  "frente": 6.9,
+  "fondo": 9.4,
+  "derecha": 17.5,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 57.34
+ },
+ "R1-16": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-17": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-18": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-19": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-20": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-21": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-22": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-23": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-24": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-25": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-26": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-27": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R1-28": {
+  "frente": 8.1,
+  "fondo": 10.6,
+  "derecha": 20,
+  "izquierda": 17.5,
+  "chaflan": 3.54,
+  "perimetro": 59.74
+ },
+ "R2-1": {
+  "frente": 12.43,
+  "fondo": 14.93,
+  "derecha": 17.5,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 68.4
+ },
+ "R2-2": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R2-3": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R2-4": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R2-5": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R2-6": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R2-7": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R2-8": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R2-9": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R2-10": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R2-11": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R2-12": {
+  "frente": 12.43,
+  "fondo": 14.93,
+  "derecha": 20,
+  "izquierda": 17.5,
+  "chaflan": 3.54,
+  "perimetro": 68.4
+ },
+ "R2-13": {
+  "frente": 12.43,
+  "fondo": 14.93,
+  "derecha": 17.5,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 68.4
+ },
+ "R2-14": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R2-15": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R2-16": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R2-17": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R2-18": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R2-19": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R2-20": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R2-21": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R2-22": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R2-23": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R2-24": {
+  "frente": 12.43,
+  "fondo": 14.93,
+  "derecha": 20,
+  "izquierda": 17.5,
+  "chaflan": 3.54,
+  "perimetro": 68.4
+ },
+ "R3-1": {
+  "frente": 7.5,
+  "fondo": 10,
+  "derecha": 17.5,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 58.54
+ },
+ "R3-2": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-3": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-4": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-5": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-6": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-7": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-8": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-9": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-10": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-11": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-12": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-13": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-14": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-15": {
+  "frente": 13.37,
+  "fondo": 15.87,
+  "derecha": 20,
+  "izquierda": 17.5,
+  "chaflan": 3.54,
+  "perimetro": 70.28
+ },
+ "R3-16": {
+  "frente": 13.37,
+  "fondo": 15.87,
+  "derecha": 17.5,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 70.28
+ },
+ "R3-17": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-18": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-19": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-20": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-21": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-22": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-23": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-24": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-25": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-26": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-27": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-28": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-29": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R3-30": {
+  "frente": 7.5,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 17.5,
+  "chaflan": 3.54,
+  "perimetro": 58.54
+ },
+ "R4-1": {
+  "frente": 12.1,
+  "fondo": 14.6,
+  "derecha": 17.5,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 67.74
+ },
+ "R4-2": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-3": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-4": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-5": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-6": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-7": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-8": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-9": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-10": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-11": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-12": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-13": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-14": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-15": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-16": {
+  "frente": 10.9,
+  "fondo": 12.39,
+  "derecha": 20,
+  "izquierda": 17.19,
+  "chaflan": 3.54,
+  "perimetro": 64.02
+ },
+ "R4-17": {
+  "frente": 10.9,
+  "fondo": 12.38,
+  "derecha": 17.53,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 64.35
+ },
+ "R4-18": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-19": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-20": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-21": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-22": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-23": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-24": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-25": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-26": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-27": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-28": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-29": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-30": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-31": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R4-32": {
+  "frente": 12.1,
+  "fondo": 14.6,
+  "derecha": 20,
+  "izquierda": 17.5,
+  "chaflan": 3.54,
+  "perimetro": 67.74
+ },
+ "R5-1": {
+  "frente": 9.22,
+  "fondo": 17.27,
+  "derecha": 18.47,
+  "izquierda": 19.97,
+  "chaflan": 4,
+  "perimetro": 68.93
+ },
+ "R5-2": {
+  "frente": 10,
+  "fondo": 9.49,
+  "derecha": 19.97,
+  "izquierda": 19.98,
+  "chaflan": null,
+  "perimetro": 59.44
+ },
+ "R5-3": {
+  "frente": 10,
+  "fondo": 9.49,
+  "derecha": 19.98,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 59.46
+ },
+ "R5-4": {
+  "frente": 10,
+  "fondo": 9.49,
+  "derecha": 19.99,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 59.47
+ },
+ "R5-5": {
+  "frente": 10,
+  "fondo": 9.49,
+  "derecha": 19.99,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 59.47
+ },
+ "R5-6": {
+  "frente": 10,
+  "fondo": 9.49,
+  "derecha": 19.99,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.48
+ },
+ "R5-7": {
+  "frente": 10,
+  "fondo": 9.49,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.49
+ },
+ "R5-8": {
+  "frente": 10,
+  "fondo": 9.49,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.49
+ },
+ "R5-9": {
+  "frente": 10,
+  "fondo": 9.49,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.49
+ },
+ "R5-10": {
+  "frente": 10,
+  "fondo": 9.49,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.49
+ },
+ "R5-11": {
+  "frente": 10,
+  "fondo": 9.49,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.49
+ },
+ "R5-12": {
+  "frente": 14.8,
+  "fondo": 14.52,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 69.32
+ },
+ "R5-13": {
+  "frente": 12.7,
+  "fondo": 14.18,
+  "derecha": 20,
+  "izquierda": 17.4,
+  "chaflan": 3.54,
+  "perimetro": 67.82
+ },
+ "R5-14": {
+  "frente": 12.69,
+  "fondo": 14.18,
+  "derecha": 17.53,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 67.94
+ },
+ "R5-15": {
+  "frente": 14.24,
+  "fondo": 14.52,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 68.76
+ },
+ "R5-16": {
+  "frente": 8.99,
+  "fondo": 9.49,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 58.48
+ },
+ "R5-17": {
+  "frente": 8.99,
+  "fondo": 9.49,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 58.48
+ },
+ "R5-18": {
+  "frente": 8.99,
+  "fondo": 9.49,
+  "derecha": 20,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 58.47
+ },
+ "R5-19": {
+  "frente": 8.99,
+  "fondo": 9.49,
+  "derecha": 19.99,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 58.47
+ },
+ "R5-20": {
+  "frente": 8.99,
+  "fondo": 9.49,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 58.48
+ },
+ "R5-21": {
+  "frente": 8.99,
+  "fondo": 9.49,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 58.48
+ },
+ "R5-22": {
+  "frente": 8.99,
+  "fondo": 9.49,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 58.48
+ },
+ "R5-23": {
+  "frente": 8.99,
+  "fondo": 9.49,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 58.48
+ },
+ "R5-24": {
+  "frente": 8.99,
+  "fondo": 9.49,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 58.48
+ },
+ "R5-25": {
+  "frente": 8.99,
+  "fondo": 9.49,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 58.48
+ },
+ "R5-26": {
+  "frente": 20.36,
+  "fondo": 17.27,
+  "derecha": 20,
+  "izquierda": 18.59,
+  "chaflan": 2.97,
+  "perimetro": 79.19
+ },
+ "R6-1": {
+  "frente": 5.66,
+  "fondo": 8.25,
+  "derecha": 17.13,
+  "izquierda": 19.63,
+  "chaflan": 3.54,
+  "perimetro": 54.21
+ },
+ "R6-2": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 19.63,
+  "izquierda": 19.63,
+  "chaflan": null,
+  "perimetro": 55.26
+ },
+ "R6-3": {
+  "frente": 9.13,
+  "fondo": 10,
+  "derecha": 19.63,
+  "izquierda": 19.63,
+  "chaflan": null,
+  "perimetro": 58.39
+ },
+ "R6-4": {
+  "frente": 7.3,
+  "fondo": 8,
+  "derecha": 19.63,
+  "izquierda": 19.63,
+  "chaflan": null,
+  "perimetro": 54.56
+ },
+ "R6-5": {
+  "frente": 9.13,
+  "fondo": 10,
+  "derecha": 19.63,
+  "izquierda": 19.63,
+  "chaflan": null,
+  "perimetro": 58.39
+ },
+ "R6-6": {
+  "frente": 7.3,
+  "fondo": 8,
+  "derecha": 19.63,
+  "izquierda": 19.63,
+  "chaflan": null,
+  "perimetro": 54.56
+ },
+ "R6-7": {
+  "frente": 9.13,
+  "fondo": 10,
+  "derecha": 19.63,
+  "izquierda": 19.64,
+  "chaflan": null,
+  "perimetro": 58.4
+ },
+ "R6-8": {
+  "frente": 7.3,
+  "fondo": 8,
+  "derecha": 19.64,
+  "izquierda": 19.64,
+  "chaflan": null,
+  "perimetro": 54.58
+ },
+ "R6-9": {
+  "frente": 9.12,
+  "fondo": 10,
+  "derecha": 19.64,
+  "izquierda": 19.64,
+  "chaflan": null,
+  "perimetro": 58.4
+ },
+ "R6-10": {
+  "frente": 7.3,
+  "fondo": 8,
+  "derecha": 19.64,
+  "izquierda": 19.65,
+  "chaflan": null,
+  "perimetro": 54.59
+ },
+ "R6-11": {
+  "frente": 9.13,
+  "fondo": 10,
+  "derecha": 19.65,
+  "izquierda": 19.65,
+  "chaflan": null,
+  "perimetro": 58.43
+ },
+ "R6-12": {
+  "frente": 7.3,
+  "fondo": 8,
+  "derecha": 19.65,
+  "izquierda": 19.66,
+  "chaflan": null,
+  "perimetro": 54.61
+ },
+ "R6-13": {
+  "frente": 10.39,
+  "fondo": 10.02,
+  "derecha": 19.66,
+  "izquierda": 19.62,
+  "chaflan": null,
+  "perimetro": 59.69
+ },
+ "R6-14": {
+  "frente": 8.95,
+  "fondo": 8.01,
+  "derecha": 19.62,
+  "izquierda": 19.6,
+  "chaflan": null,
+  "perimetro": 56.18
+ },
+ "R6-15": {
+  "frente": 14.38,
+  "fondo": 10,
+  "derecha": 19.6,
+  "izquierda": 18.28,
+  "chaflan": 2.83,
+  "perimetro": 65.09
+ },
+ "R6-16": {
+  "frente": 7.36,
+  "fondo": 18.01,
+  "derecha": 19.17,
+  "izquierda": 20.37,
+  "chaflan": 4.15,
+  "perimetro": 69.06
+ },
+ "R6-17": {
+  "frente": 9.64,
+  "fondo": 10.02,
+  "derecha": 20.37,
+  "izquierda": 20.34,
+  "chaflan": null,
+  "perimetro": 60.37
+ },
+ "R6-18": {
+  "frente": 8.72,
+  "fondo": 8,
+  "derecha": 20.34,
+  "izquierda": 20.34,
+  "chaflan": null,
+  "perimetro": 57.4
+ },
+ "R6-19": {
+  "frente": 10.91,
+  "fondo": 10,
+  "derecha": 20.34,
+  "izquierda": 20.35,
+  "chaflan": null,
+  "perimetro": 61.6
+ },
+ "R6-20": {
+  "frente": 8.72,
+  "fondo": 8,
+  "derecha": 20.35,
+  "izquierda": 20.35,
+  "chaflan": null,
+  "perimetro": 57.42
+ },
+ "R6-21": {
+  "frente": 10.9,
+  "fondo": 10,
+  "derecha": 20.35,
+  "izquierda": 20.36,
+  "chaflan": null,
+  "perimetro": 61.61
+ },
+ "R6-22": {
+  "frente": 8.72,
+  "fondo": 8,
+  "derecha": 20.36,
+  "izquierda": 20.36,
+  "chaflan": null,
+  "perimetro": 57.44
+ },
+ "R6-23": {
+  "frente": 10.91,
+  "fondo": 10,
+  "derecha": 20.36,
+  "izquierda": 20.36,
+  "chaflan": null,
+  "perimetro": 61.63
+ },
+ "R6-24": {
+  "frente": 8.72,
+  "fondo": 8,
+  "derecha": 20.36,
+  "izquierda": 20.37,
+  "chaflan": null,
+  "perimetro": 57.45
+ },
+ "R6-25": {
+  "frente": 10.91,
+  "fondo": 10,
+  "derecha": 20.37,
+  "izquierda": 20.37,
+  "chaflan": null,
+  "perimetro": 61.65
+ },
+ "R6-26": {
+  "frente": 8.72,
+  "fondo": 8,
+  "derecha": 20.37,
+  "izquierda": 20.37,
+  "chaflan": null,
+  "perimetro": 57.46
+ },
+ "R6-27": {
+  "frente": 10.91,
+  "fondo": 10,
+  "derecha": 20.37,
+  "izquierda": 20.37,
+  "chaflan": null,
+  "perimetro": 61.65
+ },
+ "R6-28": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20.37,
+  "izquierda": 20.37,
+  "chaflan": null,
+  "perimetro": 56.74
+ },
+ "R6-29": {
+  "frente": 5.83,
+  "fondo": 8.25,
+  "derecha": 20.37,
+  "izquierda": 17.87,
+  "chaflan": 3.54,
+  "perimetro": 55.86
+ },
+ "R7-1": {
+  "frente": 7.15,
+  "fondo": 9.65,
+  "derecha": 17.5,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 57.84
+ },
+ "R7-2": {
+  "frente": 10,
+  "fondo": 10.37,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.37
+ },
+ "R7-3": {
+  "frente": 10,
+  "fondo": 10.78,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.78
+ },
+ "R7-4": {
+  "frente": 10,
+  "fondo": 10.78,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.78
+ },
+ "R7-5": {
+  "frente": 10,
+  "fondo": 10.78,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.78
+ },
+ "R7-6": {
+  "frente": 10,
+  "fondo": 10.78,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.78
+ },
+ "R7-7": {
+  "frente": 10,
+  "fondo": 10.78,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.78
+ },
+ "R7-8": {
+  "frente": 10,
+  "fondo": 10.78,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.78
+ },
+ "R7-9": {
+  "frente": 10,
+  "fondo": 10.78,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.78
+ },
+ "R7-10": {
+  "frente": 10,
+  "fondo": 10.78,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.78
+ },
+ "R7-11": {
+  "frente": 10,
+  "fondo": 10.78,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.78
+ },
+ "R7-12": {
+  "frente": 22.29,
+  "fondo": 19.37,
+  "derecha": 20,
+  "izquierda": 18.26,
+  "chaflan": 3,
+  "perimetro": 82.92
+ },
+ "R7-13": {
+  "frente": 13.16,
+  "fondo": 19.37,
+  "derecha": 17.88,
+  "izquierda": 19.96,
+  "chaflan": 3.88,
+  "perimetro": 74.25
+ },
+ "R7-14": {
+  "frente": 11.57,
+  "fondo": 10.78,
+  "derecha": 19.96,
+  "izquierda": 19.97,
+  "chaflan": null,
+  "perimetro": 62.28
+ },
+ "R7-15": {
+  "frente": 11.57,
+  "fondo": 10.78,
+  "derecha": 19.97,
+  "izquierda": 19.98,
+  "chaflan": null,
+  "perimetro": 62.3
+ },
+ "R7-16": {
+  "frente": 11.57,
+  "fondo": 10.78,
+  "derecha": 19.98,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 62.32
+ },
+ "R7-17": {
+  "frente": 11.57,
+  "fondo": 10.78,
+  "derecha": 19.99,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 62.33
+ },
+ "R7-18": {
+  "frente": 11.57,
+  "fondo": 10.78,
+  "derecha": 19.99,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 62.34
+ },
+ "R7-19": {
+  "frente": 11.57,
+  "fondo": 10.78,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 62.35
+ },
+ "R7-20": {
+  "frente": 11.57,
+  "fondo": 10.78,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 62.35
+ },
+ "R7-21": {
+  "frente": 11.57,
+  "fondo": 10.78,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 62.35
+ },
+ "R7-22": {
+  "frente": 11.57,
+  "fondo": 10.78,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 62.35
+ },
+ "R7-23": {
+  "frente": 10.74,
+  "fondo": 10.37,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.11
+ },
+ "R7-24": {
+  "frente": 7.15,
+  "fondo": 9.65,
+  "derecha": 20,
+  "izquierda": 17.5,
+  "chaflan": 3.54,
+  "perimetro": 57.84
+ },
+ "R8-1": {
+  "frente": 9.53,
+  "fondo": 16.23,
+  "derecha": 17.99,
+  "izquierda": 19.81,
+  "chaflan": 3.92,
+  "perimetro": 67.48
+ },
+ "R8-2": {
+  "frente": 8.69,
+  "fondo": 8.2,
+  "derecha": 19.81,
+  "izquierda": 19.8,
+  "chaflan": null,
+  "perimetro": 56.5
+ },
+ "R8-3": {
+  "frente": 8.69,
+  "fondo": 8.2,
+  "derecha": 19.8,
+  "izquierda": 19.78,
+  "chaflan": null,
+  "perimetro": 56.47
+ },
+ "R8-4": {
+  "frente": 8.69,
+  "fondo": 8.2,
+  "derecha": 19.78,
+  "izquierda": 19.78,
+  "chaflan": null,
+  "perimetro": 56.45
+ },
+ "R8-5": {
+  "frente": 8.69,
+  "fondo": 8.2,
+  "derecha": 19.78,
+  "izquierda": 19.78,
+  "chaflan": null,
+  "perimetro": 56.45
+ },
+ "R8-6": {
+  "frente": 8.69,
+  "fondo": 8.2,
+  "derecha": 19.78,
+  "izquierda": 19.78,
+  "chaflan": null,
+  "perimetro": 56.45
+ },
+ "R8-7": {
+  "frente": 8.69,
+  "fondo": 8.2,
+  "derecha": 19.78,
+  "izquierda": 19.79,
+  "chaflan": null,
+  "perimetro": 56.46
+ },
+ "R8-8": {
+  "frente": 8.69,
+  "fondo": 8.25,
+  "derecha": 19.79,
+  "izquierda": 19.81,
+  "chaflan": null,
+  "perimetro": 56.54
+ },
+ "R8-9": {
+  "frente": 8.69,
+  "fondo": 8.15,
+  "derecha": 19.81,
+  "izquierda": 19.84,
+  "chaflan": null,
+  "perimetro": 56.49
+ },
+ "R8-10": {
+  "frente": 8.69,
+  "fondo": 8.2,
+  "derecha": 19.84,
+  "izquierda": 19.86,
+  "chaflan": null,
+  "perimetro": 56.59
+ },
+ "R8-11": {
+  "frente": 8.69,
+  "fondo": 8.2,
+  "derecha": 19.86,
+  "izquierda": 19.9,
+  "chaflan": null,
+  "perimetro": 56.65
+ },
+ "R8-12": {
+  "frente": 8.7,
+  "fondo": 8.2,
+  "derecha": 19.9,
+  "izquierda": 19.94,
+  "chaflan": null,
+  "perimetro": 56.74
+ },
+ "R8-13": {
+  "frente": 8.7,
+  "fondo": 8.2,
+  "derecha": 19.94,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 56.83
+ },
+ "R8-14": {
+  "frente": 8.29,
+  "fondo": 8.2,
+  "derecha": 19.99,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56.48
+ },
+ "R8-15": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R8-16": {
+  "frente": 6.7,
+  "fondo": 9.2,
+  "derecha": 20,
+  "izquierda": 17.5,
+  "chaflan": 3.54,
+  "perimetro": 56.94
+ },
+ "R8-17": {
+  "frente": 6.7,
+  "fondo": 9.2,
+  "derecha": 17.5,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 56.94
+ },
+ "R8-18": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R8-19": {
+  "frente": 8.11,
+  "fondo": 8.19,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56.3
+ },
+ "R8-20": {
+  "frente": 7.7,
+  "fondo": 8.2,
+  "derecha": 20,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 55.89
+ },
+ "R8-21": {
+  "frente": 7.7,
+  "fondo": 8.2,
+  "derecha": 19.99,
+  "izquierda": 19.98,
+  "chaflan": null,
+  "perimetro": 55.87
+ },
+ "R8-22": {
+  "frente": 7.7,
+  "fondo": 8.2,
+  "derecha": 19.98,
+  "izquierda": 19.98,
+  "chaflan": null,
+  "perimetro": 55.86
+ },
+ "R8-23": {
+  "frente": 7.69,
+  "fondo": 8.2,
+  "derecha": 19.98,
+  "izquierda": 19.98,
+  "chaflan": null,
+  "perimetro": 55.85
+ },
+ "R8-24": {
+  "frente": 7.65,
+  "fondo": 8.15,
+  "derecha": 19.97,
+  "izquierda": 19.98,
+  "chaflan": null,
+  "perimetro": 55.75
+ },
+ "R8-25": {
+  "frente": 7.7,
+  "fondo": 8.2,
+  "derecha": 19.98,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 55.87
+ },
+ "R8-26": {
+  "frente": 7.7,
+  "fondo": 8.2,
+  "derecha": 19.99,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 55.89
+ },
+ "R8-27": {
+  "frente": 7.7,
+  "fondo": 8.25,
+  "derecha": 20,
+  "izquierda": 20.02,
+  "chaflan": null,
+  "perimetro": 55.97
+ },
+ "R8-28": {
+  "frente": 7.7,
+  "fondo": 8.2,
+  "derecha": 20.02,
+  "izquierda": 20.04,
+  "chaflan": null,
+  "perimetro": 55.96
+ },
+ "R8-29": {
+  "frente": 7.7,
+  "fondo": 8.2,
+  "derecha": 20.04,
+  "izquierda": 20.07,
+  "chaflan": null,
+  "perimetro": 56.01
+ },
+ "R8-30": {
+  "frente": 7.7,
+  "fondo": 8.2,
+  "derecha": 20.07,
+  "izquierda": 20.1,
+  "chaflan": null,
+  "perimetro": 56.07
+ },
+ "R8-31": {
+  "frente": 7.7,
+  "fondo": 8.2,
+  "derecha": 20.1,
+  "izquierda": 20.13,
+  "chaflan": null,
+  "perimetro": 56.13
+ },
+ "R8-32": {
+  "frente": 16.24,
+  "fondo": 16.23,
+  "derecha": 20.13,
+  "izquierda": 17.99,
+  "chaflan": 3.24,
+  "perimetro": 73.83
+ },
+ "R9-1": {
+  "frente": 7,
+  "fondo": 9.91,
+  "derecha": 20,
+  "izquierda": 17.5,
+  "chaflan": 3.58,
+  "perimetro": 57.99
+ },
+ "R9-2": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R9-3": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R9-4": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R9-5": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R9-6": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R9-7": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R9-8": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R9-9": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R9-10": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R9-11": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R9-12": {
+  "frente": 17.21,
+  "fondo": 16,
+  "derecha": 15.15,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 68.35
+ },
+ "R9-13": {
+  "frente": 17.78,
+  "fondo": 16,
+  "derecha": 7.37,
+  "izquierda": 15.15,
+  "chaflan": null,
+  "perimetro": 56.3
+ },
+ "R9-14": {
+  "frente": 7.16,
+  "fondo": 8.01,
+  "derecha": 23.79,
+  "izquierda": 14.74,
+  "chaflan": 7.66,
+  "perimetro": 61.36
+ },
+ "R9-15": {
+  "frente": 8,
+  "fondo": 8.76,
+  "derecha": 27.36,
+  "izquierda": 23.79,
+  "chaflan": null,
+  "perimetro": 67.91
+ },
+ "R9-16": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R9-17": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R9-18": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R9-19": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R9-20": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R9-21": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R9-22": {
+  "frente": 7.18,
+  "fondo": 8,
+  "derecha": 20.02,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 55.2
+ },
+ "R9-23": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R9-24": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R9-25": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R9-26": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R9-27": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R9-28": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R9-29": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R9-30": {
+  "frente": 7.41,
+  "fondo": 9.91,
+  "derecha": 17.5,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 58.36
+ },
+ "R10-1": {
+  "frente": 6.51,
+  "fondo": 9.99,
+  "derecha": 19.99,
+  "izquierda": 17.6,
+  "chaflan": 3.61,
+  "perimetro": 57.7
+ },
+ "R10-2": {
+  "frente": 8.71,
+  "fondo": 8,
+  "derecha": 20.01,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 56.71
+ },
+ "R10-3": {
+  "frente": 8.71,
+  "fondo": 8,
+  "derecha": 20.02,
+  "izquierda": 20.01,
+  "chaflan": null,
+  "perimetro": 56.74
+ },
+ "R10-4": {
+  "frente": 8.71,
+  "fondo": 8,
+  "derecha": 20.03,
+  "izquierda": 20.02,
+  "chaflan": null,
+  "perimetro": 56.76
+ },
+ "R10-5": {
+  "frente": 8.71,
+  "fondo": 8,
+  "derecha": 20.03,
+  "izquierda": 20.03,
+  "chaflan": null,
+  "perimetro": 56.77
+ },
+ "R10-6": {
+  "frente": 8.71,
+  "fondo": 8,
+  "derecha": 20.03,
+  "izquierda": 20.03,
+  "chaflan": null,
+  "perimetro": 56.77
+ },
+ "R10-7": {
+  "frente": 8.71,
+  "fondo": 8,
+  "derecha": 20.01,
+  "izquierda": 20.04,
+  "chaflan": null,
+  "perimetro": 56.76
+ },
+ "R10-8": {
+  "frente": 8.22,
+  "fondo": 8,
+  "derecha": 20.03,
+  "izquierda": 20.01,
+  "chaflan": null,
+  "perimetro": 56.26
+ },
+ "R10-9": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20.03,
+  "izquierda": 20.03,
+  "chaflan": null,
+  "perimetro": 56.06
+ },
+ "R10-10": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20.03,
+  "izquierda": 20.03,
+  "chaflan": null,
+  "perimetro": 56.06
+ },
+ "R10-11": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20.03,
+  "izquierda": 20.03,
+  "chaflan": null,
+  "perimetro": 56.06
+ },
+ "R10-12": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20.03,
+  "izquierda": 20.03,
+  "chaflan": null,
+  "perimetro": 56.06
+ },
+ "R10-13": {
+  "frente": 7.69,
+  "fondo": 8,
+  "derecha": 20.03,
+  "izquierda": 20.03,
+  "chaflan": null,
+  "perimetro": 55.75
+ },
+ "R10-14": {
+  "frente": 7.57,
+  "fondo": 8,
+  "derecha": 20.03,
+  "izquierda": 20.03,
+  "chaflan": null,
+  "perimetro": 55.63
+ },
+ "R10-15": {
+  "frente": 7.57,
+  "fondo": 8,
+  "derecha": 20.03,
+  "izquierda": 20.03,
+  "chaflan": null,
+  "perimetro": 55.63
+ },
+ "R10-16": {
+  "frente": 9.64,
+  "fondo": 19.54,
+  "derecha": 18.64,
+  "izquierda": 20.03,
+  "chaflan": 4.22,
+  "perimetro": 72.07
+ },
+ "R10-17": {
+  "frente": 16.83,
+  "fondo": 11.54,
+  "derecha": 20.01,
+  "izquierda": 18.64,
+  "chaflan": 2.8,
+  "perimetro": 69.82
+ },
+ "R10-18": {
+  "frente": 8.43,
+  "fondo": 8,
+  "derecha": 19.97,
+  "izquierda": 20.01,
+  "chaflan": null,
+  "perimetro": 56.41
+ },
+ "R10-19": {
+  "frente": 8.43,
+  "fondo": 8,
+  "derecha": 19.99,
+  "izquierda": 19.97,
+  "chaflan": null,
+  "perimetro": 56.39
+ },
+ "R10-20": {
+  "frente": 8.43,
+  "fondo": 8,
+  "derecha": 19.99,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 56.41
+ },
+ "R10-21": {
+  "frente": 8.31,
+  "fondo": 8,
+  "derecha": 19.98,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 56.28
+ },
+ "R10-22": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 19.98,
+  "izquierda": 19.98,
+  "chaflan": null,
+  "perimetro": 55.96
+ },
+ "R10-23": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 19.98,
+  "izquierda": 19.86,
+  "chaflan": null,
+  "perimetro": 55.84
+ },
+ "R10-24": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 19.98,
+  "izquierda": 19.98,
+  "chaflan": null,
+  "perimetro": 55.96
+ },
+ "R10-25": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 19.98,
+  "izquierda": 19.98,
+  "chaflan": null,
+  "perimetro": 55.96
+ },
+ "R10-26": {
+  "frente": 7.78,
+  "fondo": 8,
+  "derecha": 19.99,
+  "izquierda": 19.87,
+  "chaflan": null,
+  "perimetro": 55.64
+ },
+ "R10-27": {
+  "frente": 7.29,
+  "fondo": 8,
+  "derecha": 19.97,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 55.25
+ },
+ "R10-28": {
+  "frente": 7.29,
+  "fondo": 8,
+  "derecha": 19.97,
+  "izquierda": 19.97,
+  "chaflan": null,
+  "perimetro": 55.23
+ },
+ "R10-29": {
+  "frente": 7.29,
+  "fondo": 8,
+  "derecha": 19.97,
+  "izquierda": 19.97,
+  "chaflan": null,
+  "perimetro": 55.23
+ },
+ "R10-30": {
+  "frente": 7.29,
+  "fondo": 8,
+  "derecha": 19.97,
+  "izquierda": 19.97,
+  "chaflan": null,
+  "perimetro": 55.23
+ },
+ "R10-31": {
+  "frente": 7.29,
+  "fondo": 8,
+  "derecha": 19.98,
+  "izquierda": 19.97,
+  "chaflan": null,
+  "perimetro": 55.24
+ },
+ "R10-32": {
+  "frente": 7.29,
+  "fondo": 8,
+  "derecha": 19.99,
+  "izquierda": 19.98,
+  "chaflan": null,
+  "perimetro": 55.26
+ },
+ "R10-33": {
+  "frente": 7.3,
+  "fondo": 9.99,
+  "derecha": 17.48,
+  "izquierda": 19.99,
+  "chaflan": 3.53,
+  "perimetro": 58.29
+ },
+ "R11-1": {
+  "frente": 13,
+  "fondo": 14.06,
+  "derecha": 19.96,
+  "izquierda": 17.52,
+  "chaflan": 3.56,
+  "perimetro": 68.1
+ },
+ "R11-2": {
+  "frente": 11.56,
+  "fondo": 10.78,
+  "derecha": 19.95,
+  "izquierda": 19.96,
+  "chaflan": null,
+  "perimetro": 62.25
+ },
+ "R11-3": {
+  "frente": 11.56,
+  "fondo": 10.78,
+  "derecha": 19.95,
+  "izquierda": 19.95,
+  "chaflan": null,
+  "perimetro": 62.24
+ },
+ "R11-4": {
+  "frente": 11.57,
+  "fondo": 10.78,
+  "derecha": 19.97,
+  "izquierda": 19.95,
+  "chaflan": null,
+  "perimetro": 62.27
+ },
+ "R11-5": {
+  "frente": 11.57,
+  "fondo": 10.78,
+  "derecha": 19.98,
+  "izquierda": 19.97,
+  "chaflan": null,
+  "perimetro": 62.3
+ },
+ "R11-6": {
+  "frente": 10.21,
+  "fondo": 10.11,
+  "derecha": 19.99,
+  "izquierda": 19.98,
+  "chaflan": null,
+  "perimetro": 60.29
+ },
+ "R11-7": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20.01,
+  "izquierda": 20.01,
+  "chaflan": null,
+  "perimetro": 60.02
+ },
+ "R11-8": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20.01,
+  "izquierda": 20.01,
+  "chaflan": null,
+  "perimetro": 60.02
+ },
+ "R11-9": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20.01,
+  "izquierda": 20.01,
+  "chaflan": null,
+  "perimetro": 60.02
+ },
+ "R11-10": {
+  "frente": 8.96,
+  "fondo": 9.48,
+  "derecha": 20,
+  "izquierda": 20.01,
+  "chaflan": null,
+  "perimetro": 58.45
+ },
+ "R11-11": {
+  "frente": 8.84,
+  "fondo": 9.42,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 58.26
+ },
+ "R11-12": {
+  "frente": 6.34,
+  "fondo": 13.95,
+  "derecha": 17.98,
+  "izquierda": 20,
+  "chaflan": 3.93,
+  "perimetro": 62.2
+ },
+ "R11-13": {
+  "frente": 17.74,
+  "fondo": 13.95,
+  "derecha": 19.99,
+  "izquierda": 18.18,
+  "chaflan": 3.01,
+  "perimetro": 72.87
+ },
+ "R11-14": {
+  "frente": 10,
+  "fondo": 9.42,
+  "derecha": 20,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 59.41
+ },
+ "R11-15": {
+  "frente": 10,
+  "fondo": 9.48,
+  "derecha": 20.01,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.49
+ },
+ "R11-16": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20.01,
+  "izquierda": 20.01,
+  "chaflan": null,
+  "perimetro": 60.02
+ },
+ "R11-17": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20.01,
+  "izquierda": 20.01,
+  "chaflan": null,
+  "perimetro": 60.02
+ },
+ "R11-18": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20.01,
+  "izquierda": 20.01,
+  "chaflan": null,
+  "perimetro": 60.02
+ },
+ "R11-19": {
+  "frente": 10.01,
+  "fondo": 10.11,
+  "derecha": 20.05,
+  "izquierda": 20.01,
+  "chaflan": null,
+  "perimetro": 60.18
+ },
+ "R11-20": {
+  "frente": 10,
+  "fondo": 10.78,
+  "derecha": 20.05,
+  "izquierda": 20.05,
+  "chaflan": null,
+  "perimetro": 60.88
+ },
+ "R11-21": {
+  "frente": 9.98,
+  "fondo": 10.78,
+  "derecha": 20.04,
+  "izquierda": 20.05,
+  "chaflan": null,
+  "perimetro": 60.85
+ },
+ "R11-22": {
+  "frente": 10,
+  "fondo": 10.78,
+  "derecha": 20.05,
+  "izquierda": 20.05,
+  "chaflan": null,
+  "perimetro": 60.88
+ },
+ "R11-23": {
+  "frente": 10,
+  "fondo": 10.78,
+  "derecha": 20.05,
+  "izquierda": 20.05,
+  "chaflan": null,
+  "perimetro": 60.88
+ },
+ "R11-24": {
+  "frente": 11.44,
+  "fondo": 14.06,
+  "derecha": 17.63,
+  "izquierda": 20.05,
+  "chaflan": 3.37,
+  "perimetro": 66.55
+ },
+ "R12-1": {
+  "frente": 15.63,
+  "fondo": 14.44,
+  "derecha": 19.98,
+  "izquierda": 17.64,
+  "chaflan": 3.28,
+  "perimetro": 70.97
+ },
+ "R12-2": {
+  "frente": 11.31,
+  "fondo": 10.66,
+  "derecha": 19.99,
+  "izquierda": 19.98,
+  "chaflan": null,
+  "perimetro": 61.94
+ },
+ "R12-3": {
+  "frente": 11.31,
+  "fondo": 10.66,
+  "derecha": 20,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 61.96
+ },
+ "R12-4": {
+  "frente": 11.31,
+  "fondo": 10.66,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.97
+ },
+ "R12-5": {
+  "frente": 11.31,
+  "fondo": 10.66,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.97
+ },
+ "R12-6": {
+  "frente": 11.31,
+  "fondo": 10.66,
+  "derecha": 19.98,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.95
+ },
+ "R12-7": {
+  "frente": 10.78,
+  "fondo": 10.39,
+  "derecha": 19.96,
+  "izquierda": 19.98,
+  "chaflan": null,
+  "perimetro": 61.11
+ },
+ "R12-8": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 19.97,
+  "izquierda": 19.95,
+  "chaflan": null,
+  "perimetro": 59.92
+ },
+ "R12-9": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 19.99,
+  "izquierda": 19.97,
+  "chaflan": null,
+  "perimetro": 59.96
+ },
+ "R12-10": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 59.99
+ },
+ "R12-11": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R12-12": {
+  "frente": 7.5,
+  "fondo": 12.81,
+  "derecha": 17.81,
+  "izquierda": 20,
+  "chaflan": 3.73,
+  "perimetro": 61.85
+ },
+ "R12-13": {
+  "frente": 14.26,
+  "fondo": 12.81,
+  "derecha": 20,
+  "izquierda": 17.89,
+  "chaflan": 3.17,
+  "perimetro": 68.13
+ },
+ "R12-14": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R12-15": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R12-16": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R12-17": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60
+ },
+ "R12-18": {
+  "frente": 10,
+  "fondo": 10.39,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.39
+ },
+ "R12-19": {
+  "frente": 10,
+  "fondo": 10.66,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.66
+ },
+ "R12-20": {
+  "frente": 10,
+  "fondo": 10.66,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.66
+ },
+ "R12-21": {
+  "frente": 10,
+  "fondo": 10.66,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.66
+ },
+ "R12-22": {
+  "frente": 10,
+  "fondo": 10.66,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.66
+ },
+ "R12-23": {
+  "frente": 10,
+  "fondo": 10.66,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.66
+ },
+ "R12-24": {
+  "frente": 9.58,
+  "fondo": 14.44,
+  "derecha": 17.53,
+  "izquierda": 20,
+  "chaflan": 3.67,
+  "perimetro": 65.22
+ },
+ "R13-1": {
+  "frente": 14.06,
+  "fondo": 10.47,
+  "derecha": 20.12,
+  "izquierda": 18.14,
+  "chaflan": 3.04,
+  "perimetro": 65.83
+ },
+ "R13-2": {
+  "frente": 8.43,
+  "fondo": 8,
+  "derecha": 20.02,
+  "izquierda": 20.12,
+  "chaflan": null,
+  "perimetro": 56.57
+ },
+ "R13-3": {
+  "frente": 8.43,
+  "fondo": 8,
+  "derecha": 20.03,
+  "izquierda": 20.02,
+  "chaflan": null,
+  "perimetro": 56.48
+ },
+ "R13-4": {
+  "frente": 8.43,
+  "fondo": 8,
+  "derecha": 20.03,
+  "izquierda": 20.03,
+  "chaflan": null,
+  "perimetro": 56.49
+ },
+ "R13-5": {
+  "frente": 8.43,
+  "fondo": 8,
+  "derecha": 20.04,
+  "izquierda": 20.03,
+  "chaflan": null,
+  "perimetro": 56.5
+ },
+ "R13-6": {
+  "frente": 8.43,
+  "fondo": 8,
+  "derecha": 20.04,
+  "izquierda": 20.04,
+  "chaflan": null,
+  "perimetro": 56.51
+ },
+ "R13-7": {
+  "frente": 8.43,
+  "fondo": 8,
+  "derecha": 20.04,
+  "izquierda": 20.04,
+  "chaflan": null,
+  "perimetro": 56.51
+ },
+ "R13-8": {
+  "frente": 8.43,
+  "fondo": 8,
+  "derecha": 20.04,
+  "izquierda": 20.04,
+  "chaflan": null,
+  "perimetro": 56.51
+ },
+ "R13-9": {
+  "frente": 8.43,
+  "fondo": 8,
+  "derecha": 20.04,
+  "izquierda": 20.04,
+  "chaflan": null,
+  "perimetro": 56.51
+ },
+ "R13-10": {
+  "frente": 8.43,
+  "fondo": 8,
+  "derecha": 20.04,
+  "izquierda": 20.04,
+  "chaflan": null,
+  "perimetro": 56.51
+ },
+ "R13-11": {
+  "frente": 8.43,
+  "fondo": 8,
+  "derecha": 20.03,
+  "izquierda": 20.04,
+  "chaflan": null,
+  "perimetro": 56.5
+ },
+ "R13-12": {
+  "frente": 8.32,
+  "fondo": 8,
+  "derecha": 20.03,
+  "izquierda": 20.03,
+  "chaflan": null,
+  "perimetro": 56.38
+ },
+ "R13-13": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20.03,
+  "izquierda": 20.03,
+  "chaflan": null,
+  "perimetro": 56.06
+ },
+ "R13-14": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20.03,
+  "izquierda": 20.03,
+  "chaflan": null,
+  "perimetro": 56.06
+ },
+ "R13-15": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20.03,
+  "izquierda": 20.03,
+  "chaflan": null,
+  "perimetro": 56.06
+ },
+ "R13-16": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20.03,
+  "izquierda": 20.03,
+  "chaflan": null,
+  "perimetro": 56.06
+ },
+ "R13-17": {
+  "frente": 4.59,
+  "fondo": 13.03,
+  "derecha": 18.31,
+  "izquierda": 20.03,
+  "chaflan": 4,
+  "perimetro": 59.96
+ },
+ "R13-18": {
+  "frente": 14.8,
+  "fondo": 13.03,
+  "derecha": 19.97,
+  "izquierda": 17.82,
+  "chaflan": 3.2,
+  "perimetro": 68.82
+ },
+ "R13-19": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 19.98,
+  "izquierda": 19.97,
+  "chaflan": null,
+  "perimetro": 55.95
+ },
+ "R13-20": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 19.98,
+  "izquierda": 19.98,
+  "chaflan": null,
+  "perimetro": 55.96
+ },
+ "R13-21": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 19.99,
+  "izquierda": 19.98,
+  "chaflan": null,
+  "perimetro": 55.97
+ },
+ "R13-22": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 19.99,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 55.98
+ },
+ "R13-23": {
+  "frente": 7.68,
+  "fondo": 8,
+  "derecha": 19.99,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 55.66
+ },
+ "R13-24": {
+  "frente": 7.57,
+  "fondo": 8,
+  "derecha": 19.98,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 55.54
+ },
+ "R13-25": {
+  "frente": 7.57,
+  "fondo": 8,
+  "derecha": 19.98,
+  "izquierda": 19.98,
+  "chaflan": null,
+  "perimetro": 55.53
+ },
+ "R13-26": {
+  "frente": 7.57,
+  "fondo": 8,
+  "derecha": 19.97,
+  "izquierda": 19.98,
+  "chaflan": null,
+  "perimetro": 55.52
+ },
+ "R13-27": {
+  "frente": 7.57,
+  "fondo": 8,
+  "derecha": 19.97,
+  "izquierda": 19.97,
+  "chaflan": null,
+  "perimetro": 55.51
+ },
+ "R13-28": {
+  "frente": 7.57,
+  "fondo": 8,
+  "derecha": 19.97,
+  "izquierda": 19.97,
+  "chaflan": null,
+  "perimetro": 55.51
+ },
+ "R13-29": {
+  "frente": 7.57,
+  "fondo": 8,
+  "derecha": 19.97,
+  "izquierda": 19.97,
+  "chaflan": null,
+  "perimetro": 55.51
+ },
+ "R13-30": {
+  "frente": 7.57,
+  "fondo": 8,
+  "derecha": 19.97,
+  "izquierda": 19.97,
+  "chaflan": null,
+  "perimetro": 55.51
+ },
+ "R13-31": {
+  "frente": 7.57,
+  "fondo": 8,
+  "derecha": 19.97,
+  "izquierda": 19.97,
+  "chaflan": null,
+  "perimetro": 55.51
+ },
+ "R13-32": {
+  "frente": 7.57,
+  "fondo": 8,
+  "derecha": 19.98,
+  "izquierda": 19.97,
+  "chaflan": null,
+  "perimetro": 55.52
+ },
+ "R13-33": {
+  "frente": 10.56,
+  "fondo": 18.47,
+  "derecha": 17.86,
+  "izquierda": 19.98,
+  "chaflan": 3.9,
+  "perimetro": 70.77
+ },
+ "R14-1": {
+  "frente": 9.35,
+  "fondo": 11.85,
+  "derecha": 17.5,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 62.24
+ },
+ "R14-2": {
+  "frente": 9.51,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.51
+ },
+ "R14-3": {
+  "frente": 7.4,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 55.4
+ },
+ "R14-4": {
+  "frente": 9.25,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.25
+ },
+ "R14-5": {
+  "frente": 7.4,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 55.4
+ },
+ "R14-6": {
+  "frente": 9.25,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.25
+ },
+ "R14-7": {
+  "frente": 7.39,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 55.39
+ },
+ "R14-8": {
+  "frente": 9.25,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.25
+ },
+ "R14-9": {
+  "frente": 7.4,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 55.4
+ },
+ "R14-10": {
+  "frente": 9.25,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.25
+ },
+ "R14-11": {
+  "frente": 7.87,
+  "fondo": 8.51,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56.38
+ },
+ "R14-12": {
+  "frente": 9.25,
+  "fondo": 13.45,
+  "derecha": 20,
+  "izquierda": 17.46,
+  "chaflan": 3.64,
+  "perimetro": 63.8
+ },
+ "R14-13": {
+  "frente": 11.14,
+  "fondo": 13.45,
+  "derecha": 17.52,
+  "izquierda": 19.97,
+  "chaflan": 3.57,
+  "perimetro": 65.65
+ },
+ "R14-14": {
+  "frente": 9.15,
+  "fondo": 8.51,
+  "derecha": 19.97,
+  "izquierda": 19.98,
+  "chaflan": null,
+  "perimetro": 57.61
+ },
+ "R14-15": {
+  "frente": 10.75,
+  "fondo": 10,
+  "derecha": 19.98,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 60.72
+ },
+ "R14-16": {
+  "frente": 8.6,
+  "fondo": 8,
+  "derecha": 19.99,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 56.58
+ },
+ "R14-17": {
+  "frente": 10.75,
+  "fondo": 10,
+  "derecha": 19.99,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 60.73
+ },
+ "R14-18": {
+  "frente": 8.6,
+  "fondo": 8,
+  "derecha": 19.99,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56.59
+ },
+ "R14-19": {
+  "frente": 10.75,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.75
+ },
+ "R14-20": {
+  "frente": 8.6,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56.6
+ },
+ "R14-21": {
+  "frente": 10.75,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.75
+ },
+ "R14-22": {
+  "frente": 8.6,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56.6
+ },
+ "R14-23": {
+  "frente": 10.5,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.5
+ },
+ "R14-24": {
+  "frente": 9.35,
+  "fondo": 11.85,
+  "derecha": 20,
+  "izquierda": 17.5,
+  "chaflan": 3.54,
+  "perimetro": 62.24
+ },
+ "R15-1": {
+  "frente": 14.29,
+  "fondo": 15.72,
+  "derecha": 17.49,
+  "izquierda": 19.97,
+  "chaflan": 3.49,
+  "perimetro": 70.96
+ },
+ "R15-2": {
+  "frente": 10.6,
+  "fondo": 10,
+  "derecha": 19.97,
+  "izquierda": 19.98,
+  "chaflan": null,
+  "perimetro": 60.55
+ },
+ "R15-3": {
+  "frente": 10.6,
+  "fondo": 10,
+  "derecha": 19.98,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 60.57
+ },
+ "R15-4": {
+  "frente": 10.6,
+  "fondo": 10,
+  "derecha": 19.99,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 60.58
+ },
+ "R15-5": {
+  "frente": 10.6,
+  "fondo": 10,
+  "derecha": 19.99,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 60.58
+ },
+ "R15-6": {
+  "frente": 10.6,
+  "fondo": 10,
+  "derecha": 19.99,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.59
+ },
+ "R15-7": {
+  "frente": 10.6,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 60.59
+ },
+ "R15-8": {
+  "frente": 10.6,
+  "fondo": 10,
+  "derecha": 19.99,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.59
+ },
+ "R15-9": {
+  "frente": 10.6,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.6
+ },
+ "R15-10": {
+  "frente": 10.6,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.6
+ },
+ "R15-11": {
+  "frente": 10.6,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.6
+ },
+ "R15-12": {
+  "frente": 10.6,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.6
+ },
+ "R15-13": {
+  "frente": 10.6,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.6
+ },
+ "R15-14": {
+  "frente": 10.05,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.05
+ },
+ "R15-15": {
+  "frente": 12.7,
+  "fondo": 14.19,
+  "derecha": 20,
+  "izquierda": 17.01,
+  "chaflan": 3.54,
+  "perimetro": 67.44
+ },
+ "R15-16": {
+  "frente": 12.7,
+  "fondo": 14.18,
+  "derecha": 17.53,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 67.95
+ },
+ "R15-17": {
+  "frente": 9.95,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.95
+ },
+ "R15-18": {
+  "frente": 9.4,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.4
+ },
+ "R15-19": {
+  "frente": 9.4,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.4
+ },
+ "R15-20": {
+  "frente": 9.4,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.4
+ },
+ "R15-21": {
+  "frente": 9.4,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.4
+ },
+ "R15-22": {
+  "frente": 9.4,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.4
+ },
+ "R15-23": {
+  "frente": 9.4,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.4
+ },
+ "R15-24": {
+  "frente": 9.4,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.4
+ },
+ "R15-25": {
+  "frente": 9.4,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.4
+ },
+ "R15-26": {
+  "frente": 9.4,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 59.39
+ },
+ "R15-27": {
+  "frente": 9.4,
+  "fondo": 10,
+  "derecha": 19.99,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 59.38
+ },
+ "R15-28": {
+  "frente": 9.4,
+  "fondo": 10,
+  "derecha": 19.99,
+  "izquierda": 19.98,
+  "chaflan": null,
+  "perimetro": 59.37
+ },
+ "R15-29": {
+  "frente": 9.4,
+  "fondo": 10,
+  "derecha": 19.98,
+  "izquierda": 19.98,
+  "chaflan": null,
+  "perimetro": 59.36
+ },
+ "R15-30": {
+  "frente": 13.59,
+  "fondo": 15.72,
+  "derecha": 19.98,
+  "izquierda": 17.49,
+  "chaflan": 3.46,
+  "perimetro": 70.24
+ },
+ "R16-1": {
+  "frente": 10.11,
+  "fondo": 17.56,
+  "derecha": 18.01,
+  "izquierda": 20,
+  "chaflan": 4.06,
+  "perimetro": 69.74
+ },
+ "R16-2": {
+  "frente": 10.96,
+  "fondo": 10.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.16
+ },
+ "R16-3": {
+  "frente": 10.96,
+  "fondo": 10.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.16
+ },
+ "R16-4": {
+  "frente": 10.96,
+  "fondo": 10.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.16
+ },
+ "R16-5": {
+  "frente": 10.96,
+  "fondo": 10.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.16
+ },
+ "R16-6": {
+  "frente": 10.96,
+  "fondo": 10.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.16
+ },
+ "R16-7": {
+  "frente": 10.96,
+  "fondo": 10.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.16
+ },
+ "R16-8": {
+  "frente": 10.96,
+  "fondo": 10.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.16
+ },
+ "R16-9": {
+  "frente": 10.96,
+  "fondo": 10.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.16
+ },
+ "R16-10": {
+  "frente": 10.96,
+  "fondo": 10.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.16
+ },
+ "R16-11": {
+  "frente": 10.96,
+  "fondo": 10.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.16
+ },
+ "R16-12": {
+  "frente": 10.27,
+  "fondo": 10.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.47
+ },
+ "R16-13": {
+  "frente": 12.7,
+  "fondo": 14.18,
+  "derecha": 20,
+  "izquierda": 17.26,
+  "chaflan": 3.54,
+  "perimetro": 67.68
+ },
+ "R16-14": {
+  "frente": 12.7,
+  "fondo": 14.18,
+  "derecha": 17.53,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 67.95
+ },
+ "R16-15": {
+  "frente": 10.13,
+  "fondo": 10.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.33
+ },
+ "R16-16": {
+  "frente": 9.44,
+  "fondo": 10.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.64
+ },
+ "R16-17": {
+  "frente": 9.44,
+  "fondo": 10.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.64
+ },
+ "R16-18": {
+  "frente": 9.44,
+  "fondo": 10.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.64
+ },
+ "R16-19": {
+  "frente": 9.44,
+  "fondo": 10.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.64
+ },
+ "R16-20": {
+  "frente": 9.44,
+  "fondo": 10.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.64
+ },
+ "R16-21": {
+  "frente": 9.44,
+  "fondo": 10.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.64
+ },
+ "R16-22": {
+  "frente": 9.44,
+  "fondo": 10.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.64
+ },
+ "R16-23": {
+  "frente": 9.44,
+  "fondo": 10.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.64
+ },
+ "R16-24": {
+  "frente": 9.44,
+  "fondo": 10.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.64
+ },
+ "R16-25": {
+  "frente": 9.44,
+  "fondo": 10.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.64
+ },
+ "R16-26": {
+  "frente": 21.14,
+  "fondo": 17.56,
+  "derecha": 20,
+  "izquierda": 18.13,
+  "chaflan": 3.08,
+  "perimetro": 79.91
+ },
+ "R17-1": {
+  "frente": 15.46,
+  "fondo": 18.02,
+  "derecha": 17.49,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 74.51
+ },
+ "R17-2": {
+  "frente": 9.4,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.4
+ },
+ "R17-3": {
+  "frente": 9.4,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.4
+ },
+ "R17-4": {
+  "frente": 9.4,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.4
+ },
+ "R17-5": {
+  "frente": 9.4,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.4
+ },
+ "R17-6": {
+  "frente": 9.4,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 59.39
+ },
+ "R17-7": {
+  "frente": 9.4,
+  "fondo": 10,
+  "derecha": 19.99,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 59.38
+ },
+ "R17-8": {
+  "frente": 9.4,
+  "fondo": 10,
+  "derecha": 19.99,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.39
+ },
+ "R17-9": {
+  "frente": 9.4,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20.01,
+  "chaflan": null,
+  "perimetro": 59.41
+ },
+ "R17-10": {
+  "frente": 9.4,
+  "fondo": 10,
+  "derecha": 20.01,
+  "izquierda": 20.02,
+  "chaflan": null,
+  "perimetro": 59.43
+ },
+ "R17-11": {
+  "frente": 9.4,
+  "fondo": 10,
+  "derecha": 20.02,
+  "izquierda": 20.03,
+  "chaflan": null,
+  "perimetro": 59.45
+ },
+ "R17-12": {
+  "frente": 14.35,
+  "fondo": 13.65,
+  "derecha": 20.03,
+  "izquierda": 17.95,
+  "chaflan": 3.19,
+  "perimetro": 69.17
+ },
+ "R17-13": {
+  "frente": 6.19,
+  "fondo": 13.65,
+  "derecha": 18.3,
+  "izquierda": 19.97,
+  "chaflan": 3.96,
+  "perimetro": 62.07
+ },
+ "R17-14": {
+  "frente": 10.6,
+  "fondo": 10,
+  "derecha": 19.97,
+  "izquierda": 19.98,
+  "chaflan": null,
+  "perimetro": 60.55
+ },
+ "R17-15": {
+  "frente": 10.6,
+  "fondo": 10,
+  "derecha": 19.98,
+  "izquierda": 19.98,
+  "chaflan": null,
+  "perimetro": 60.56
+ },
+ "R17-16": {
+  "frente": 10.6,
+  "fondo": 10,
+  "derecha": 19.98,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 60.57
+ },
+ "R17-17": {
+  "frente": 10.6,
+  "fondo": 10,
+  "derecha": 19.99,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 60.58
+ },
+ "R17-18": {
+  "frente": 10.6,
+  "fondo": 10,
+  "derecha": 19.99,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.59
+ },
+ "R17-19": {
+  "frente": 10.6,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.6
+ },
+ "R17-20": {
+  "frente": 10.6,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.6
+ },
+ "R17-21": {
+  "frente": 10.6,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.6
+ },
+ "R17-22": {
+  "frente": 10.6,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.6
+ },
+ "R17-23": {
+  "frente": 10.6,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.6
+ },
+ "R17-24": {
+  "frente": 15.58,
+  "fondo": 18.02,
+  "derecha": 20,
+  "izquierda": 17.5,
+  "chaflan": 3.54,
+  "perimetro": 74.64
+ },
+ "R18-1": {
+  "frente": 12.78,
+  "fondo": 15.28,
+  "derecha": 17.5,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 69.1
+ },
+ "R18-2": {
+  "frente": 9.76,
+  "fondo": 10.35,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.11
+ },
+ "R18-3": {
+  "frente": 9.76,
+  "fondo": 10.3,
+  "derecha": 20,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 60.05
+ },
+ "R18-4": {
+  "frente": 9.76,
+  "fondo": 10.3,
+  "derecha": 19.99,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 60.04
+ },
+ "R18-5": {
+  "frente": 9.76,
+  "fondo": 10.3,
+  "derecha": 19.99,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 60.04
+ },
+ "R18-6": {
+  "frente": 9.76,
+  "fondo": 10.3,
+  "derecha": 19.99,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.05
+ },
+ "R18-7": {
+  "frente": 9.76,
+  "fondo": 10.3,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.06
+ },
+ "R18-8": {
+  "frente": 9.76,
+  "fondo": 10.3,
+  "derecha": 20,
+  "izquierda": 20.01,
+  "chaflan": null,
+  "perimetro": 60.07
+ },
+ "R18-9": {
+  "frente": 9.76,
+  "fondo": 10.3,
+  "derecha": 20.01,
+  "izquierda": 20.02,
+  "chaflan": null,
+  "perimetro": 60.09
+ },
+ "R18-10": {
+  "frente": 9.76,
+  "fondo": 10.3,
+  "derecha": 20.02,
+  "izquierda": 20.03,
+  "chaflan": null,
+  "perimetro": 60.11
+ },
+ "R18-11": {
+  "frente": 11.59,
+  "fondo": 12.19,
+  "derecha": 20.03,
+  "izquierda": 20.04,
+  "chaflan": null,
+  "perimetro": 63.86
+ },
+ "R18-12": {
+  "frente": 15.49,
+  "fondo": 12.28,
+  "derecha": 20.04,
+  "izquierda": 18.54,
+  "chaflan": 2.98,
+  "perimetro": 69.33
+ },
+ "R18-13": {
+  "frente": 10.02,
+  "fondo": 17.83,
+  "derecha": 18.42,
+  "izquierda": 19.98,
+  "chaflan": 3.99,
+  "perimetro": 70.25
+ },
+ "R18-14": {
+  "frente": 17.7,
+  "fondo": 16.93,
+  "derecha": 19.98,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 74.61
+ },
+ "R18-15": {
+  "frente": 10.84,
+  "fondo": 10.3,
+  "derecha": 19.99,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 61.12
+ },
+ "R18-16": {
+  "frente": 10.84,
+  "fondo": 10.3,
+  "derecha": 19.99,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.13
+ },
+ "R18-17": {
+  "frente": 10.84,
+  "fondo": 10.3,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.14
+ },
+ "R18-18": {
+  "frente": 10.84,
+  "fondo": 10.3,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.14
+ },
+ "R18-19": {
+  "frente": 10.84,
+  "fondo": 10.3,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.14
+ },
+ "R18-20": {
+  "frente": 10.84,
+  "fondo": 10.3,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.14
+ },
+ "R18-21": {
+  "frente": 10.84,
+  "fondo": 10.3,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.14
+ },
+ "R18-22": {
+  "frente": 10.84,
+  "fondo": 10.35,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.19
+ },
+ "R18-23": {
+  "frente": 12.88,
+  "fondo": 15.28,
+  "derecha": 20,
+  "izquierda": 17.5,
+  "chaflan": 3.54,
+  "perimetro": 69.2
+ },
+ "R19-1": {
+  "frente": 8.01,
+  "fondo": 18.53,
+  "derecha": 18.5,
+  "izquierda": 19.92,
+  "chaflan": 4.38,
+  "perimetro": 69.34
+ },
+ "R19-2": {
+  "frente": 9.44,
+  "fondo": 10,
+  "derecha": 19.92,
+  "izquierda": 19.88,
+  "chaflan": null,
+  "perimetro": 59.24
+ },
+ "R19-3": {
+  "frente": 10.71,
+  "fondo": 10,
+  "derecha": 19.88,
+  "izquierda": 19.88,
+  "chaflan": null,
+  "perimetro": 60.47
+ },
+ "R19-4": {
+  "frente": 10.91,
+  "fondo": 10,
+  "derecha": 19.88,
+  "izquierda": 19.88,
+  "chaflan": null,
+  "perimetro": 60.67
+ },
+ "R19-5": {
+  "frente": 10.91,
+  "fondo": 10,
+  "derecha": 19.88,
+  "izquierda": 19.89,
+  "chaflan": null,
+  "perimetro": 60.68
+ },
+ "R19-6": {
+  "frente": 10.91,
+  "fondo": 10,
+  "derecha": 19.89,
+  "izquierda": 19.9,
+  "chaflan": null,
+  "perimetro": 60.7
+ },
+ "R19-7": {
+  "frente": 10.91,
+  "fondo": 10,
+  "derecha": 19.9,
+  "izquierda": 19.9,
+  "chaflan": null,
+  "perimetro": 60.71
+ },
+ "R19-8": {
+  "frente": 10.91,
+  "fondo": 10,
+  "derecha": 19.9,
+  "izquierda": 19.91,
+  "chaflan": null,
+  "perimetro": 60.72
+ },
+ "R19-9": {
+  "frente": 10.92,
+  "fondo": 10,
+  "derecha": 19.91,
+  "izquierda": 19.92,
+  "chaflan": null,
+  "perimetro": 60.75
+ },
+ "R19-10": {
+  "frente": 10.92,
+  "fondo": 10,
+  "derecha": 19.92,
+  "izquierda": 19.93,
+  "chaflan": null,
+  "perimetro": 60.77
+ },
+ "R19-11": {
+  "frente": 10.92,
+  "fondo": 10,
+  "derecha": 19.93,
+  "izquierda": 19.93,
+  "chaflan": null,
+  "perimetro": 60.78
+ },
+ "R19-12": {
+  "frente": 10.07,
+  "fondo": 10,
+  "derecha": 19.93,
+  "izquierda": 19.96,
+  "chaflan": null,
+  "perimetro": 59.96
+ },
+ "R19-13": {
+  "frente": 12.7,
+  "fondo": 15.2,
+  "derecha": 19.96,
+  "izquierda": 17.5,
+  "chaflan": 3.54,
+  "perimetro": 68.9
+ },
+ "R19-14": {
+  "frente": 12.7,
+  "fondo": 15.2,
+  "derecha": 17.5,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 68.94
+ },
+ "R19-15": {
+  "frente": 9.93,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.93
+ },
+ "R19-16": {
+  "frente": 9.08,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.08
+ },
+ "R19-17": {
+  "frente": 9.08,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.08
+ },
+ "R19-18": {
+  "frente": 9.08,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.08
+ },
+ "R19-19": {
+  "frente": 9.08,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.08
+ },
+ "R19-20": {
+  "frente": 9.08,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.08
+ },
+ "R19-21": {
+  "frente": 9.08,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.08
+ },
+ "R19-22": {
+  "frente": 9.08,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.08
+ },
+ "R19-23": {
+  "frente": 9.08,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.08
+ },
+ "R19-24": {
+  "frente": 9.26,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 59.25
+ },
+ "R19-25": {
+  "frente": 17.92,
+  "fondo": 17.12,
+  "derecha": 19.99,
+  "izquierda": 20.04,
+  "chaflan": null,
+  "perimetro": 75.07
+ },
+ "R19-26": {
+  "frente": 16.41,
+  "fondo": 11.41,
+  "derecha": 20.04,
+  "izquierda": 18.53,
+  "chaflan": 3.08,
+  "perimetro": 69.47
+ },
+ "R20-1": {
+  "frente": 6,
+  "fondo": 15.72,
+  "derecha": 18.44,
+  "izquierda": 20.05,
+  "chaflan": 4.06,
+  "perimetro": 64.27
+ },
+ "R20-2": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20.05,
+  "izquierda": 20.06,
+  "chaflan": null,
+  "perimetro": 56.11
+ },
+ "R20-3": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 20.06,
+  "izquierda": 20.06,
+  "chaflan": null,
+  "perimetro": 60.12
+ },
+ "R20-4": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20.06,
+  "izquierda": 20.05,
+  "chaflan": null,
+  "perimetro": 56.11
+ },
+ "R20-5": {
+  "frente": 10.01,
+  "fondo": 10.01,
+  "derecha": 20.05,
+  "izquierda": 20.02,
+  "chaflan": null,
+  "perimetro": 60.09
+ },
+ "R20-6": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20.02,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56.02
+ },
+ "R20-7": {
+  "frente": 11.06,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.06
+ },
+ "R20-8": {
+  "frente": 9,
+  "fondo": 8.01,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 57.01
+ },
+ "R20-9": {
+  "frente": 11.32,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.32
+ },
+ "R20-10": {
+  "frente": 8.94,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56.94
+ },
+ "R20-11": {
+  "frente": 11.06,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 61.06
+ },
+ "R20-12": {
+  "frente": 9.03,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 57.03
+ },
+ "R20-13": {
+  "frente": 10.66,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 60.66
+ },
+ "R20-14": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R20-15": {
+  "frente": 10,
+  "fondo": 12.5,
+  "derecha": 20,
+  "izquierda": 17.5,
+  "chaflan": 3.54,
+  "perimetro": 63.54
+ },
+ "R20-16": {
+  "frente": 10,
+  "fondo": 12.5,
+  "derecha": 17.5,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 63.54
+ },
+ "R20-17": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R20-18": {
+  "frente": 9.34,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 59.34
+ },
+ "R20-19": {
+  "frente": 6.98,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 54.98
+ },
+ "R20-20": {
+  "frente": 8.95,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 58.95
+ },
+ "R20-21": {
+  "frente": 7.07,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 55.07
+ },
+ "R20-22": {
+  "frente": 8.68,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 58.68
+ },
+ "R20-23": {
+  "frente": 7.02,
+  "fondo": 8.01,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 55.03
+ },
+ "R20-24": {
+  "frente": 8.95,
+  "fondo": 10,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 58.95
+ },
+ "R20-25": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20.03,
+  "chaflan": null,
+  "perimetro": 56.03
+ },
+ "R20-26": {
+  "frente": 10.01,
+  "fondo": 10.01,
+  "derecha": 20.03,
+  "izquierda": 19.97,
+  "chaflan": null,
+  "perimetro": 60.02
+ },
+ "R20-27": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 19.97,
+  "izquierda": 19.94,
+  "chaflan": null,
+  "perimetro": 55.91
+ },
+ "R20-28": {
+  "frente": 10,
+  "fondo": 10,
+  "derecha": 19.94,
+  "izquierda": 19.92,
+  "chaflan": null,
+  "perimetro": 59.86
+ },
+ "R20-29": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 19.92,
+  "izquierda": 19.92,
+  "chaflan": null,
+  "perimetro": 55.84
+ },
+ "R20-30": {
+  "frente": 20.41,
+  "fondo": 15.72,
+  "derecha": 19.92,
+  "izquierda": 18.35,
+  "chaflan": 2.95,
+  "perimetro": 77.35
+ },
+ "R21-1": {
+  "frente": 14.7,
+  "fondo": 17.28,
+  "derecha": 17.5,
+  "izquierda": 20,
+  "chaflan": 3.48,
+  "perimetro": 72.96
+ },
+ "R21-2": {
+  "frente": 7.82,
+  "fondo": 8.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56.02
+ },
+ "R21-3": {
+  "frente": 7.82,
+  "fondo": 8.2,
+  "derecha": 20,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 56.01
+ },
+ "R21-4": {
+  "frente": 7.82,
+  "fondo": 8.2,
+  "derecha": 19.99,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R21-5": {
+  "frente": 7.82,
+  "fondo": 8.2,
+  "derecha": 19.99,
+  "izquierda": 19.93,
+  "chaflan": null,
+  "perimetro": 55.94
+ },
+ "R21-6": {
+  "frente": 7.82,
+  "fondo": 8.2,
+  "derecha": 19.93,
+  "izquierda": 19.99,
+  "chaflan": null,
+  "perimetro": 55.94
+ },
+ "R21-7": {
+  "frente": 7.82,
+  "fondo": 8.2,
+  "derecha": 19.99,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56.01
+ },
+ "R21-8": {
+  "frente": 7.82,
+  "fondo": 8.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56.02
+ },
+ "R21-9": {
+  "frente": 7.82,
+  "fondo": 8.2,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56.02
+ },
+ "R21-10": {
+  "frente": 7.82,
+  "fondo": 8.2,
+  "derecha": 20,
+  "izquierda": 20.01,
+  "chaflan": null,
+  "perimetro": 56.03
+ },
+ "R21-11": {
+  "frente": 7.82,
+  "fondo": 8.2,
+  "derecha": 20.01,
+  "izquierda": 20.02,
+  "chaflan": null,
+  "perimetro": 56.05
+ },
+ "R21-12": {
+  "frente": 7.82,
+  "fondo": 8.2,
+  "derecha": 20.02,
+  "izquierda": 20.03,
+  "chaflan": null,
+  "perimetro": 56.07
+ },
+ "R21-13": {
+  "frente": 7.82,
+  "fondo": 8.2,
+  "derecha": 20.02,
+  "izquierda": 20.03,
+  "chaflan": null,
+  "perimetro": 56.07
+ },
+ "R21-14": {
+  "frente": 18.72,
+  "fondo": 16.4,
+  "derecha": 20.03,
+  "izquierda": 18.29,
+  "chaflan": 3.05,
+  "perimetro": 76.49
+ },
+ "R21-15": {
+  "frente": 9.1,
+  "fondo": 16.4,
+  "derecha": 18.22,
+  "izquierda": 20,
+  "chaflan": 3.94,
+  "perimetro": 67.66
+ },
+ "R21-16": {
+  "frente": 8.58,
+  "fondo": 8.2,
+  "derecha": 20,
+  "izquierda": 20.02,
+  "chaflan": null,
+  "perimetro": 56.8
+ },
+ "R21-17": {
+  "frente": 8.58,
+  "fondo": 8.2,
+  "derecha": 20.02,
+  "izquierda": 20.04,
+  "chaflan": null,
+  "perimetro": 56.84
+ },
+ "R21-18": {
+  "frente": 8.58,
+  "fondo": 8.2,
+  "derecha": 20.04,
+  "izquierda": 20.07,
+  "chaflan": null,
+  "perimetro": 56.89
+ },
+ "R21-19": {
+  "frente": 8.58,
+  "fondo": 8.2,
+  "derecha": 20.07,
+  "izquierda": 20.09,
+  "chaflan": null,
+  "perimetro": 56.94
+ },
+ "R21-20": {
+  "frente": 8.58,
+  "fondo": 8.2,
+  "derecha": 20.09,
+  "izquierda": 20.11,
+  "chaflan": null,
+  "perimetro": 56.98
+ },
+ "R21-21": {
+  "frente": 8.58,
+  "fondo": 8.2,
+  "derecha": 20.11,
+  "izquierda": 20.13,
+  "chaflan": null,
+  "perimetro": 57.02
+ },
+ "R21-22": {
+  "frente": 8.58,
+  "fondo": 8.2,
+  "derecha": 20.13,
+  "izquierda": 20.14,
+  "chaflan": null,
+  "perimetro": 57.05
+ },
+ "R21-23": {
+  "frente": 8.58,
+  "fondo": 8.2,
+  "derecha": 20.14,
+  "izquierda": 20.22,
+  "chaflan": null,
+  "perimetro": 57.14
+ },
+ "R21-24": {
+  "frente": 8.58,
+  "fondo": 8.2,
+  "derecha": 20.22,
+  "izquierda": 20.16,
+  "chaflan": null,
+  "perimetro": 57.16
+ },
+ "R21-25": {
+  "frente": 8.58,
+  "fondo": 8.2,
+  "derecha": 20.16,
+  "izquierda": 20.16,
+  "chaflan": null,
+  "perimetro": 57.1
+ },
+ "R21-26": {
+  "frente": 8.58,
+  "fondo": 8.2,
+  "derecha": 20.16,
+  "izquierda": 20.15,
+  "chaflan": null,
+  "perimetro": 57.09
+ },
+ "R21-27": {
+  "frente": 8.58,
+  "fondo": 8.2,
+  "derecha": 20.15,
+  "izquierda": 20.17,
+  "chaflan": null,
+  "perimetro": 57.1
+ },
+ "R21-28": {
+  "frente": 14.91,
+  "fondo": 17.28,
+  "derecha": 20.17,
+  "izquierda": 17.5,
+  "chaflan": 3.54,
+  "perimetro": 73.4
+ },
+ "R22-1": {
+  "frente": 5.84,
+  "fondo": 9.23,
+  "derecha": 20,
+  "izquierda": 17.52,
+  "chaflan": 3.63,
+  "perimetro": 56.22
+ },
+ "R22-2": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R22-3": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R22-4": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R22-5": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R22-6": {
+  "frente": 7.87,
+  "fondo": 10.37,
+  "derecha": 17.5,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 59.28
+ },
+ "R22-7": {
+  "frente": 7.87,
+  "fondo": 10.37,
+  "derecha": 20,
+  "izquierda": 17.5,
+  "chaflan": 3.54,
+  "perimetro": 59.28
+ },
+ "R22-8": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R22-9": {
+  "frente": 6.61,
+  "fondo": 8,
+  "derecha": 20.05,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 54.66
+ },
+ "R22-10": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R22-11": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R22-12": {
+  "frente": 6.73,
+  "fondo": 9.23,
+  "derecha": 17.5,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 57
+ },
+ "R23-1": {
+  "frente": 11.1,
+  "fondo": 13.6,
+  "derecha": 17.5,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 65.74
+ },
+ "R23-2": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-3": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-4": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-5": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-6": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-7": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-8": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-9": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-10": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-11": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-12": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-13": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-14": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-15": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-16": {
+  "frente": 11.1,
+  "fondo": 13.6,
+  "derecha": 20,
+  "izquierda": 17.5,
+  "chaflan": 3.54,
+  "perimetro": 65.74
+ },
+ "R23-17": {
+  "frente": 11.1,
+  "fondo": 13.6,
+  "derecha": 17.5,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 65.74
+ },
+ "R23-18": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-19": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-20": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-21": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-22": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-23": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-24": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-25": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-26": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-27": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-28": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-29": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-30": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-31": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R23-32": {
+  "frente": 11.1,
+  "fondo": 13.6,
+  "derecha": 20,
+  "izquierda": 17.5,
+  "chaflan": 3.54,
+  "perimetro": 65.74
+ },
+ "R24-1": {
+  "frente": 9.01,
+  "fondo": 11.51,
+  "derecha": 17.5,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 61.56
+ },
+ "R24-2": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-3": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-4": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-5": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-6": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-7": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-8": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-9": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-10": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-11": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-12": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-13": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-14": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-15": {
+  "frente": 12.66,
+  "fondo": 15.16,
+  "derecha": 20,
+  "izquierda": 17.5,
+  "chaflan": 3.54,
+  "perimetro": 68.86
+ },
+ "R24-16": {
+  "frente": 12.66,
+  "fondo": 15.16,
+  "derecha": 17.5,
+  "izquierda": 20,
+  "chaflan": 3.54,
+  "perimetro": 68.86
+ },
+ "R24-17": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-18": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-19": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-20": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-21": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-22": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-23": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-24": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-25": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-26": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-27": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-28": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-29": {
+  "frente": 8,
+  "fondo": 8,
+  "derecha": 20,
+  "izquierda": 20,
+  "chaflan": null,
+  "perimetro": 56
+ },
+ "R24-30": {
+  "frente": 9.01,
+  "fondo": 11.51,
+  "derecha": 20,
+  "izquierda": 17.5,
+  "chaflan": 3.54,
+  "perimetro": 61.56
+ }
+}

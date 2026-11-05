@@ -13,6 +13,16 @@ import Link from "next/link";
 import { formatSoles, type EstadoLote } from "@/lib/arenas";
 import { SelectorManzana } from "@/components/SelectorManzana";
 
+/** Linderos del lote en metros (del cuadro de medidas del plano). `chaflan` solo existe en los lotes de esquina. */
+export type MedidasLote = {
+  frente: number;
+  fondo: number;
+  derecha: number;
+  izquierda: number;
+  chaflan: number | null;
+  perimetro: number;
+};
+
 export type LoteMapa = {
   /** Código «R4-32». */
   id: string;
@@ -20,6 +30,8 @@ export type LoteMapa = {
   lt: number;
   metraje: number | null;
   ubicacion: string | null;
+  /** Frente, fondo y demás linderos (los muestra la ficha del plano). */
+  medidas?: MedidasLote;
   /** Precio con descuento (el que ve el cliente). */
   precio: number | null;
   promocion?: "standard" | "preferencial";
@@ -765,6 +777,28 @@ function FichaLote({ lote, dibujado }: { lote: LoteMapa | undefined; dibujado: b
                 {lote.ubicacion}
               </dd>
             </div>
+            {lote.medidas && (
+              <div className="border-t border-[var(--border)] px-4 py-2.5 max-lg:col-span-2 max-lg:py-2 sm:px-5">
+                <dt className="mb-1.5 text-sm text-[var(--text-secondary)]">Medidas (m)</dt>
+                <dd className="m-0 grid grid-cols-2 gap-x-4 gap-y-1 text-sm [font-variant-numeric:tabular-nums]">
+                  {(
+                    [
+                      ["Frente", lote.medidas.frente],
+                      ["Fondo", lote.medidas.fondo],
+                      ["Derecha", lote.medidas.derecha],
+                      ["Izquierda", lote.medidas.izquierda],
+                      ...(lote.medidas.chaflan != null ? [["Chaflán", lote.medidas.chaflan]] : []),
+                      ["Perímetro", lote.medidas.perimetro],
+                    ] as [string, number][]
+                  ).map(([nombre, valor]) => (
+                    <span key={nombre} className="flex items-baseline justify-between gap-2">
+                      <span className="text-[var(--text-muted)]">{nombre}</span>
+                      <span className="font-semibold text-[var(--text-primary)]">{valor}</span>
+                    </span>
+                  ))}
+                </dd>
+              </div>
+            )}
             {lote.precio != null && (
               <div className="flex items-center justify-between gap-4 border-t border-[var(--border)] px-4 py-2.5 max-lg:col-span-2 max-lg:flex-col max-lg:items-center max-lg:justify-center max-lg:gap-0.5 max-lg:py-2 sm:px-5">
                 <dt className="text-sm text-[var(--text-secondary)]">Precio con dscto</dt>
