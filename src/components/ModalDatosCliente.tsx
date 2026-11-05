@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { INCLUIR_CUENTAS_DE_PAGO } from "@/lib/configCotizacion";
 
 /**
  * Pop-up para pedir nombre y DNI antes de generar la cotización.
@@ -319,7 +320,7 @@ export function ModalDatosCliente(p: Props) {
                   ? p.puedeCopiar
                     ? "Descárgalas, o copia cada imagen y pégala con Ctrl+V en el chat de WhatsApp Web."
                     : "Descárgalas y súbelas al chat de WhatsApp Web con el clip."
-                  : `Revisa los datos y compártela por WhatsApp. Llegan como ${p.miniaturas.length || 3} fotos (la última, con las cuentas de pago).`
+                  : `Revisa los datos y compártela por WhatsApp. Llegan como ${p.miniaturas.length || 2} ${p.miniaturas.length === 1 ? "foto" : "fotos"}${INCLUIR_CUENTAS_DE_PAGO ? " (la última, con las cuentas de pago)" : ""}.`
                 : "Súbelas a WhatsApp desde tu galería o carpeta de descargas."}
             </p>
 
@@ -382,7 +383,7 @@ export function ModalDatosCliente(p: Props) {
                 <button type="button" onClick={p.onDescargar} className={BOTON}>
                   {p.descargado
                     ? "✓ Descargadas · volver a descargar"
-                    : `Descargar las ${p.miniaturas.length || 3} imágenes`}
+                    : `Descargar ${p.miniaturas.length === 1 ? "la imagen" : `las ${p.miniaturas.length || 2} imágenes`}`}
                 </button>
                 <button type="button" onClick={p.onPdf} className={BOTON_SEC}>
                   Descargar PDF

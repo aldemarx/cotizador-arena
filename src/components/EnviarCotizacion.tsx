@@ -10,7 +10,7 @@ import {
 import { createPortal } from "react-dom";
 import { toBlob } from "html-to-image";
 import type { InicialModo, Lote } from "@/lib/arenas";
-import { FORMATOS_FICHA, PEDIR_DATOS_CLIENTE } from "@/lib/configCotizacion";
+import { FORMATOS_FICHA, INCLUIR_CUENTAS_DE_PAGO, PEDIR_DATOS_CLIENTE } from "@/lib/configCotizacion";
 import {
   cssDeFuentes,
   invalidarCacheFuentes,
@@ -51,7 +51,7 @@ function puedeCopiarImagenes(): boolean {
 }
 
 function nombreArchivo(lote: Lote, n: number) {
-  return `cotizacion-arenas-del-valle-mz${lote.mz}-lote${lote.lt}-${n}de3.png`;
+  return `cotizacion-arenas-del-valle-mz${lote.mz}-lote${lote.lt}-${n}de${INCLUIR_CUENTAS_DE_PAGO ? 3 : 2}.png`;
 }
 
 /**
@@ -169,7 +169,7 @@ export function EnviarCotizacion({
 
   /** Convierte las fichas (2 hojas de cotización + hoja de cuentas de pago) en archivos PNG. */
   const generar = useCallback(async (): Promise<File[]> => {
-    const nodos = [cara1.current, cara2.current, cuentas.current];
+    const nodos = INCLUIR_CUENTAS_DE_PAGO ? [cara1.current, cara2.current, cuentas.current] : [cara1.current, cara2.current];
     if (nodos.some((n) => !n)) throw new Error("La ficha aún no está lista");
     await document.fonts?.ready;
     const fontEmbedCSS = await cssDeFuentes();
@@ -283,7 +283,7 @@ export function EnviarCotizacion({
       avisar("Imágenes listas. Toca «Enviar» otra vez para compartirlas.");
     } else if (r === "sin-menu") {
       descargar(listas);
-      avisar("Se descargaron las 3 imágenes. Envíalas por WhatsApp.");
+      avisar("Se descargaron las imágenes. Envíalas por WhatsApp.");
     }
   }
 
@@ -415,7 +415,7 @@ export function EnviarCotizacion({
     } catch {
       setErrores({
         general:
-          "El navegador no permitió copiar la imagen. Usa «Descargar las 3 imágenes».",
+          "El navegador no permitió copiar la imagen. Usa «Descargar las imágenes».",
       });
     }
   }
@@ -550,7 +550,7 @@ export function EnviarCotizacion({
               emitida={emitida}
               cliente={cliente}
             />
-            <FichaCuentas ref={cuentas} emitida={emitida} />
+            {INCLUIR_CUENTAS_DE_PAGO && <FichaCuentas ref={cuentas} emitida={emitida} />}
           </div>,
           document.body,
         )}

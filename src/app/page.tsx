@@ -6,7 +6,7 @@ import { ColumnaDerecha } from "@/components/ColumnaDerecha";
 import { BondadesCarrusel } from "@/components/BondadesCarrusel";
 import { AjustePantalla } from "@/components/AjustePantalla";
 import { RedesSociales } from "@/components/RedesSociales";
-import { MediosDePago } from "@/components/MediosDePago";
+// import { MediosDePago } from "@/components/MediosDePago"; // desactivado por ahora: las cuentas de pago que trae no son las de Arenas
 import { BotonVerPlano } from "@/components/BotonVerPlano";
 import { LoteActivoProvider } from "@/components/LoteActivo";
 
@@ -44,7 +44,7 @@ export default async function Home({
       </AjustePantalla>
       </LoteActivoProvider>
       <BondadesCarrusel />
-      <MediosDePago />
+      {/* <MediosDePago /> */}
       <footer className="mx-auto flex w-full max-w-[88rem] flex-col items-center gap-4 px-4 pb-10 lg:px-6">
         <p className="text-center text-xs leading-relaxed text-[var(--text-muted)] sm:text-[13px]">
           © 2026 CEINYS — Constructora e Inmobiliaria · RUC 20611776391 · Todos

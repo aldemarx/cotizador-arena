@@ -7,6 +7,7 @@ import {
   PARAMETROS,
   plazoDe,
   partesDeInicial,
+  mesPrimeraCuota,
   etiquetaMes,
   PROYECTO,
   segmentosDeTramo,
@@ -297,7 +298,7 @@ function SelloVerificado({ tamano = 40 }: { tamano?: number }) {
 
 /* ---------- cara 1: el lote y su fraccionamiento ---------- */
 
-function ContenidoCara1({ lote, emitida, cliente }: DatosFicha) {
+function ContenidoCara1({ lote, inicialModo, emitida, cliente }: DatosFicha) {
   // Solo se muestran los datos que existen (una cotización puntual puede no traer ubicación o etapa)
   const datosDelLote = (
     [
@@ -312,7 +313,7 @@ function ContenidoCara1({ lote, emitida, cliente }: DatosFicha) {
   const v = useV();
   const compacto = useCompacto();
   const cuota = lote.planes.fija.cuotas_por_tramo[0];
-  const partes = partesDeInicial(lote, emitida);
+  const partes = partesDeInicial(lote, inicialModo, emitida);
 
   return (
     <>
@@ -551,7 +552,7 @@ export const FichaCara1 = forwardRef<HTMLDivElement, DatosFicha>(
 
 /* ---------- cara 2: las tres modalidades, año por año ---------- */
 
-function ContenidoCara2({ lote, emitida, cliente }: DatosFicha) {
+function ContenidoCara2({ lote, inicialModo, emitida, cliente }: DatosFicha) {
   const v = useV();
   const compacto = useCompacto();
   const segmentos = modalidadesDe(lote).map((m) => ({
@@ -568,7 +569,7 @@ function ContenidoCara2({ lote, emitida, cliente }: DatosFicha) {
       : "Tu plan de cuotas";
   const cuotaFija = lote.planes.fija.cuotas_por_tramo[0];
   const mesesPlan = base.reduce((t, b) => t + b.meses, 0);
-  const partes = partesDeInicial(lote, emitida);
+  const partes = partesDeInicial(lote, inicialModo, emitida);
   const columnas = `1.15fr ${"1fr ".repeat(segmentos.length)}`.trim();
 
   return (
@@ -655,7 +656,7 @@ function ContenidoCara2({ lote, emitida, cliente }: DatosFicha) {
                       Cuota {i + 1}
                     </span>
                     <span className="text-center text-[26px] font-medium text-[var(--text-secondary)]">
-                      {etiquetaMes(i + 1, emitida)}
+                      {etiquetaMes(i + mesPrimeraCuota(inicialModo), emitida)}
                     </span>
                     <span className="text-right text-[30px] font-bold [font-variant-numeric:tabular-nums]">
                       <Soles monto={cuotaFija} />

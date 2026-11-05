@@ -237,61 +237,46 @@ export function etiquetaMes(
 
 // --- Forma de pago de la inicial ---
 
-/** Inicial que elige el cliente: solo hay tres, se paga completa al firmar y el precio total no cambia (cambia la cuota). */
-export type InicialModo = "500" | "1000" | "2000";
+/** Cómo se paga la inicial (S/ 2,000): de una vez, en 2 partes (1,000 + 1,000) o en 3 partes (1,000 + 500 + 500). El total no cambia. */
+export type InicialModo = "completa" | "dos" | "tres";
 
 export const INICIAL_MODOS: {
   key: InicialModo;
   label: string;
-  monto: number;
+  partes: number;
 }[] = [
-  { key: "500", label: "S/ 500", monto: 500 },
-  { key: "1000", label: "S/ 1,000", monto: 1000 },
-  { key: "2000", label: "S/ 2,000", monto: 2000 },
+  { key: "completa", label: "Completa", partes: 1 },
+  { key: "dos", label: "2 partes", partes: 2 },
+  { key: "tres", label: "3 partes", partes: 3 },
 ];
 
-export const INICIAL_POR_DEFECTO: InicialModo = "2000";
+export const INICIAL_POR_DEFECTO: InicialModo = "completa";
 
 export type ParteInicial = { monto: number; fecha: string };
 
-/** La inicial se paga de una vez, al firmar (mes 0). */
-export function partesDeInicial(
-  lote: Lote,
-  base: Date = new Date(),
-): ParteInicial[] {
-  return [{ monto: lote.inicial, fecha: etiquetaMes(0, base) }];
-}
+/** Monto fijo de la 2.ª y la 3.ª parte cuando la inicial se paga en 3 partes. */
+const PARTE_FIJA_INICIAL = 500;
 
 /**
- * El mismo lote con otra inicial. El precio con dscto no cambia: lo que baja o sube es el saldo que se reparte
- * en cuotas (precio con dscto − inicial). Se conserva el plazo que ya traía el lote.
+ * Reparte la inicial del lote en 1, 2 o 3 pagos consecutivos (mes 0 = firma, mes 1, mes 2), cada uno con su fecha.
+ * En 2 partes, mitad y mitad (1,000 + 1,000). En 3 partes, la 2.ª y la 3.ª son de S/ 500 y la 1.ª lleva el resto
+ * (1,000 en una inicial de 2,000). La suma siempre es exactamente la inicial.
  */
-export function conInicial(
+export function partesDeInicial(
   lote: Lote,
-  inicial: number,
-  params: Parametros = PARAMETROS,
-): Lote {
-  if (inicial === lote.inicial) return lote;
-  const saldo = lote.precio_con_dscto - inicial;
-  const fija = planParaPlazo(saldo, inicial, plazoDe(lote), 0, params);
-  const promo = lote.promocion;
-  return {
-    ...lote,
-    inicial,
-    inicial_mes_1: inicial,
-    inicial_mes_2: 0,
-    planes: { fija, ascendente: fija, descendente: fija },
-    promocion:
-      promo?.precio_promo_financiado != null
-        ? {
-            ...promo,
-            cuota_promo: aCentimos(
-              (promo.precio_promo_financiado - inicial) / PLAZO_PROMOCION,
-            ),
-          }
-        : promo,
-  };
+  modo: InicialModo,
+  base: Date = new Date(),
+): ParteInicial[] {
+  let montos: number[];
+  if (modo === "completa") montos = [lote.inicial];
+  else if (modo === "dos") montos = [lote.inicial_mes_1, lote.inicial_mes_2];
+  else montos = [lote.inicial - PARTE_FIJA_INICIAL * 2, PARTE_FIJA_INICIAL, PARTE_FIJA_INICIAL];
+  return montos.map((monto, i) => ({ monto, fecha: etiquetaMes(i, base) }));
 }
+
+/** Meses desde hoy hasta la primera cuota: las cuotas empiezan el mes siguiente a la última parte de la inicial. */
+export const mesPrimeraCuota = (modo: InicialModo): number =>
+  INICIAL_MODOS.find((m) => m.key === modo)?.partes ?? 1;
 
 export type FilaCalendario = {
   concepto: string;

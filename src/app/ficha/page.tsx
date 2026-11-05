@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import {
   buscarLotePorId,
-  conInicial,
   conPlazo,
   INICIAL_MODOS,
   INICIAL_POR_DEFECTO,
@@ -25,7 +24,7 @@ import { TANDAS } from "@/lib/membresiaClub";
 /**
  * Vista previa en pantalla de las dos imágenes de la cotización (solo desarrollo).
  *   /ficha                          → lote 5-1, inicial de S/ 2,000, formato configurado
- *   /ficha?lote=5-440&inicial=500   → otro lote / otra inicial (500 | 1000 | 2000)
+ *   /ficha?lote=5-440&inicial=tres   → otro lote / otra forma de pago de la inicial (completa | dos | tres)
  *   /ficha?zoom=1                   → tamaño real
  *   /ficha?formato=cuadrado         → compara con el formato anterior (cuadrado | vertical)
  *   /ficha?nombre=Ana%20Pérez&dni=74123456 → con otros datos del cliente
@@ -70,10 +69,7 @@ export default async function VistaPreviaFicha({
   const inicialModo = (INICIAL_MODOS.find((m) => m.key === inicial)?.key ??
     INICIAL_POR_DEFECTO) as InicialModo;
   const lote = conPlazo(
-    conInicial(
-      (idLote && buscarLotePorId(idLote, lotes)) || lotes[0],
-      Number(inicialModo),
-    ),
+    (idLote && buscarLotePorId(idLote, lotes)) || lotes[0],
     Number(cuotas) || 80,
   );
   const formato = (

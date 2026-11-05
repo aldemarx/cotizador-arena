@@ -40,6 +40,12 @@ export const ENMASCARAR_DNI = false;
 export const COMPARTIR_EN_ESCRITORIO = false;
 
 /**
+ * Hoja de cuentas de pago (tercera imagen de la cotización y última página del PDF; en la membresía, la segunda). DESACTIVADA por ahora:
+ * las cuentas que trae no son las de Arenas. Para volver a incluirla, poner `true` (el código de la hoja sigue en FichaCotizacion.tsx).
+ */
+export const INCLUIR_CUENTAS_DE_PAGO = false;
+
+/**
  * Cantidades de cuotas que el asesor puede elegir en el cotizador. La regla es que el TOTAL NO CAMBIA
  * con el plazo (precio con dscto = contado + inicial): solo se divide en más o menos cuotas. Más
  * adelante saldrá de los parámetros de cada proyecto (docs/plan-escalamiento-supabase.md, fase 6).

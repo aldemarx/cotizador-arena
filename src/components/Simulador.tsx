@@ -5,13 +5,14 @@ import {
   PROYECTO,
   PLAZO_PROMOCION,
   buscarLotePorId,
-  conInicial,
   conPlazo,
   modalidadesDe,
   plazoDe,
   PARAMETROS,
   INICIAL_MODOS,
   INICIAL_POR_DEFECTO,
+  partesDeInicial,
+  mesPrimeraCuota,
   filtrarLotesPorTexto,
   formatearMonto,
   manzanasDisponibles,
@@ -138,8 +139,8 @@ export function Simulador({
   const plazoBloqueado = loteBase.promocion != null;
   const plazoActivo = plazoBloqueado ? PLAZO_PROMOCION : plazo;
   const lote: Lote = useMemo(
-    () => conPlazo(conInicial(loteBase, Number(inicialModo)), plazoActivo),
-    [loteBase, inicialModo, plazoActivo],
+    () => conPlazo(loteBase, plazoActivo),
+    [loteBase, plazoActivo],
   );
   // La vista previa del lote (otra parte de la página) sigue al lote que se cotiza.
   const { elegir: publicarLote, pedido } = useLoteActivo();
@@ -526,6 +527,7 @@ export function Simulador({
               </CajaPrecio>
             </div>
             <InicialDinamica
+              lote={lote}
               modo={inicialModo}
               azul={plazoActivo === PLAZOS_CUOTAS[0]}
               onCambiar={setInicialModo}
@@ -581,6 +583,7 @@ export function Simulador({
                 {plazoDe(lote) <= PARAMETROS.meses_por_tramo ? (
                   <CuotasPorMes
                     monto={primero}
+                    mesInicial={mesPrimeraCuota(inicialModo)}
                     cuotas={plazoDe(lote)}
                     color={modalidadActiva.color}
                   />
@@ -703,27 +706,30 @@ function FilaDato({
   );
 }
 
-/** Inicial a elegir entre tres montos (S/ 500, 1,000 o 2,000); se paga completa al firmar y cambia la cuota. */
+/** Forma de pago de la inicial (completa, 2 o 3 partes), con el monto y la fecha de cada parte. La caja mide siempre lo mismo. */
 function InicialDinamica({
+  lote,
   modo,
   azul,
   onCambiar,
 }: {
+  lote: Lote;
   modo: InicialModo;
   /** Con el plazo corto (60) la selección va en azul, igual que en el selector de cuotas. */
   azul: boolean;
   onCambiar: (m: InicialModo) => void;
 }) {
+  const partes = partesDeInicial(lote, modo);
   return (
     <div className="rounded-xl border border-[var(--border)] p-4">
       <div className="flex w-full flex-col gap-3.5">
         <p className="m-0 text-center text-sm font-semibold tracking-wider text-[var(--text-muted)] uppercase sm:text-base">
-          Elige tu inicial
+          Forma de pago de tu inicial
         </p>
 
         <div
           role="radiogroup"
-          aria-label="Monto de la inicial"
+          aria-label="Forma de pago de la inicial"
           className="grid grid-cols-3 gap-2"
         >
           {INICIAL_MODOS.map((m) => (
@@ -741,6 +747,22 @@ function InicialDinamica({
             >
               {m.label}
             </button>
+          ))}
+        </div>
+
+        <div
+          className="grid gap-2"
+          style={{ gridTemplateColumns: `repeat(${partes.length}, minmax(0, 1fr))` }}
+        >
+          {partes.map((p, i) => (
+            <div key={i} className="rounded-lg bg-[var(--surface-2)] px-1.5 py-2.5 text-center">
+              <p className="m-0 text-[11px] font-semibold tracking-wide whitespace-nowrap text-[var(--text-muted)] uppercase sm:text-[13px]">
+                {p.fecha}
+              </p>
+              <p className="m-0 mt-1 text-base font-bold whitespace-nowrap text-[var(--text-primary)] [font-variant-numeric:tabular-nums] max-[340px]:text-sm sm:text-xl">
+                <Soles monto={p.monto} />
+              </p>
+            </div>
           ))}
         </div>
       </div>

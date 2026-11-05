@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "
 import { createPortal } from "react-dom";
 import { toBlob } from "html-to-image";
 import type { TandaMembresia } from "@/lib/membresiaClub";
-import { FORMATOS_FICHA } from "@/lib/configCotizacion";
+import { FORMATOS_FICHA, INCLUIR_CUENTAS_DE_PAGO } from "@/lib/configCotizacion";
 import { cssDeFuentes, invalidarCacheFuentes, sinMenuDeCompartir } from "@/lib/capturaFicha";
 import {
   FICHA_ALTO_MEMBRESIA,
@@ -84,10 +84,10 @@ export function EnviarMembresia({ tanda }: { tanda: TandaMembresia }) {
   const [copiado, setCopiado] = useState<number | null>(null);
   const [descargadas, setDescargadas] = useState(false);
 
-  const nombreArchivo = (n: number) => `cotizacion-club-carhuaz-${Math.round(tanda.descuento * 100)}dscto-${n}de2.png`;
+  const nombreArchivo = (n: number) => `cotizacion-club-carhuaz-${Math.round(tanda.descuento * 100)}dscto-${n}de${INCLUIR_CUENTAS_DE_PAGO ? 2 : 1}.png`;
 
   const generar = useCallback(async (): Promise<File[]> => {
-    const nodos = [ficha.current, cuentas.current];
+    const nodos = INCLUIR_CUENTAS_DE_PAGO ? [ficha.current, cuentas.current] : [ficha.current];
     if (nodos.some((n) => !n)) throw new Error("La ficha aún no está lista");
     await document.fonts?.ready;
     const fontEmbedCSS = await cssDeFuentes();
@@ -231,7 +231,7 @@ export function EnviarMembresia({ tanda }: { tanda: TandaMembresia }) {
       setErrores({});
       window.setTimeout(() => setCopiado((c) => (c === i ? null : c)), 2200);
     } catch {
-      setErrores({ general: "El navegador no permitió copiar la imagen. Usa «Descargar las 2 imágenes»." });
+      setErrores({ general: "El navegador no permitió copiar la imagen. Usa «Descargar las imágenes»." });
     }
   }
 
@@ -308,7 +308,7 @@ export function EnviarMembresia({ tanda }: { tanda: TandaMembresia }) {
         createPortal(
           <div aria-hidden className="pointer-events-none fixed top-0 -left-[3000px]" style={{ width: FICHA_ANCHO }}>
             <FichaMembresia ref={ficha} tanda={tanda} emitida={emitida} cliente={cliente} />
-            <FichaCuentas ref={cuentas} emitida={emitida} />
+            {INCLUIR_CUENTAS_DE_PAGO && <FichaCuentas ref={cuentas} emitida={emitida} />}
           </div>,
           document.body,
         )}
